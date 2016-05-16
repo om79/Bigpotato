@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BigPotato</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_how_to_play_rainbow_1">How_to_play_rainbow_1</string>
+    <string name="title_activity_rainbow_how_to_play2">rainbow_how_to_play2</string>
+    <string name="title_activity_all_games">all_games</string>
+    <string name="title_activity_games__list">Games_List</string>
+</resources>

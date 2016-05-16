@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:onClick="which_game"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitStart"
+            android:background="@mipmap/bod_background"
+            android:weightSum="1"
+            android:id="@+id/bod"
+            android:layout_gravity="top"
+            android:gravity="top">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/imageView5"
+                android:background="@mipmap/bod_anim"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/imageView6"
+                android:layout_gravity="top|right"
+                android:background="@mipmap/cross"
+                android:layout_alignParentRight="true"/>
+</RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/imageView10"
+                android:background="@mipmap/bod_head"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="When the s**t hits the fan, you need a plan."
+                android:id="@+id/textView6"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:textAlignment="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:text="ADULT PARTY GAME • 17+"
+                android:id="@+id/textView7"
+                android:layout_gravity="center"
+                android:background="@mipmap/bod_lines"
+                android:textColor="#ffffff"
+                android:textSize="16dp"
+                android:textAlignment="center"
+                android:paddingTop="15dp"
+                android:paddingBottom="10dp"/>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:text="Lets Go"
+                android:id="@+id/button"
+                android:layout_gravity="center_horizontal"
+                android:background="@mipmap/lets_go"
+                android:textColor="#ffffff"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:onClick="which_game"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitStart"
+            android:background="@mipmap/background_lister"
+            android:weightSum="1"
+            android:id="@+id/mr_lister"
+            android:layout_gravity="top"
+            android:gravity="top">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/imageView12"
+                android:background="@mipmap/mr_lister_anim"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/imageView11"
+                android:background="@mipmap/bod_head"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="When the s**t hits the fan, you need a plan."
+                android:id="@+id/textView9"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:textAlignment="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:text="ADULT PARTY GAME • 17+"
+                android:id="@+id/textView8"
+                android:layout_gravity="center"
+                android:background="@mipmap/bod_lines"
+                android:textColor="#ffffff"
+                android:textSize="16dp"
+                android:textAlignment="center"
+                android:paddingTop="15dp"
+                android:paddingBottom="10dp"/>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:text="Lets Go"
+                android:id="@+id/button1"
+                android:layout_gravity="center_horizontal"
+                android:background="@mipmap/lets_go"
+                android:textColor="#ffffff"/>
+        </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:id="@+id/scrawl"
+        android:layout_below="@+id/mr_lister"
+        android:background="@mipmap/scrawl"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:onClick="which_game"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:id="@+id/obamallama"
+        android:background="@mipmap/obamallama"
+        android:layout_below="@+id/scrawl"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:onClick="which_game"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:id="@+id/qwordie"
+        android:background="@mipmap/qwordie"
+        android:layout_below="@+id/obamallama"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentRight="true"
+        android:onClick="which_game"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:id="@+id/rainbow_rage"
+        android:layout_below="@+id/qwordie"
+        android:layout_alignParentEnd="true"
+        android:background="@mipmap/rainbow_rage"
+        android:onClick="which_game"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:id="@+id/social"
+        android:layout_below="@+id/rainbow_rage"
+        android:layout_alignParentEnd="true"
+        android:background="@mipmap/social"
+        android:onClick="which_game"/>
+</LinearLayout>
+    </ScrollView>
