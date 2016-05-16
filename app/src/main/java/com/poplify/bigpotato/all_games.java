@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 public class all_games extends AppCompatActivity {
     @Override
@@ -20,9 +19,7 @@ public class all_games extends AppCompatActivity {
         final LinearLayout layout2;
         switch (view.getId()) {
             case R.id.bod: // doStuff
-                view.getTag();
-                Toast.makeText(getApplicationContext(), (Integer) view.getTag(),
-                        Toast.LENGTH_LONG).show();
+//                view.getTag();
                 layout2 = (LinearLayout) findViewById(R.id.bod);
                 layout2.measure(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 if (layout2.getLayoutParams().height != 850) {
