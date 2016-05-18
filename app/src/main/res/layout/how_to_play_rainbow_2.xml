@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+    android:animateLayoutChanges="true"
+    android:background="@mipmap/background">
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Red and Yellow have swapped"
+        android:id="@+id/textView5"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="145dp"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/main_menu"
+        android:background="@drawable/back_arrow"
+        android:scaleType="fitStart"
+        android:textColor="#ffffff"
+        android:onClick="how_to_play_screens"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:gravity="left"/>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:id="@+id/scrollView">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Turn over an Easy Card and spot which two colours from the rainbow have swapped places."
+                android:id="@+id/textView"
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+                android:layout_marginTop="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textAlignment="textStart"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:id="@+id/relativeLayout4"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/zero_play"
+            android:onClick="how_to_play_screens"
+            android:background="@drawable/ic_arrow_back_white_24dp_2x"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/textView4"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="52dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2/5"
+            android:id="@+id/textView4"
+            android:textColor="#ffffff"
+            android:textSize="32sp"
+            android:layout_alignTop="@+id/third_play"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="5dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/two_play"
+            android:onClick="how_to_play_screens"
+            android:background="@drawable/ic_arrow_forward_white_24dp_2x"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="54dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/textView4"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout3"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="false"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_below="@+id/scrollView"
+        android:layout_alignParentRight="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='Grab the corresponding stacks. Grab one correct stack and win a block from it. Grab two correct stacks and win both blocks.'
+            android:id="@+id/textView3"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"/>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageView"
+            android:background="@drawable/hand_drawn_arrow"
+            android:scaleType="fitStart"
+            android:layout_marginRight="30dp"
+            android:layout_alignTop="@+id/imageView3"
+            android:layout_alignEnd="@+id/textView3"
+            android:layout_marginTop="30dp"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageView2"
+            android:background="@drawable/blocks"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="150dp"
+            android:id="@+id/imageView3"
+            android:background="@drawable/easycard"
+            android:layout_above="@+id/textView3"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+

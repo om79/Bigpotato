@@ -10,16 +10,19 @@
         android:resizeable="true"
         android:anyDensity="true">
     </supports-screens>
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:screenOrientation="portrait"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Qwordie_activity"
-            android:screenOrientation="portrait"
-            >
+        <activity android:name=".Loader"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,6 +52,32 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:noHistory="true">
+        </activity>
+
+        <activity
+            android:name=".How_to_play_rainbow_1"
+            android:label="@string/title_activity_how_to_play_rainbow_1"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".RainbowRage"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".all_games"
+            android:label="@string/title_activity_all_games"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".Games_List"
+            android:label="@string/title_activity_games__list"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".Qwordie_activity"
+            android:label="@string/title_activity_games__list"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 
