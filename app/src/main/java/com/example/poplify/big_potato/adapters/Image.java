@@ -1,4 +1,4 @@
-package com.example.poplify.big_potato;
+package com.example.poplify.big_potato.adapters;
 
 public class Image {
 

@@ -1,10 +1,12 @@
-package com.example.poplify.big_potato;
+package com.example.poplify.big_potato.main_menu;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+
+import com.example.poplify.big_potato.R;
 
 public class Loader extends AppCompatActivity {
 

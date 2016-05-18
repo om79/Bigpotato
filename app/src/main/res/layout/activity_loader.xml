@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.poplify.big_potato.Loader"
+    tools:context=".main_menu.Loader"
     android:background="@mipmap/loader_background">
 
     <ImageView

@@ -1,4 +1,4 @@
-package com.example.poplify.big_potato;
+package com.example.poplify.big_potato.adapters;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.poplify.big_potato.R;

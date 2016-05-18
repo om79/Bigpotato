@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@mipmap/blur_back"
     android:id="@+id/main_layout"
-    tools:context=".Qwordie_activity">
+    tools:context=".qwordie.Qwordie_activity">
 
 
     <LinearLayout

@@ -1,4 +1,4 @@
-package com.example.poplify.big_potato;
+package com.example.poplify.big_potato.qwordie;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import com.example.poplify.big_potato.R;
 
 
 public class Qwordie_activity extends Activity implements View.OnClickListener

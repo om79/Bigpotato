@@ -1,11 +1,12 @@
-package com.example.poplify.big_potato;
+package com.example.poplify.big_potato.qwordie;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.poplify.big_potato.R;
 
 /**
  * Created by POPLIFY on 5/17/2016.

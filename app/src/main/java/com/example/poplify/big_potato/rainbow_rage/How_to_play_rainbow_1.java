@@ -1,9 +1,11 @@
-package com.example.poplify.big_potato;
+package com.example.poplify.big_potato.rainbow_rage;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.example.poplify.big_potato.R;
 
 public class How_to_play_rainbow_1 extends AppCompatActivity {
 

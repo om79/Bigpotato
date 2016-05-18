@@ -1,4 +1,4 @@
-package com.example.poplify.big_potato;
+package com.example.poplify.big_potato.adapters;
 
 import android.content.Context;
 import android.content.SharedPreferences;

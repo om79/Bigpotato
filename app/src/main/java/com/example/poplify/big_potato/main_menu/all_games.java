@@ -1,4 +1,4 @@
-package com.example.poplify.big_potato;
+package com.example.poplify.big_potato.main_menu;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
