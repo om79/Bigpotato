@@ -8,14 +8,20 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.poplify.big_potato.R;
+import com.example.poplify.big_potato.adapters.UsefullData;
+import com.example.poplify.big_potato.qwordie.Extra_cards;
+import com.example.poplify.big_potato.qwordie.How_to_play_1;
+import com.example.poplify.big_potato.qwordie.Qwordie_activity;
 
 public class RainbowRage extends AppCompatActivity {
 
+
+    UsefullData usefull;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rainbow_rage);
-
+        usefull=new UsefullData(RainbowRage.this);
     }
 
     @Override
@@ -41,7 +47,23 @@ public class RainbowRage extends AppCompatActivity {
     }
     public void howtoplay(View view)
     {
-        Intent intent = new Intent(RainbowRage.this, How_to_play_rainbow_1.class);
-        startActivity(intent);
+
+
+        switch (view.getId())
+        {
+
+
+            case R.id.how_to_play_rainbow:
+                Intent intent = new Intent(RainbowRage.this, How_to_play_rainbow_1.class);
+                startActivity(intent);
+                break;
+            case R.id.textView2:
+
+               usefull.showpopup();
+                break;
+//            case R.id.back:
+//                finish();
+//                break;
+        }
     }
 }

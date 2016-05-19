@@ -28,7 +28,7 @@ public class Loader extends AppCompatActivity {
                 i++;
                 if (i > imageArray.length - 1) {
 
-                    Intent intent = new Intent(Loader.this, all_games.class);
+                    Intent intent = new Intent(Loader.this, Game_menu.class);
                     startActivity(intent);
                     finish();
                 }

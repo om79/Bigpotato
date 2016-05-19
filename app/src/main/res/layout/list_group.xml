@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="horizontal"
@@ -12,6 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="fitXY"
+        android:visibility="visible"
         android:id="@+id/lblListHeader" />
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageView7cross"
+        android:src="@mipmap/cross"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
+
+
+
+
+</RelativeLayout>

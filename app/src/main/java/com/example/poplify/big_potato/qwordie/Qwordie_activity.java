@@ -16,6 +16,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.poplify.big_potato.R;
+import com.example.poplify.big_potato.adapters.UsefullData;
 
 
 public class Qwordie_activity extends Activity implements View.OnClickListener
@@ -23,7 +24,7 @@ public class Qwordie_activity extends Activity implements View.OnClickListener
 
     TextView extra,how,buy;
     ImageView back;
-    PopupWindow pwindo;
+    UsefullData usefull;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class Qwordie_activity extends Activity implements View.OnClickListener
         buy.setOnClickListener(this);
         back = (ImageView) findViewById(R.id.back);
         back.setOnClickListener(this);
-
+        usefull=new UsefullData(Qwordie_activity.this);
 
 
 
@@ -74,7 +75,7 @@ public class Qwordie_activity extends Activity implements View.OnClickListener
             case R.id.buy_the_game:
 
 
-                initiatePopupWindow();
+                usefull.showpopup();
                 break;
             case R.id.back:
                 finish();
@@ -83,39 +84,6 @@ public class Qwordie_activity extends Activity implements View.OnClickListener
     }
 
 
-    private void initiatePopupWindow() {
-        try {
-            // We need to get the instance of the LayoutInflater
-            LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View layout = inflater.inflate(R.layout.popup_view_buy,
-                    (ViewGroup) findViewById(R.id.popup_element_buy));
-            pwindo = new PopupWindow(layout, AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.MATCH_PARENT, true);
-            pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
-            pwindo.setOutsideTouchable(false);
-
-            pwindo.setFocusable(true);
-
-            Button no = (Button) layout.findViewById(R.id.button_no);
-            no.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    pwindo.dismiss();
-                }
-            });
-
-            Button yes = (Button) layout.findViewById(R.id.button_yes);
-            yes.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    pwindo.dismiss();
-
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
 
 
 
