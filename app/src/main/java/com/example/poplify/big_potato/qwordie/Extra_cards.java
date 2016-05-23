@@ -1,24 +1,35 @@
 package com.example.poplify.big_potato.qwordie;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.Transformation;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.poplify.big_potato.adapters.Image;
 import com.example.poplify.big_potato.adapters.ImageAdapter;
 import com.example.poplify.big_potato.R;
 import com.example.poplify.big_potato.adapters.SaveData;
+import com.example.poplify.big_potato.adapters.UsefullData;
 
 import java.util.ArrayList;
 
@@ -32,6 +43,7 @@ public class Extra_cards extends Activity
     ImageAdapter image_adapter;
     PopupWindow pwindo;
     SaveData save_data;
+    UsefullData usefull;
     String[] ques={ "There are seven colours in rainbow.\n Spell one",
             "Aggrefgfdgdfgdgssive",
             "Alonefgfdgdfg gffdgfgfgf",
@@ -58,17 +70,21 @@ public class Extra_cards extends Activity
 
     };
     ArrayList<Image> actorsList=new ArrayList<Image>();
+    Animation move,rotation;
+    AnimatorSet flip;
+    Typeface regular,bold;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.extra_cards);
 
-
+        usefull=new UsefullData(getApplicationContext());
         save_data=new SaveData(Extra_cards.this);
         gv = (GridView) findViewById(R.id.gridView);
         back = (ImageView) findViewById(R.id.back);
 
-
+        regular= Typeface.createFromAsset(getAssets(), "Interstate-Regular.ttf");
+        bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
 
         image_adapter = new ImageAdapter(getApplicationContext(), R.layout.rowhome, actorsList);
         gv.setAdapter(image_adapter);
@@ -94,6 +110,7 @@ public class Extra_cards extends Activity
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                usefull.trimCache(getApplicationContext());
                 finish();
             }
         });
@@ -104,10 +121,16 @@ public class Extra_cards extends Activity
             public void onItemClick(AdapterView<?> arg0, View arg1, int position,
                                     long id) {
 
+                usefull.trimCache(getApplicationContext());
                 save_data.save(""+position,position);
                 initiatePopupWindow(position);
             }
         });
+
+
+        flip = (AnimatorSet) AnimatorInflater.loadAnimator(Extra_cards.this,R.animator.flip);
+        move = AnimationUtils.loadAnimation(Extra_cards.this, R.anim.move);
+        rotation = AnimationUtils.loadAnimation(Extra_cards.this, R.anim.rotate);
 
 
 
@@ -121,22 +144,31 @@ public class Extra_cards extends Activity
         try {
             // We need to get the instance of the LayoutInflater
             LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View layout = inflater.inflate(R.layout.popup_view,
+            final View layout = inflater.inflate(R.layout.popup_view,
                     (ViewGroup) findViewById(R.id.popup_element));
+//            layout.startAnimation(animation);
             pwindo = new PopupWindow(layout, AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.MATCH_PARENT, true);
             pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
             pwindo.setOutsideTouchable(false);
             pwindo.setFocusable(true);
 
 
-
+            final ImageView cross = (ImageView) layout.findViewById(R.id.imageViewcross);
             final TextView textView = (TextView) layout.findViewById(R.id.textView_ques);
             textView.setText(ques[position]);
+            final LinearLayout main = (LinearLayout) layout
+                    .findViewById(R.id.main_layout_popup);
+//            final ScrollView s = (ScrollView) layout
+//                    .findViewById(R.id.popup_element);
+
+
+
+
             final Button button = (Button) layout.findViewById(R.id.button_reveal);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-
+                public void onClick(final View v) {
+                    usefull.trimCache(getApplicationContext());
                     switch (button.getText().toString())
                     {
 
@@ -144,11 +176,24 @@ public class Extra_cards extends Activity
                         case "Return to question":
                             textView.setText(ques[position]);
                             button.setText("Reveal answers");
+//                            main.startAnimation(rotation);
+                            flip.setTarget(main);
+                            flip.start();
+//                            cross.startAnimation(rotation);
+//                            button.startAnimation(move);
+
+
                             break;
                         case "Reveal answers":
 
                             textView.setText(ans[position]);
                             button.setText("Return to question");
+//                            main.startAnimation(rotation);
+                            flip.setTarget(main);
+                            flip.start();
+//                            button.startAnimation(move);
+
+
                             break;
 
                     }
@@ -164,10 +209,11 @@ public class Extra_cards extends Activity
 
 
 
-            ImageView cross = (ImageView) layout.findViewById(R.id.imageViewcross);
+
             cross.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    usefull.trimCache(getApplicationContext());
                     pwindo.dismiss();
                     actorsList.clear();
                     for (int i = 0; i < 10; i++) {
@@ -196,7 +242,6 @@ public class Extra_cards extends Activity
         }
 
     }
-
 
 
 }

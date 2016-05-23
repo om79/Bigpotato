@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,14 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.example.poplify.big_potato.R;
+import com.example.poplify.big_potato.adapters.UsefullData;
 import com.example.poplify.big_potato.qwordie.Qwordie_activity;
 import com.example.poplify.big_potato.rainbow_rage.RainbowRage;
 
@@ -32,19 +36,20 @@ public class Game_menu extends Activity
 {
     private int lastExpandedPosition = -1;
     ExpandableListAdapter listAdapter;
-
+    UsefullData usefull;
     AnimatedExpandableListView expListView;
     List<Integer> listDataHeader;
     HashMap<Integer, List<String>> listDataChild;
-
+    Typeface regular,bold;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.game_menu);
         expListView = (AnimatedExpandableListView) findViewById(R.id.expandableListView);
-
-
+        usefull=new UsefullData(getApplicationContext());
+        regular= Typeface.createFromAsset(getAssets(), "Interstate-Regular.ttf");
+        bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
         // preparing list data
         prepareListData();
 
@@ -61,9 +66,12 @@ public class Game_menu extends Activity
                 // We call collapseGroupWithAnimation(int) and
                 // expandGroupWithAnimation(int) to animate group
                 // expansion/collapse.
+                usefull.trimCache(getApplicationContext());
                 if (expListView.isGroupExpanded(groupPosition)) {
 //                    expListView.collapseGroupWithAnimation(groupPosition);
+
                 } else {
+
                     expListView.expandGroupWithAnimation(groupPosition);
 
                 }
@@ -106,22 +114,22 @@ public class Game_menu extends Activity
 
         // Adding child data
         List<String> top250 = new ArrayList<String>();
-        top250.add("BUCKET OF DOOM|fdghfhgfhgfhfgh|#E6007E");
+        top250.add("BUCKET OF DOOM|When the s**t hits the fan,\nyou need a plan.|ADULT PARTY GAME • 17+|#E6007E");
 
         List<String> nowShowing = new ArrayList<String>();
-        nowShowing.add("QWORDIE|ghgfhgfhgfhgfhgfh|#009FE3");
+        nowShowing.add("QWORDIE|If Scrabble and Trivial Pursuit \nhad a love child, this would be it.|FAMILY GAME • 14+|#009FE3");
 
         List<String> comingSoon = new ArrayList<String>();
-        comingSoon.add("SCRAML|gfhgfhgfhgfhgf|#00AC13");
+        comingSoon.add("SCRAML|Disastrous doodles and godawful \nguesses. Most grins wins.|ADULT PARTY GAME • 17+|#00AC13");
 
         List<String> comingSoon1 = new ArrayList<String>();
-        comingSoon1.add("RAINBOW|gfhgfhgfhgfhgf|#1A1A1A");
+        comingSoon1.add("RAINBOW|Think you know the seven colours \nin the rainbow? Not so fast.|SPOT-THE-DIFFERENCE GAME • 8+|#1A1A1A");
 
         List<String> comingSoon2 = new ArrayList<String>();
-        comingSoon2.add("MR LISTERS|gfhgfhgfhgfhgf|#078489");
+        comingSoon2.add("MR LISTERS|Like a Wile West shootout but \nwith brains for guns.|QUIZ PARTY GAME • 14+|#078489");
 
         List<String> comingSoon3 = new ArrayList<String>();
-        comingSoon3.add("OBAMA|gfhgfhgfhgfhgf|#A765FF");
+        comingSoon3.add("OBAMA|The rhyming charades game with \nthe strange sounding name.|PARTY GAME • 14+|#A765FF");
 
 
 
@@ -177,26 +185,41 @@ public class Game_menu extends Activity
                     .findViewById(R.id.lblListItem);
             TextView txtListChild2 = (TextView) convertView
                     .findViewById(R.id.textView10);
+            TextView txtListChild3 = (TextView) convertView
+                    .findViewById(R.id.textView11_tag);
             LinearLayout layout = (LinearLayout) convertView
                     .findViewById(R.id.child_layout);
             Button btn = (Button) convertView
                     .findViewById(R.id.button2);
+            View up = (View) convertView
+                    .findViewById(R.id.button2);
+            View down = (View) convertView
+                    .findViewById(R.id.button2);
+
+
 
             StringTokenizer tokens = new StringTokenizer(childText, "|");
 
             final String text1 = tokens.nextToken();
-            String text2 = tokens.nextToken();
-            String color = tokens.nextToken();
+            final String text2 = tokens.nextToken();
+            final String text3 = tokens.nextToken();
+            final String color = tokens.nextToken();
 
             txtListChild.setText(text1);
+            txtListChild.setTypeface(bold);
             txtListChild2.setText(text2);
+            txtListChild2.setTypeface(regular);
+            txtListChild3.setText(text3);
+            txtListChild3.setTypeface(regular);
+
             layout.setBackgroundColor(Color.parseColor(color));
+            btn.setTypeface(bold);
 
 
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    usefull.trimCache(getApplicationContext());
                     switch (text1){
 
                         case "QWORDIE":
@@ -205,6 +228,7 @@ public class Game_menu extends Activity
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             _context.startActivity (i);
+                            overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                             break;
                         case "RAINBOW":
 
@@ -212,6 +236,7 @@ public class Game_menu extends Activity
                             i1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             i1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             _context.startActivity (i1);
+                            overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                             break;
                     }
 
@@ -258,54 +283,72 @@ public class Game_menu extends Activity
                     .findViewById(R.id.imageView7cross);
             lblListHeader.setImageResource(headerTitle);
 
+            switch (groupPosition){
+                case 0:
+                    lblListHeader.setBackgroundColor(Color.parseColor("#E6007E"));
+                    break;
+                case 1:
+                    lblListHeader.setBackgroundColor(Color.parseColor("#009FE3"));
+                    break;
+                case 2:
+                    lblListHeader.setBackgroundColor(Color.parseColor("#00AC13"));
+                    break;
+                case 3:
+                    lblListHeader.setBackgroundColor(Color.parseColor("#1A1A1A"));
+                    break;
+                case 4:
+                    lblListHeader.setBackgroundColor(Color.parseColor("#078489"));
+                    break;
+                case 5:
+                    lblListHeader.setBackgroundColor(Color.parseColor("#A765FF"));
+                    break;
+
+            }
 
 
+//906078331
+//        7240
 
-
-
-
+//909092797
+//        9102
             if(isExpanded==false){
+                usefull.trimCache(getApplicationContext());
                 cross.setVisibility(View.GONE);
                 lblListHeader.setImageResource(headerTitle);
             }else{
+                usefull.trimCache(getApplicationContext());
                 cross.setVisibility(View.VISIBLE);
 
                 switch (groupPosition){
                     case 0:
-
                         lblListHeader.setBackgroundColor(Color.parseColor("#E6007E"));
                         GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(lblListHeader);
-                        Glide.with(_context).load(R.raw.bod_anim).into(imageViewTarget);
+                        Glide.with(_context).load(R.raw.bod_anim).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageViewTarget);
                         break;
                     case 1:
-
                         lblListHeader.setBackgroundColor(Color.parseColor("#009FE3"));
                         GlideDrawableImageViewTarget imageViewTarget1 = new GlideDrawableImageViewTarget(lblListHeader);
-                        Glide.with(_context).load(R.raw.qwordie_animation).into(imageViewTarget1);
+                        Glide.with(_context).load(R.raw.qwordie_animation).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageViewTarget1);
                         break;
                     case 2:
-
                         lblListHeader.setBackgroundColor(Color.parseColor("#00AC13"));
                         GlideDrawableImageViewTarget imageViewTarget2 = new GlideDrawableImageViewTarget(lblListHeader);
-                        Glide.with(_context).load(R.raw.scraw_animation).into(imageViewTarget2);
+                        Glide.with(_context).load(R.raw.scraw_animation).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageViewTarget2);
                         break;
                     case 3:
-
                         lblListHeader.setBackgroundColor(Color.parseColor("#1A1A1A"));
                         GlideDrawableImageViewTarget imageViewTarget3 = new GlideDrawableImageViewTarget(lblListHeader);
-                        Glide.with(_context).load(R.raw.rainbow_animation).into(imageViewTarget3);
+                        Glide.with(_context).load(R.raw.rainbow_animation).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageViewTarget3);
                         break;
                     case 4:
-
                         lblListHeader.setBackgroundColor(Color.parseColor("#078489"));
                         GlideDrawableImageViewTarget imageViewTarget4 = new GlideDrawableImageViewTarget(lblListHeader);
-                        Glide.with(_context).load(R.raw.mr_lister_anim).into(imageViewTarget4);
+                        Glide.with(_context).load(R.raw.mr_lister_anim).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageViewTarget4);
                         break;
                     case 5:
-
                         lblListHeader.setBackgroundColor(Color.parseColor("#A765FF"));
                         GlideDrawableImageViewTarget imageViewTarget5 = new GlideDrawableImageViewTarget(lblListHeader);
-                        Glide.with(_context).load(R.raw.obama_animation).into(imageViewTarget5);
+                        Glide.with(_context).load(R.raw.obama_animation).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageViewTarget5);
                         break;
 
                 }
@@ -317,7 +360,7 @@ public class Game_menu extends Activity
                 public void onClick(View v) {
 
 
-
+                    usefull.trimCache(getApplicationContext());
                     if (expListView.isGroupExpanded(groupPosition)) {
                      expListView.collapseGroupWithAnimation(groupPosition);
 

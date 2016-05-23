@@ -21,7 +21,7 @@
             <RelativeLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-
+                android:id="@+id/buy_layout_popup"
 
                 android:layout_height="300dp">
 

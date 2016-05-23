@@ -24,27 +24,8 @@ public class RainbowRage extends AppCompatActivity {
         usefull=new UsefullData(RainbowRage.this);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_rainbow_rage, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
     public void howtoplay(View view)
     {
 
@@ -55,15 +36,17 @@ public class RainbowRage extends AppCompatActivity {
 
             case R.id.how_to_play_rainbow:
                 Intent intent = new Intent(RainbowRage.this, How_to_play_rainbow_1.class);
+                intent.putExtra("call","0");
                 startActivity(intent);
+                overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                 break;
             case R.id.textView2:
 
                usefull.showpopup();
                 break;
-//            case R.id.back:
-//                finish();
-//                break;
+            case R.id.imageView7_back:
+                finish();
+                break;
         }
     }
 }

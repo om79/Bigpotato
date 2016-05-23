@@ -11,14 +11,18 @@ import android.location.Geocoder;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.poplify.big_potato.R;
@@ -41,6 +45,7 @@ public class UsefullData  {
 	static boolean SHOW_LOG=true;
 	public static int NOTIFYONOFF = 1;
 	PopupWindow pwindo;
+//	Animation rotation;
 	public UsefullData(Context c) {
 		_context = c;
 	}
@@ -276,6 +281,7 @@ public class UsefullData  {
 			public void run() {
 				try {
 					// We need to get the instance of the LayoutInflater
+//					rotation = AnimationUtils.loadAnimation(_context, R.anim.rotate);
 					LayoutInflater inflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 					View layout = inflater.inflate(R.layout.popup_view_buy,null,false);
 					pwindo = new PopupWindow(layout, AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.MATCH_PARENT, true);
@@ -283,11 +289,12 @@ public class UsefullData  {
 					pwindo.setOutsideTouchable(false);
 
 					pwindo.setFocusable(true);
-
+					final  RelativeLayout anim = (RelativeLayout) layout.findViewById(R.id.buy_layout_popup);
 					Button no = (Button) layout.findViewById(R.id.button_no);
 					no.setOnClickListener(new View.OnClickListener() {
 						@Override
 						public void onClick(View v) {
+//							anim.startAnimation(rotation);
 							pwindo.dismiss();
 						}
 					});
@@ -296,6 +303,7 @@ public class UsefullData  {
 					yes.setOnClickListener(new View.OnClickListener() {
 						@Override
 						public void onClick(View v) {
+//							anim.startAnimation(rotation);
 							pwindo.dismiss();
 
 						}
@@ -307,6 +315,35 @@ public class UsefullData  {
 			}
 		});
 
+	}
+
+
+
+	public static void trimCache(Context context) {
+		try {
+			File dir = context.getCacheDir();
+			if (dir != null && dir.isDirectory()) {
+				deleteDir(dir);
+			}
+		} catch (Exception e) {
+// TODO: handle exception
+		}
+	}
+
+	public static boolean deleteDir(File dir) {
+		if (dir != null && dir.isDirectory()) {
+			String[] children = dir.list();
+			for (int i = 0; i < children.length; i++) {
+				boolean success = deleteDir(new File(dir, children[i]));
+				if (!success) {
+					return false;
+
+				}
+			}
+		}
+
+// The directory is now empty so delete it
+		return dir.delete();
 	}
 
 

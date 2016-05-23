@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
+    android:gravity="center"
     tools:context=".main_menu.Loader"
     android:background="@mipmap/loader_background">
 
@@ -18,14 +16,22 @@
         android:background="@mipmap/loading_icon"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="149dp"/>
+        />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/loader_progress"
+
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:indeterminate="false"
+        android:progress="0"
+        android:max="100"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:progressDrawable="@drawable/progress_bar_states"
         android:layout_below="@+id/imageView4"
-        android:layout_centerHorizontal="true"
-        android:background="@mipmap/bpa_empty"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

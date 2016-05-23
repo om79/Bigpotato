@@ -11,13 +11,13 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:scaleType="fitXY"
+
         android:visibility="visible"
         android:id="@+id/lblListHeader" />
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/imageView7cross"
         android:src="@mipmap/cross"
         android:layout_alignParentTop="true"

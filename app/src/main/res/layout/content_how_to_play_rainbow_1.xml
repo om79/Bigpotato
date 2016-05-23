@@ -2,13 +2,8 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-
-    android:animateLayoutChanges="true"
     android:background="@mipmap/background">
 
     <Button
@@ -23,9 +18,7 @@
         android:scaleType="fitStart"
         android:gravity="left"/>
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -77,7 +70,7 @@
             </RelativeLayout>
 
         </RelativeLayout>
-    </ScrollView>
+
 
     <RelativeLayout
         android:layout_width="match_parent"

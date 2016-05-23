@@ -93,7 +93,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/first_play"
+            android:id="@+id/first_play_3"
             android:onClick="how_to_play_screens"
             android:background="@drawable/ic_arrow_back_white_24dp_2x"
             android:layout_alignParentTop="true"

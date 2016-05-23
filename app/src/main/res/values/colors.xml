@@ -3,12 +3,16 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-
+    <color name="light_grey">#D3D3D3</color>
     <color name="yellow">#FFE73D</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="red">#FF0000</color>
     <color name="green">#2B743C</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="mpc_start_color">#FF00FFED</color>
+    <color name="mpc_end_color">#FFED00FF</color>
+    <!-- 没有被渐变填充区域的颜色 -->
+    <color name="mpc_default_color">#1AFFFFFF</color>
 </resources>
 

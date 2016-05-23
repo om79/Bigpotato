@@ -41,7 +41,9 @@ public class How_to_play_2 extends Activity implements View.OnClickListener
                 overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                 break;
             case R.id.back_play_2:
-                finish();
+                Intent how23=new Intent(getApplicationContext(),Qwordie_activity.class);
+                startActivity(how23);
+                overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
                 break;
             case R.id.privious_2:
                 Intent how2=new Intent(getApplicationContext(),How_to_play_1.class);

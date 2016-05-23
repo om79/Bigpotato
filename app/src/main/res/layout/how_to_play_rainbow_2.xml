@@ -6,9 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
 
-    android:animateLayoutChanges="true"
     android:background="@mipmap/background">
 
     <TextView
@@ -76,7 +74,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/zero_play"
+            android:id="@+id/zero_play_2"
             android:onClick="how_to_play_screens"
             android:background="@drawable/ic_arrow_back_white_24dp_2x"
             android:layout_alignParentTop="true"

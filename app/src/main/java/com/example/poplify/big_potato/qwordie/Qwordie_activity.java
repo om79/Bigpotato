@@ -59,7 +59,6 @@ public class Qwordie_activity extends Activity implements View.OnClickListener
             case R.id.exta_cards:
 
                 Intent extra=new Intent(getApplicationContext(),Extra_cards.class);
-
                 startActivity(extra);
                 overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
 
