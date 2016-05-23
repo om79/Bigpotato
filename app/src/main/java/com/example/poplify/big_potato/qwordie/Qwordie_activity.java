@@ -3,6 +3,7 @@ package com.example.poplify.big_potato.qwordie;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import android.view.Gravity;
@@ -25,7 +26,7 @@ public class Qwordie_activity extends Activity implements View.OnClickListener
     TextView extra,how,buy;
     ImageView back;
     UsefullData usefull;
-
+    Typeface regular,bold;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,13 @@ public class Qwordie_activity extends Activity implements View.OnClickListener
         back = (ImageView) findViewById(R.id.back);
         back.setOnClickListener(this);
         usefull=new UsefullData(Qwordie_activity.this);
+
+        regular= Typeface.createFromAsset(getAssets(), "Interstate-Regular.ttf");
+        bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
+
+        extra.setTypeface(bold);
+        buy.setTypeface(regular);
+        how.setTypeface(regular);
 
 
 

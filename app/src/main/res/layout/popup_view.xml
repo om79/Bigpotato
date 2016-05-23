@@ -40,6 +40,7 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:padding="30dp"
                 android:id="@+id/main_layout_popup"
                 android:layout_weight=".5">
 
@@ -48,14 +49,13 @@
                     android:layout_width="match_parent"
                     android:background="@mipmap/card_back"
 
-                    android:layout_height="300dp">
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:weightSum="1"
 
-                        android:layout_margin="40dp"
                         android:layout_height="match_parent">
 
                         <LinearLayout

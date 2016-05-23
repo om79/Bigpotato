@@ -42,6 +42,7 @@ public class Game_menu extends Activity
     HashMap<Integer, List<String>> listDataChild;
     Typeface regular,bold;
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -52,6 +53,8 @@ public class Game_menu extends Activity
         bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
         // preparing list data
         prepareListData();
+
+
 
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 

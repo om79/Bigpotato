@@ -86,6 +86,9 @@ public class Extra_cards extends Activity
         regular= Typeface.createFromAsset(getAssets(), "Interstate-Regular.ttf");
         bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
 
+        TextView v=(TextView)  findViewById(R.id.textView2_subtxt);
+        v.setTypeface(regular);
+
         image_adapter = new ImageAdapter(getApplicationContext(), R.layout.rowhome, actorsList);
         gv.setAdapter(image_adapter);
 
@@ -156,6 +159,7 @@ public class Extra_cards extends Activity
             final ImageView cross = (ImageView) layout.findViewById(R.id.imageViewcross);
             final TextView textView = (TextView) layout.findViewById(R.id.textView_ques);
             textView.setText(ques[position]);
+            textView.setTypeface(regular);
             final LinearLayout main = (LinearLayout) layout
                     .findViewById(R.id.main_layout_popup);
 //            final ScrollView s = (ScrollView) layout

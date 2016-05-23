@@ -44,10 +44,9 @@
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/how_to_play_4"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:id="@+id/textView3" />
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:id="@+id/text_View3" />
     </LinearLayout>
 
     <LinearLayout

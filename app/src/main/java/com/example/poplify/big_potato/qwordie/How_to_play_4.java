@@ -2,10 +2,12 @@ package com.example.poplify.big_potato.qwordie;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.poplify.big_potato.R;
 
@@ -17,6 +19,7 @@ public class How_to_play_4 extends Activity implements View.OnClickListener
 
     ImageView back,privious;
     Button menu;
+    Typeface regular,bold;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.how_to_play_4);
@@ -29,6 +32,14 @@ public class How_to_play_4 extends Activity implements View.OnClickListener
 
         menu = (Button) findViewById(R.id.button_menu);
         menu.setOnClickListener(this);
+
+        regular= Typeface.createFromAsset(getAssets(), "Interstate-Regular.ttf");
+        bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
+
+        TextView v=(TextView)  findViewById(R.id.text_View3);
+        v.setTypeface(regular);
+
+        menu.setTypeface(bold);
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.example.poplify.big_potato.adapters;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,11 @@ import com.example.poplify.big_potato.R;
 
 public class ImageAdapter extends ArrayAdapter<Image> {
 	ArrayList<Image> actorList;
-	
+	Typeface regular,bold;
 	LayoutInflater vi;
 	int Resource;
 	ViewHolder holder;
+	Context c;
 
 	
 
@@ -27,7 +29,8 @@ public class ImageAdapter extends ArrayAdapter<Image> {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		Resource = resource;
 		actorList = objects;
-		
+		c=context;
+
 		
 		
 	}
@@ -42,7 +45,10 @@ public class ImageAdapter extends ArrayAdapter<Image> {
 			v = vi.inflate(Resource, null);
 			holder.imageview = (ImageView) v.findViewById(R.id.imgcross);
 			holder.textView = (TextView) v.findViewById(R.id.textView_question);
+			regular= Typeface.createFromAsset(c.getAssets(), "Interstate-Regular.ttf");
+			bold = Typeface.createFromAsset(c.getAssets(), "ufonts.com_interstate-bold.ttf");
 
+			holder.textView.setTypeface(regular);
 			v.setTag(holder);
 		} else {
 			holder = (ViewHolder) v.getTag();

@@ -35,7 +35,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_weight=".1"
+        android:layout_weight=".15"
         android:gravity="center"
         android:layout_height="0dp">
 
@@ -44,16 +44,15 @@
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/how_to_play_3_half"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:id="@+id/textView3" />
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:id="@+id/textView3__3" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_weight=".70"
+        android:layout_weight=".65"
         android:gravity="center"
         android:weightSum="1"
         android:layout_height="0dp">
@@ -67,13 +66,13 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_weight=".55"
+            android:layout_weight=".65"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/how_to_play_3_half_2"
-            android:textStyle="bold"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_height="0dp"
-            android:id="@+id/textView5" />
+            android:id="@+id/textView__5" />
 
     </LinearLayout>
 

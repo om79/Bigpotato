@@ -71,7 +71,8 @@
                 android:text="@string/more"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:id="@+id/textView2" />
+                android:textSize="18dp"
+                android:id="@+id/textView2_subtxt" />
         </LinearLayout>
 
     </LinearLayout>
@@ -86,7 +87,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numColumns="2"
-
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:horizontalSpacing="20dp"
+            android:verticalSpacing="20dp"
             android:id="@+id/gridView" />
     </LinearLayout>
 </LinearLayout>

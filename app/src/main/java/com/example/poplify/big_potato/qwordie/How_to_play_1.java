@@ -29,7 +29,7 @@ public class How_to_play_1 extends Activity implements View.OnClickListener
         bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
 
         TextView v=(TextView)  findViewById(R.id.textView3_1);
-        v.setTypeface(bold);
+        v.setTypeface(regular);
     }
 
 
