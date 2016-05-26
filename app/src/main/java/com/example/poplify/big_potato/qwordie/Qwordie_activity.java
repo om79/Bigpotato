@@ -75,7 +75,6 @@ public class Qwordie_activity extends Activity implements View.OnClickListener
 
             case R.id.how_to_play:
                 Intent how=new Intent(getApplicationContext(),How_to_play_1.class);
-
                 startActivity(how);
                 overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                 break;

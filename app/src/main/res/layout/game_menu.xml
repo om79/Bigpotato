@@ -9,5 +9,8 @@
         android:layout_height="wrap_content"
         android:groupIndicator="@null"
         android:divider="@null"
+        android:focusable="true"
+        android:smoothScrollbar="true"
+
         android:id="@+id/expandableListView" />
 </LinearLayout>

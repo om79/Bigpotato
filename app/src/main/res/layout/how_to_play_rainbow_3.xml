@@ -52,14 +52,20 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="@drawable/perfect_card"
+            android:layout_height="300dp"
+
             android:id="@+id/relativeLayout2"
             android:layout_below="@+id/textView"
-            android:layout_alignParentStart="true"
+
             android:layout_marginRight="45dp"
-            android:layout_alignEnd="@+id/textView"
+
             android:layout_marginLeft="35dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/perfect_card"
+                android:id="@+id/imageView9" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -137,6 +143,7 @@
                 android:layout_weight=".3"
                 android:visibility="visible"
                 android:src="@mipmap/next_arrow"
+                android:padding="4dp"
                 android:onClick="how_to_play_screens"
                 android:id="@+id/third_play" />
 

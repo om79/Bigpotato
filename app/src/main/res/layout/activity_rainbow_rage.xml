@@ -11,7 +11,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="400dp"
         android:background="@drawable/wholescreen"
         android:id="@+id/relativeLayout"
         android:layout_alignParentTop="true"
@@ -32,10 +32,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
 
         android:layout_below="@+id/relativeLayout"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -43,7 +43,8 @@
             android:text="How to play"
             android:id="@+id/how_to_play_rainbow"
             android:textColor="#ffffff"
-            android:textSize="30sp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+
             android:textStyle="bold"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -53,10 +54,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Buy Game"
+            android:text="Buy the game"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+
             android:id="@+id/textView2"
             android:textColor="#ffffff"
-            android:textSize="30sp"
+
             android:textStyle="bold"
             android:onClick="howtoplay"
             android:textAlignment="center"

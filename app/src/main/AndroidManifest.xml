@@ -15,7 +15,7 @@
 
     <application
         android:allowBackup="true"
-        android:hardwareAccelerated="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
@@ -32,6 +32,7 @@
         </activity>
         <activity android:name=".qwordie.Extra_cards"
             android:screenOrientation="portrait"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             >
         </activity>
@@ -73,6 +74,7 @@
         <activity
             android:name=".qwordie.Qwordie_activity"
             android:label="@string/title_activity_games__list"
+            android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

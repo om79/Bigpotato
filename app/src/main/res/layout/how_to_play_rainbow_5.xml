@@ -35,14 +35,21 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:background="@drawable/rainbow_snack"
+                android:layout_height="300dp"
+
                 android:id="@+id/relativeLayout2"
                 android:layout_below="@+id/textView"
-                android:layout_alignParentStart="true"
-                android:layout_marginRight="45dp"
-                android:layout_marginLeft="45dp">
+                android:gravity="center"
+                android:layout_marginRight="35dp"
+                android:layout_marginLeft="35dp">
 
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/rainbow_snack"
+
+                    android:id="@+id/imageButton" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -145,7 +152,7 @@
         android:paddingBottom="10dp"
         android:layout_above="@+id/relativeLayout5"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="110dp"/>
+        android:layout_marginBottom="200dp"/>
 
 </RelativeLayout>
 

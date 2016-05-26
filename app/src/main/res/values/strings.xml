@@ -13,15 +13,15 @@
     </string>
      <string name="how_to_play_2_half_2">Read a card, which everyone plays. Each player
     must now take turns to try and spell one of the answers to the question.</string>
-     <string name="how_to_play_3_half">Need more letters? Take a\nletter directly from the\nletter pool...</string>
+     <string name="how_to_play_3_half">Need more letters? Take a letter directly from the letter pool...</string>
      <string name="how_to_play_3_half_2">or grab two tiles from the tin. The first goes into the
     pool, the second into your pile. The first player to
     spell an answer correctly wins those letters and
     adds them their stack of tiles.
     </string>
-    <string name="how_to_play_4">The first player whose\nstack passes the winning
-line\non the tin is the champ.</string>
-    <string name="buy_msg">This will now take you\n outside the app.\n Do you want continue ?</string>
+    <string name="how_to_play_4">The first player whose stack passes the winning
+line on the tin is the champ.</string>
+    <string name="buy_msg">This will now take you\n outside the app.Do\nyou want continue ?</string>
 
 
     <string name="action_settings">Settings</string>

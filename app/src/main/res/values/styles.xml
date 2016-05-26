@@ -17,5 +17,5 @@
         <item name="android:layout_marginRight">32dp</item>
         <item name="android:layout_marginTop">16dp</item>
     </style>
-
+    <style name="Widget.GifView" parent="@android:style/Widget"></style>
 </resources>

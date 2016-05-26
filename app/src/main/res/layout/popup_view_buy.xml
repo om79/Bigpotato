@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:id="@+id/popup_element_buy"
-    android:background="@null"
+    android:background="#F2444444"
     android:layout_height="match_parent">
 
 
@@ -10,9 +10,6 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-
             android:layout_gravity="center"
             android:layout_height="match_parent"
 
@@ -29,7 +26,7 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:weightSum="1"
-                    android:background="@drawable/buy_popup_back"
+                    android:background="@mipmap/pop_back"
                     android:layout_margin="30dp"
                     android:layout_height="match_parent">
 
@@ -37,7 +34,7 @@
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:weightSum="1"
-                        android:layout_margin="20dp"
+                        android:layout_margin="40dp"
                         android:layout_height="match_parent">
 
                         <LinearLayout
@@ -45,6 +42,7 @@
                             android:layout_width="match_parent"
                             android:layout_weight=".6"
                             android:gravity="bottom"
+
                             android:layout_height="0dp">
 
                             <TextView
@@ -53,7 +51,8 @@
                                 android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:text="@string/buy_msg"
                                 android:gravity="center"
-                                android:textColor="@color/black"
+
+                                android:textColor="@color/white"
                                 android:id="@+id/textView6" />
                         </LinearLayout>
 
@@ -62,6 +61,7 @@
                             android:layout_width="match_parent"
                             android:layout_weight=".4"
                             android:gravity="center"
+
                             android:layout_height="0dp">
 
                             <Button
@@ -69,9 +69,9 @@
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:text="No"
-                                android:textColor="@color/black"
-                                android:layout_marginRight="20dp"
-                                android:background="@drawable/no_back"
+                                android:textColor="@color/white"
+                                android:layout_marginRight="10dp"
+                                android:background="@mipmap/yes_no_back"
                                 android:id="@+id/button_no" />
 
                             <Button
@@ -79,9 +79,9 @@
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:text="Yes"
-                                android:textColor="@color/black"
-                                android:layout_marginLeft="20dp"
-                                android:background="@drawable/yes_back"
+                                android:textColor="@color/white"
+                                android:layout_marginLeft="10dp"
+                                android:background="@mipmap/yes_no_back"
                                 android:id="@+id/button_yes" />
                         </LinearLayout>
                     </LinearLayout>

@@ -29,10 +29,10 @@ public class RainbowRage extends AppCompatActivity {
         bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
 
         TextView v=(TextView)  findViewById(R.id.how_to_play_rainbow);
-        v.setTypeface(regular);
+        v.setTypeface(bold);
 
         TextView v1=(TextView)  findViewById(R.id.textView2);
-        v1.setTypeface(regular);
+        v1.setTypeface(bold);
     }
 
 

@@ -6,19 +6,23 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.example.poplify.big_potato.R;
 import com.example.poplify.big_potato.adapters.UsefullData;
 import com.example.poplify.big_potato.qwordie.Qwordie_activity;
@@ -28,32 +32,35 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.logging.Handler;
 
 /**
  * Created by POPLIFY on 5/18/2016.
  */
-public class Game_menu extends Activity
-{
+public class Game_menu extends Activity  {
     private int lastExpandedPosition = -1;
     ExpandableListAdapter listAdapter;
     UsefullData usefull;
     AnimatedExpandableListView expListView;
     List<Integer> listDataHeader;
     HashMap<Integer, List<String>> listDataChild;
-    Typeface regular,bold;
+    Typeface regular, bold;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.game_menu);
+        RelativeLayout progress = new RelativeLayout(this);
+        progress.setLayoutParams(new GridView.LayoutParams(GridView.LayoutParams.MATCH_PARENT, 100));
+        progress.setGravity(Gravity.CENTER);
+        progress.addView(new ProgressBar(this));
         expListView = (AnimatedExpandableListView) findViewById(R.id.expandableListView);
-        usefull=new UsefullData(getApplicationContext());
-        regular= Typeface.createFromAsset(getAssets(), "Interstate-Regular.ttf");
+        usefull = new UsefullData(getApplicationContext());
+        regular = Typeface.createFromAsset(getAssets(), "Interstate-Regular.ttf");
         bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
         // preparing list data
         prepareListData();
-
 
 
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
@@ -91,14 +98,47 @@ public class Game_menu extends Activity
 
         });
 
+//        expListView.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                expListView.setSelection(0);
+//            }
+//        }, 500);
+
+
+        expListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState)
+            {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem,
+                                 int visibleItemCount, int totalItemCount)
+            {
+
+                int lastItem = firstVisibleItem + visibleItemCount;
+
+                if (lastItem==totalItemCount)
+                {
+                    prepareListData();
+                    expListView.setAdapter(listAdapter);
+                    listAdapter.notifyDataSetChanged();
+                }
+
+            }
+        });
+
+
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-
-
-
-
+    }
 
 
     private void prepareListData() {
@@ -112,7 +152,6 @@ public class Game_menu extends Activity
         listDataHeader.add(R.mipmap.rainbow_rage);
         listDataHeader.add(R.mipmap.mr_lister);
         listDataHeader.add(R.mipmap.obamallama);
-
 
 
         // Adding child data
@@ -133,9 +172,6 @@ public class Game_menu extends Activity
 
         List<String> comingSoon3 = new ArrayList<String>();
         comingSoon3.add("OBAMA|The rhyming charades game with \nthe strange sounding name.|PARTY GAME • 14+|#A765FF");
-
-
-
 
 
         listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
@@ -184,7 +220,8 @@ public class Game_menu extends Activity
                 convertView = infalInflater.inflate(R.layout.list_item, null);
             }
 
-            TextView txtListChild = (TextView) convertView
+
+            ImageView headtxt = (ImageView) convertView
                     .findViewById(R.id.lblListItem);
             TextView txtListChild2 = (TextView) convertView
                     .findViewById(R.id.textView10);
@@ -194,11 +231,6 @@ public class Game_menu extends Activity
                     .findViewById(R.id.child_layout);
             Button btn = (Button) convertView
                     .findViewById(R.id.button2);
-            View up = (View) convertView
-                    .findViewById(R.id.button2);
-            View down = (View) convertView
-                    .findViewById(R.id.button2);
-
 
 
             StringTokenizer tokens = new StringTokenizer(childText, "|");
@@ -208,37 +240,60 @@ public class Game_menu extends Activity
             final String text3 = tokens.nextToken();
             final String color = tokens.nextToken();
 
-            txtListChild.setText(text1);
-            txtListChild.setTypeface(bold);
+
             txtListChild2.setText(text2);
             txtListChild2.setTypeface(regular);
             txtListChild3.setText(text3);
             txtListChild3.setTypeface(regular);
 
+
             layout.setBackgroundColor(Color.parseColor(color));
             btn.setTypeface(bold);
+
+            switch (groupPosition) {
+
+                case 0:
+                    headtxt.setImageResource(R.mipmap.bod_head);
+                    break;
+                case 1:
+                    headtxt.setImageResource(R.mipmap.quoride_head);
+                    break;
+                case 2:
+                    headtxt.setImageResource(R.mipmap.scrwal_head);
+                    break;
+                case 3:
+                    headtxt.setImageResource(R.mipmap.rainbow_head);
+                    break;
+                case 4:
+                    headtxt.setImageResource(R.mipmap.mr_lister_head);
+                    break;
+                case 5:
+                    headtxt.setImageResource(R.mipmap.obama_head);
+                    break;
+
+            }
 
 
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     usefull.trimCache(getApplicationContext());
-                    switch (text1){
+                    switch (text1) {
 
                         case "QWORDIE":
 
-                            Intent i = new Intent (_context, Qwordie_activity.class);
+                            Intent i = new Intent(_context, Qwordie_activity.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            _context.startActivity (i);
+                            _context.startActivity(i);
                             overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                             break;
                         case "RAINBOW":
 
-                            Intent i1 = new Intent (_context, RainbowRage.class);
+                            Intent i1 = new Intent(_context, RainbowRage.class);
                             i1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             i1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            _context.startActivity (i1);
+                            _context.startActivity(i1);
                             overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                             break;
                     }
@@ -284,9 +339,13 @@ public class Game_menu extends Activity
 
             ImageView cross = (ImageView) convertView
                     .findViewById(R.id.imageView7cross);
+            final GifView gif = (GifView) convertView.findViewById(R.id.gifview);
+            LinearLayout gif_back = (LinearLayout) convertView
+                    .findViewById(R.id.gif_back);
+
             lblListHeader.setImageResource(headerTitle);
 
-            switch (groupPosition){
+            switch (groupPosition) {
                 case 0:
                     lblListHeader.setBackgroundColor(Color.parseColor("#E6007E"));
                     break;
@@ -307,51 +366,103 @@ public class Game_menu extends Activity
                     break;
 
             }
-
-
-//906078331
-//        7240
-
-//909092797
-//        9102
-            if(isExpanded==false){
+            if (isExpanded == false) {
                 usefull.trimCache(getApplicationContext());
                 cross.setVisibility(View.GONE);
                 lblListHeader.setImageResource(headerTitle);
-            }else{
+                gif_back.setVisibility(View.GONE);
+
+                lblListHeader.setVisibility(View.VISIBLE);
+            } else {
                 usefull.trimCache(getApplicationContext());
                 cross.setVisibility(View.VISIBLE);
-
-                switch (groupPosition){
+                gif_back.setVisibility(View.VISIBLE);
+                lblListHeader.setVisibility(View.GONE);
+                switch (groupPosition) {
                     case 0:
-                        lblListHeader.setBackgroundColor(Color.parseColor("#E6007E"));
-                        GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(lblListHeader);
-                        Glide.with(_context).load(R.raw.bod_anim).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageViewTarget);
+
+                        gif.setPaused(false);
+                        gif_back.setBackgroundColor(Color.parseColor("#E6007E"));
+                        gif.setMovieResource(R.raw.bod_anim);
+                        new CountDownTimer(gif.getMovie_duration(), gif.getMovie_duration()) {
+                            public void onTick(long millisUntilFinished) {
+                            }
+                            public void onFinish() {
+                                gif.setPaused(true);
+                            }
+                        }.start();
+
                         break;
                     case 1:
-                        lblListHeader.setBackgroundColor(Color.parseColor("#009FE3"));
-                        GlideDrawableImageViewTarget imageViewTarget1 = new GlideDrawableImageViewTarget(lblListHeader);
-                        Glide.with(_context).load(R.raw.qwordie_animation).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageViewTarget1);
+
+                        gif.setPaused(false);
+                        gif_back.setBackgroundColor(Color.parseColor("#009FE3"));
+                        gif.setMovieResource(R.raw.qwordie_animation);
+                        new CountDownTimer(gif.getMovie_duration(), gif.getMovie_duration()) {
+                            public void onTick(long millisUntilFinished) {
+                            }
+                            public void onFinish() {
+                                gif.setPaused(true);
+                            }
+                        }.start();
+
                         break;
                     case 2:
-                        lblListHeader.setBackgroundColor(Color.parseColor("#00AC13"));
-                        GlideDrawableImageViewTarget imageViewTarget2 = new GlideDrawableImageViewTarget(lblListHeader);
-                        Glide.with(_context).load(R.raw.scraw_animation).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageViewTarget2);
+
+                        gif.setPaused(false);
+                        gif_back.setBackgroundColor(Color.parseColor("#00AC13"));
+                        gif.setMovieResource(R.raw.scraw_animation);
+
+                        new CountDownTimer(gif.getMovie_duration(), gif.getMovie_duration()) {
+                            public void onTick(long millisUntilFinished) {
+                            }
+                            public void onFinish() {
+                                gif.setPaused(true);
+                            }
+                        }.start();
                         break;
                     case 3:
-                        lblListHeader.setBackgroundColor(Color.parseColor("#1A1A1A"));
-                        GlideDrawableImageViewTarget imageViewTarget3 = new GlideDrawableImageViewTarget(lblListHeader);
-                        Glide.with(_context).load(R.raw.rainbow_animation).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageViewTarget3);
+
+                        gif.setPaused(false);
+                        gif_back.setBackgroundColor(Color.parseColor("#1A1A1A"));
+                        gif.setMovieResource(R.raw.rainbow_animation);
+
+                        new CountDownTimer(gif.getMovie_duration(), gif.getMovie_duration()) {
+                            public void onTick(long millisUntilFinished) {
+                            }
+                            public void onFinish() {
+                                gif.setPaused(true);
+                            }
+                        }.start();
+
                         break;
                     case 4:
-                        lblListHeader.setBackgroundColor(Color.parseColor("#078489"));
-                        GlideDrawableImageViewTarget imageViewTarget4 = new GlideDrawableImageViewTarget(lblListHeader);
-                        Glide.with(_context).load(R.raw.mr_lister_anim).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageViewTarget4);
+                        gif.setPaused(false);
+
+                        gif_back.setBackgroundColor(Color.parseColor("#078489"));
+                        gif.setMovieResource(R.raw.mr_lister_anim);
+
+                        new CountDownTimer(gif.getMovie_duration(), gif.getMovie_duration()) {
+                            public void onTick(long millisUntilFinished) {
+                            }
+                            public void onFinish() {
+                                gif.setPaused(true);
+                            }
+                        }.start();
                         break;
                     case 5:
-                        lblListHeader.setBackgroundColor(Color.parseColor("#A765FF"));
-                        GlideDrawableImageViewTarget imageViewTarget5 = new GlideDrawableImageViewTarget(lblListHeader);
-                        Glide.with(_context).load(R.raw.obama_animation).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageViewTarget5);
+                        gif.setPaused(false);
+
+                        gif_back.setBackgroundColor(Color.parseColor("#A765FF"));
+                        gif.setMovieResource(R.raw.obama_animation);
+
+                        new CountDownTimer(gif.getMovie_duration(), gif.getMovie_duration()) {
+                            public void onTick(long millisUntilFinished) {
+                            }
+                            public void onFinish() {
+                                gif.setPaused(true);
+                            }
+                        }.start();
                         break;
 
                 }
@@ -365,7 +476,7 @@ public class Game_menu extends Activity
 
                     usefull.trimCache(getApplicationContext());
                     if (expListView.isGroupExpanded(groupPosition)) {
-                     expListView.collapseGroupWithAnimation(groupPosition);
+                        expListView.collapseGroupWithAnimation(groupPosition);
 
 
                     } else {
@@ -376,7 +487,6 @@ public class Game_menu extends Activity
 
                 }
             });
-
 
 
             return convertView;
@@ -393,8 +503,6 @@ public class Game_menu extends Activity
         }
 
     }
-
-
 
 
 

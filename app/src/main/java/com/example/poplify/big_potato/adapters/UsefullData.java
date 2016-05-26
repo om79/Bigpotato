@@ -3,6 +3,7 @@ package com.example.poplify.big_potato.adapters;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
@@ -10,6 +11,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 import android.view.Gravity;
@@ -304,6 +306,10 @@ public class UsefullData  {
 						@Override
 						public void onClick(View v) {
 //							anim.startAnimation(rotation);
+							Intent i = new Intent(Intent.ACTION_VIEW);
+							i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+							i.setData(Uri.parse("http://www.google.com"));
+							_context.startActivity(i);
 							pwindo.dismiss();
 
 						}
@@ -316,6 +322,8 @@ public class UsefullData  {
 		});
 
 	}
+
+
 
 
 

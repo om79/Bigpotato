@@ -56,7 +56,7 @@
 
                 android:id="@+id/relativeLayout2"
                 android:layout_below="@+id/textView"
-                android:layout_alignParentStart="true"
+
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="35dp">
@@ -68,15 +68,17 @@
                     android:text="Orange and\nyellow are\nthe same"
                     android:id="@+id/textView11"
                     android:textColor="@color/white"
-                    android:layout_marginTop="5dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="44dp"
+                    android:layout_marginEnd="44dp" />
 
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:id="@+id/imageView7"
+
                     android:src="@drawable/hand_drawn_arrow"
                     android:layout_below="@+id/textView11"
                     android:layout_alignLeft="@+id/textView11"
@@ -170,6 +172,7 @@ Spot which two colours are still in their correct positions and grab the stacks 
                 android:layout_weight=".3"
                 android:onClick="how_to_play_screens"
                 android:src="@mipmap/next_arrow"
+                android:padding="4dp"
                 android:id="@+id/fourth_play" />
 
             <LinearLayout

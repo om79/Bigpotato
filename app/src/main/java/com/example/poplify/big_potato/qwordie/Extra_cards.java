@@ -5,6 +5,7 @@ import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -114,7 +115,9 @@ public class Extra_cards extends Activity
             @Override
             public void onClick(View v) {
                 usefull.trimCache(getApplicationContext());
-                finish();
+                Intent how23=new Intent(getApplicationContext(),Qwordie_activity.class);
+                startActivity(how23);
+                overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
             }
         });
 
@@ -183,6 +186,7 @@ public class Extra_cards extends Activity
 //                            main.startAnimation(rotation);
                             flip.setTarget(main);
                             flip.start();
+//                            9592
 //                            cross.startAnimation(rotation);
 //                            button.startAnimation(move);
 

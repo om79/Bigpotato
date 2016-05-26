@@ -72,6 +72,7 @@
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp"
             android:layout_height="0dp"
+            android:gravity="center|left"
             android:id="@+id/textView5__2" />
 
     </LinearLayout>
@@ -93,7 +94,8 @@
             android:orientation="horizontal"
             android:layout_width="0dp"
             android:layout_weight=".25"
-            android:layout_gravity="right"
+
+
             android:layout_height="match_parent">
 
             <ImageView
@@ -114,13 +116,23 @@
             android:layout_weight=".1"
             android:id="@+id/textView4" />
 
-        <ImageView
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight=".25"
 
-            android:src="@mipmap/next_arrow"
-            android:id="@+id/next_activity2" />
+            android:layout_weight=".25">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                 android:src="@mipmap/next_arrow"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="3dp"
+                android:paddingTop="6dp"
+                android:id="@+id/next_activity2" />
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
