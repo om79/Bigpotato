@@ -59,7 +59,7 @@ public class Extra_cards extends Activity
     };
     String[] ans={
             " Red\n Orange\n Yellow\n Green\n Blue\n Indigo\n Violet",
-            "Alonefgfdgdfg gffdgfgfgf",
+            "Alonefgfdgdfggffdgfgfgf",
             "Amazedgfdgdfg",
             "Angrydgdfg",
             "Annoyed",

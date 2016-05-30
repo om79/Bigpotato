@@ -338,7 +338,7 @@ public class AnimatedExpandableListView extends ExpandableListView {
         @Override
         public final int getChildTypeCount() {
             // Return 1 more than the childTypeCount to account for DummyView
-            return getRealChildTypeCount() + 1;
+            return getRealChildTypeCount() +1;
         }
         
         protected ViewGroup.LayoutParams generateDefaultLayoutParams() {

@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.poplify.big_potato.R;
+import com.example.poplify.big_potato.adapters.SaveData;
 import com.example.poplify.big_potato.adapters.UsefullData;
 import com.example.poplify.big_potato.qwordie.Qwordie_activity;
 import com.example.poplify.big_potato.rainbow_rage.RainbowRage;
@@ -37,15 +38,16 @@ import java.util.logging.Handler;
 /**
  * Created by POPLIFY on 5/18/2016.
  */
-public class Game_menu extends Activity  {
+ public class Game_menu extends Activity {
     private int lastExpandedPosition = -1;
     ExpandableListAdapter listAdapter;
     UsefullData usefull;
+    SaveData save;
     AnimatedExpandableListView expListView;
     List<Integer> listDataHeader;
     HashMap<Integer, List<String>> listDataChild;
     Typeface regular, bold;
-
+    boolean open=false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +59,12 @@ public class Game_menu extends Activity  {
         progress.addView(new ProgressBar(this));
         expListView = (AnimatedExpandableListView) findViewById(R.id.expandableListView);
         usefull = new UsefullData(getApplicationContext());
+        save=new SaveData(getApplicationContext());
         regular = Typeface.createFromAsset(getAssets(), "Interstate-Regular.ttf");
         bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
         // preparing list data
         prepareListData();
-
+//        save.save("select",false);
 
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
@@ -80,9 +83,11 @@ public class Game_menu extends Activity  {
                 if (expListView.isGroupExpanded(groupPosition)) {
 //                    expListView.collapseGroupWithAnimation(groupPosition);
 
+
                 } else {
 
                     expListView.expandGroupWithAnimation(groupPosition);
+                    open=true;
 
                 }
 
@@ -90,13 +95,19 @@ public class Game_menu extends Activity  {
                 if (lastExpandedPosition != -1
                         && groupPosition != lastExpandedPosition) {
                     expListView.collapseGroupWithAnimation(lastExpandedPosition);
-
+                    open=false;
                 }
                 lastExpandedPosition = groupPosition;
                 return true;
             }
 
         });
+
+
+
+
+
+
 
 //        expListView.postDelayed(new Runnable() {
 //            @Override
@@ -106,10 +117,46 @@ public class Game_menu extends Activity  {
 //        }, 500);
 
 
+
         expListView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState)
             {
+
+                Log.i("---",""+open);
+                if(open==true) {
+                    if (expListView.getLastVisiblePosition() == (listDataHeader.size())) {
+//                    prepareListData();
+//                    expListView.setAdapter(listAdapter);
+//                    listAdapter.notifyDataSetChanged();
+//                    expListView.setSelectionAfterHeaderView();
+//                    expListView.smoothScrollToPosition(0);
+                        expListView.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                expListView.setSelectionAfterHeaderView();
+                                expListView.smoothScrollToPosition(0);
+                                expListView.setSelectionAfterHeaderView();
+                            }
+                        });
+                    }
+                }else{
+                    if (expListView.getLastVisiblePosition() == (listDataHeader.size()-1)) {
+//                    prepareListData();
+//                    expListView.setAdapter(listAdapter);
+//                    listAdapter.notifyDataSetChanged();
+//                    expListView.setSelectionAfterHeaderView();
+//                    expListView.smoothScrollToPosition(0);
+                        expListView.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                expListView.setSelectionAfterHeaderView();
+                                expListView.smoothScrollToPosition(0);
+                                expListView.setSelectionAfterHeaderView();
+                            }
+                        });
+                    }
+                }
 
             }
 
@@ -118,14 +165,6 @@ public class Game_menu extends Activity  {
                                  int visibleItemCount, int totalItemCount)
             {
 
-                int lastItem = firstVisibleItem + visibleItemCount;
-
-                if (lastItem==totalItemCount)
-                {
-                    prepareListData();
-                    expListView.setAdapter(listAdapter);
-                    listAdapter.notifyDataSetChanged();
-                }
 
             }
         });
@@ -133,6 +172,10 @@ public class Game_menu extends Activity  {
 
 
     }
+
+
+
+
 
     @Override
     protected void onResume() {
@@ -189,6 +232,9 @@ public class Game_menu extends Activity  {
         private List<Integer> _listDataHeader; // header titles
         // child data in format of header title, child title
         private HashMap<Integer, List<String>> _listDataChild;
+
+
+
 
         public ExpandableListAdapter(Context context, List<Integer> listDataHeader,
                                      HashMap<Integer, List<String>> listChildData) {
@@ -282,6 +328,7 @@ public class Game_menu extends Activity  {
 
                         case "QWORDIE":
 
+                            save.save("current_game","QWORDIE");
                             Intent i = new Intent(_context, Qwordie_activity.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -289,7 +336,7 @@ public class Game_menu extends Activity  {
                             overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                             break;
                         case "RAINBOW":
-
+                            save.save("current_game","RAINBOW");
                             Intent i1 = new Intent(_context, RainbowRage.class);
                             i1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             i1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -477,11 +524,11 @@ public class Game_menu extends Activity  {
                     usefull.trimCache(getApplicationContext());
                     if (expListView.isGroupExpanded(groupPosition)) {
                         expListView.collapseGroupWithAnimation(groupPosition);
-
+                        open=false;
 
                     } else {
                         expListView.expandGroupWithAnimation(groupPosition);
-
+                        open=true;
                     }
 
 

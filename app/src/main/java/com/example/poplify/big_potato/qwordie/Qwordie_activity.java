@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.example.poplify.big_potato.R;
 import com.example.poplify.big_potato.adapters.UsefullData;
+import com.example.poplify.big_potato.view_pager.Startup_activity;
 
 
 public class Qwordie_activity extends Activity implements View.OnClickListener
@@ -74,7 +75,7 @@ public class Qwordie_activity extends Activity implements View.OnClickListener
                 break;
 
             case R.id.how_to_play:
-                Intent how=new Intent(getApplicationContext(),How_to_play_1.class);
+                Intent how=new Intent(getApplicationContext(),Startup_activity.class);
                 startActivity(how);
                 overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                 break;

@@ -1,5 +1,6 @@
 package com.example.poplify.big_potato.rainbow_rage;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -14,8 +15,9 @@ import com.example.poplify.big_potato.adapters.UsefullData;
 import com.example.poplify.big_potato.qwordie.Extra_cards;
 import com.example.poplify.big_potato.qwordie.How_to_play_1;
 import com.example.poplify.big_potato.qwordie.Qwordie_activity;
+import com.example.poplify.big_potato.view_pager.Startup_activity;
 
-public class RainbowRage extends AppCompatActivity {
+public class RainbowRage extends Activity {
 
 
     UsefullData usefull;
@@ -46,9 +48,8 @@ public class RainbowRage extends AppCompatActivity {
 
 
             case R.id.how_to_play_rainbow:
-                Intent intent = new Intent(RainbowRage.this, How_to_play_rainbow_1.class);
-                intent.putExtra("call","0");
-                startActivity(intent);
+                Intent how=new Intent(getApplicationContext(),Startup_activity.class);
+                startActivity(how);
                 overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                 break;
             case R.id.textView2:

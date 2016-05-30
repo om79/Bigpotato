@@ -11,12 +11,14 @@
         android:layout_width="match_parent"
         android:layout_weight=".1"
         android:weightSum="1"
+        android:layout_gravity="left|center"
         android:layout_height="0dp">
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/back"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back"
+            android:layout_gravity="center"
             android:layout_weight=".1"
             android:id="@+id/back" />
 
@@ -36,32 +38,23 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_weight=".2"
-        android:gravity="center_horizontal"
+        android:layout_weight=".15"
+        android:gravity="center"
         android:layout_height="0dp">
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:src="@mipmap/extraheadline"
             android:id="@+id/imageView" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/Extra_caps"
-            android:textSize="45dp"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:visibility="gone"
-            android:id="@+id/textView" />
+
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:gravity="center"
+
             android:layout_height="match_parent">
 
             <TextView
@@ -80,7 +73,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_weight=".7"
+        android:layout_weight=".75"
         android:layout_height="0dp">
 
         <GridView
@@ -89,8 +82,7 @@
             android:numColumns="2"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:horizontalSpacing="20dp"
-            android:verticalSpacing="20dp"
+
             android:id="@+id/gridView" />
     </LinearLayout>
 </LinearLayout>

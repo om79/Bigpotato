@@ -1,158 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-
+     android:weightSum="1"
+    android:orientation="vertical"
     android:animateLayoutChanges="true"
     android:background="@mipmap/background">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/main_menu"
-        android:background="@drawable/back_arrow"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#ffffff"
-        android:onClick="how_to_play_screens"
-        android:layout_alignParentLeft="true"
-        android:scaleType="fitStart"
-        android:gravity="left"/>
-
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:gravity="left">
+        android:layout_weight=".1"
+        android:weightSum="1"
+        android:gravity="left|center"
+        android:layout_height="0dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Grab the wrong stock and lose a block. But watch out! Hidden amongst the cards are real rainbow cards, where no colours have swapped places."
-            android:id="@+id/textView"
-            android:textColor="#ffffff"
-            android:textSize="24sp"
-            android:layout_marginTop="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:textAlignment="textStart"/>
+            android:src="@mipmap/back"
+            android:layout_weight=".1"
+            android:id="@+id/back2" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_weight=".8"
+            android:layout_height="match_parent"></LinearLayout>
 
-            android:id="@+id/relativeLayout2"
-            android:layout_below="@+id/textView"
-
-            android:layout_marginRight="45dp"
-
-            android:layout_marginLeft="35dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/perfect_card"
-                android:id="@+id/imageView9" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/relativeLayout2"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/relativeLayout3">
+            android:layout_weight=".1"
+            android:id="@+id/main_menu"
+            android:onClick="how_to_play_screens"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".9">
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:gravity="top|center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Grab the wrong stock and lose a block. But watch out! Hidden amongst the cards are real rainbow cards, where no colours have swapped places."
+                android:id="@+id/textView"
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+               />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/perfect_card"
+                android:id="@+id/imageView9" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text='See one, shout "Rainbow!" and take a block of your choice. Shout "Rainbow!" incorrectly and lose ALL your chips.'
                 android:id="@+id/textView3"
                 android:textColor="#ffffff"
                 android:textSize="24sp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"/>
+               />
 
-        </RelativeLayout>
-
-    </RelativeLayout>
-    </ScrollView>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true">
-
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_weight=".1"
-            android:weightSum="1"
-            android:layout_height="70dp">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="0dp"
-                android:layout_weight=".20"
-                android:layout_height="match_parent"></LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="0dp"
-                android:layout_weight=".25"
-                android:layout_gravity="right"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@mipmap/left_arrow"
-                    android:onClick="how_to_play_screens"
-                    android:id="@+id/first_play_3" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="3/5"
-                android:textColor="@color/white"
-                android:gravity="right|center"
-                android:textStyle="bold"
-                android:layout_weight=".1"
-                android:id="@+id/textView4" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".3"
-                android:visibility="visible"
-                android:src="@mipmap/next_arrow"
-                android:padding="4dp"
-                android:onClick="how_to_play_screens"
-                android:id="@+id/third_play" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="0dp"
-                android:layout_weight=".15"
-                android:layout_height="match_parent"></LinearLayout>
         </LinearLayout>
-    </RelativeLayout>
-</RelativeLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>
 

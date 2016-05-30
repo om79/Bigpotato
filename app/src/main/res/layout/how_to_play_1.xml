@@ -10,12 +10,13 @@
         android:layout_width="match_parent"
         android:layout_weight=".1"
         android:weightSum="1"
+        android:gravity="left|center"
         android:layout_height="0dp">
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/back"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back"
             android:layout_weight=".1"
             android:id="@+id/back_play_1" />
 
@@ -35,73 +36,40 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_weight=".20"
-        android:gravity="center"
+        android:layout_weight=".9"
+        android:gravity="top|center"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
         android:layout_height="0dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/how_to_play_1"
-
-            android:id="@+id/textView3_1" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_weight=".6"
-        android:gravity="top"
-        android:layout_height="0dp">
-
-        <ImageView
+        <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/pool_1"
-            android:id="@+id/imageView4" />
+            android:id="@+id/scrollView2" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/how_to_play_1"
+                    android:id="@+id/textView3_1" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/pool_1"
+                    android:id="@+id/imageView4" />
+            </LinearLayout>
+        </ScrollView>
+
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_weight=".1"
-        android:weightSum="4"
-        android:layout_height="0dp">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"></LinearLayout>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="1/4"
-            android:gravity="right|center"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:layout_marginBottom="5dp"
-            android:id="@+id/textView4" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginBottom="2dp"
-            android:padding="4dp"
-            android:src="@mipmap/next_arrow"
-            android:id="@+id/next_activity" />
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"></LinearLayout>
-    </LinearLayout>
 
 </LinearLayout>

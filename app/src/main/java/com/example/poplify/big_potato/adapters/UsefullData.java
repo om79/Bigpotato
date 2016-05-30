@@ -155,7 +155,7 @@ public class UsefullData  {
 	public static void Log(final String msg) {
 
 		if (SHOW_LOG) {
-			android.util.Log.e("LOG_TAG", msg);
+			Log.e("LOG_TAG", msg);
 		}
 
 	}

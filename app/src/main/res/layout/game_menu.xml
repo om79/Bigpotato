@@ -11,6 +11,6 @@
         android:divider="@null"
         android:focusable="true"
         android:smoothScrollbar="true"
-
+        android:transcriptMode="alwaysScroll"
         android:id="@+id/expandableListView" />
 </LinearLayout>

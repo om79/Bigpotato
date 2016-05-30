@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-
-    android:animateLayoutChanges="true"
-    android:background="@mipmap/background">
+    android:orientation="vertical"
+     android:background="@mipmap/background">
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="35dp"
-            android:layout_marginRight="35dp">
+            android:gravity="top|center"
+            android:orientation="vertical"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -30,129 +25,35 @@
                 android:textColor="#ffffff"
                 android:textSize="24sp"
                 android:layout_marginTop="50dp"
+
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
                 android:layout_alignParentTop="true"
               />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-
-                android:id="@+id/relativeLayout2"
-                android:layout_below="@+id/textView"
-                android:gravity="center"
-                android:layout_marginRight="35dp"
-                android:layout_marginLeft="35dp">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/rainbow_snack"
-
-                    android:id="@+id/imageButton" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/relativeLayout2"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/relativeLayout3">
+                android:src="@mipmap/rainbow_snack"
+                android:layout_marginTop="30dp"
+                android:id="@+id/imageButton" />
 
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text='See one, shout "Rainbow!" and take a block of your choice. Shout "Rainbow!" incorrectly and lose ALL your chips.'-->
-                    <!--android:id="@+id/textView3"-->
-                    <!--android:textColor="#ffffff"-->
-                    <!--android:textSize="26sp"-->
-                    <!--android:layout_alignParentTop="true"-->
-                    <!--android:layout_alignParentStart="true"/>-->
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:text="Main Menu"
+                android:id="@+id/main_menu"
+                android:textColor="#ffffff"
+                android:textSize="25sp"
 
-            </RelativeLayout>
+                android:background="@mipmap/main_menu_button_13"
+                android:layout_marginTop="30dp"
+                android:textAllCaps="false"
+               />
 
-        </RelativeLayout>
+
+        </LinearLayout>
     </ScrollView>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:visibility="visible"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/relativeLayout5">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_weight=".1"
-            android:weightSum="1"
-            android:layout_height="70dp">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="0dp"
-                android:layout_weight=".20"
-                android:layout_height="match_parent"></LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="0dp"
-                android:layout_weight=".25"
-                android:layout_gravity="right"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@mipmap/left_arrow"
-                    android:onClick="how_to_play_screens"
-                    android:id="@+id/third_play_5" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="5/5"
-                android:gravity="right|center"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:layout_weight=".1"
-                android:id="@+id/textView4" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".3"
-                android:visibility="invisible"
-                android:src="@mipmap/next_arrow"
-                android:id="@+id/next_activity3" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="0dp"
-                android:layout_weight=".15"
-                android:layout_height="match_parent"></LinearLayout>
-        </LinearLayout>
-
-
-    </RelativeLayout>
-
-    <Button
-        android:layout_width="250dp"
-        android:layout_height="120dp"
-        android:text="Main Menu"
-        android:id="@+id/main_menu"
-        android:textColor="#ffffff"
-        android:textSize="25sp"
-        android:onClick="how_to_play_screens"
-        android:background="@drawable/main_menu_button_13"
-        android:paddingBottom="10dp"
-        android:layout_above="@+id/relativeLayout5"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp"/>
-
-</RelativeLayout>
+</LinearLayout>
 

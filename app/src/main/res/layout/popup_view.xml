@@ -30,8 +30,10 @@
 
                 <ImageView
                     android:layout_marginTop="20dp"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="5dp"
                     android:src="@mipmap/cross"
                     android:id="@+id/imageViewcross" />
             </LinearLayout>
@@ -61,7 +63,7 @@
                         <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="0dp"
-                            android:layout_weight=".35"
+                            android:layout_weight=".37"
                             android:layout_height="match_parent"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentLeft="true"
@@ -71,9 +73,9 @@
                         <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="0dp"
-                            android:layout_weight=".65"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginRight="20dp"
+                            android:layout_weight=".63"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginRight="30dp"
                             android:layout_marginBottom="20dp"
                             android:gravity="center_horizontal|left"
                             android:layout_height="match_parent">
@@ -99,9 +101,11 @@
 
                 <Button
                     android:layout_width="250dp"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:text="Reveal answers"
-
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:background="@mipmap/reveal_ans"
                     android:id="@+id/button_reveal"
                      />
