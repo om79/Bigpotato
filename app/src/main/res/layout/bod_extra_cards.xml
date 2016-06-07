@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:weightSum="1"
+    android:background="@mipmap/background"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight=".1"
+        android:weightSum="1"
+        android:layout_gravity="left|center"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back"
+            android:layout_gravity="center"
+            android:layout_weight=".1"
+            android:id="@+id/back_bod_extra" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_weight=".8"
+            android:layout_height="match_parent"></LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".1"
+            android:id="@+id/imageView2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_weight=".1"
+        android:gravity="top|center"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/extraheadline"
+            android:id="@+id/imageView" />
+
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:visibility="visible"
+            android:layout_height="match_parent">
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_weight=".8"
+        android:layout_height="0dp">
+
+        <GridView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numColumns="2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+
+            android:id="@+id/gridView_bod_extra" />
+    </LinearLayout>
+</LinearLayout>

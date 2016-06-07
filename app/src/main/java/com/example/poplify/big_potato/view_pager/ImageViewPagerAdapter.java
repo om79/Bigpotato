@@ -5,8 +5,21 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
+import android.widget.Switch;
 
 import com.example.poplify.big_potato.adapters.SaveData;
+import com.example.poplify.big_potato.bucket_of_doom.How_to_play_bod_1;
+import com.example.poplify.big_potato.bucket_of_doom.How_to_play_bod_2;
+import com.example.poplify.big_potato.bucket_of_doom.How_to_play_bod_3;
+import com.example.poplify.big_potato.bucket_of_doom.How_to_play_bod_4;
+import com.example.poplify.big_potato.mr_lister.Mr_how_1;
+import com.example.poplify.big_potato.mr_lister.Mr_how_2;
+import com.example.poplify.big_potato.mr_lister.Mr_how_3;
+import com.example.poplify.big_potato.mr_lister.Mr_how_4;
+import com.example.poplify.big_potato.ok_play.Okplay_how_1;
+import com.example.poplify.big_potato.ok_play.Okplay_how_2;
+import com.example.poplify.big_potato.ok_play.Okplay_how_3;
+import com.example.poplify.big_potato.ok_play.Okplay_how_4;
 import com.example.poplify.big_potato.qwordie.How_to_play_1;
 import com.example.poplify.big_potato.qwordie.How_to_play_2;
 import com.example.poplify.big_potato.qwordie.How_to_play_3;
@@ -26,11 +39,20 @@ public class ImageViewPagerAdapter extends FragmentPagerAdapter {
         super(fm);
         _context = context;
         save=new SaveData(_context);
-        if(save.getString("current_game").equals("QWORDIE")){
-            totalPage = 4;
-        }else {
-            totalPage = 5;
+
+        switch (save.getString("current_game"))
+        {
+
+            case "RAINBOW":
+                totalPage = 5;
+                break;
+            default:
+                totalPage = 4;
+                break;
+
         }
+
+
 
     }
 
@@ -38,55 +60,112 @@ public class ImageViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         Fragment f = new Fragment();
 
-        if(save.getString("current_game").equals("QWORDIE")){
-        switch (position) {
-            case 0:
-                f = new How_to_play_1();
+        switch (save.getString("current_game")) {
+
+            case "QWORDIE":
+                switch (position) {
+                    case 0:
+                        f = new How_to_play_1();
+                        break;
+                    case 1:
+                        f = new How_to_play_2();
+                        break;
+                    case 2:
+                        f = new How_to_play_3();
+                        break;
+                    case 3:
+                        f = new How_to_play_4();
+                        break;
+                }
                 break;
-            case 1:
-                f = new How_to_play_2();
+
+            case "RAINBOW":
+
+                Bundle bundle = new Bundle();
+                switch (position) {
+
+                    case 0:
+
+                        f = new How_to_play_rainbow_1();
+                        bundle.putString("call", "0");
+                        f.setArguments(bundle);
+                        break;
+                    case 1:
+
+                        f = new How_to_play_rainbow_1();
+                        bundle.putString("call", "1");
+                        f.setArguments(bundle);
+                        break;
+                    case 2:
+
+                        f = new How_to_play_rainbow_1();
+                        bundle.putString("call", "2");
+                        f.setArguments(bundle);
+                        break;
+                    case 3:
+
+                        f = new How_to_play_rainbow_1();
+                        bundle.putString("call", "3");
+                        f.setArguments(bundle);
+                        break;
+                    case 4:
+
+                        f = new How_to_play_rainbow_1();
+                        bundle.putString("call", "4");
+                        f.setArguments(bundle);
+                        break;
+                }
                 break;
-            case 2:
-                f = new How_to_play_3();
+            case "BUCKET OF DOOM":
+                switch (position) {
+                    case 0:
+                        f = new How_to_play_bod_1();
+                        break;
+                    case 1:
+                        f = new How_to_play_bod_2();
+                        break;
+                    case 2:
+                        f = new How_to_play_bod_3();
+                        break;
+                    case 3:
+                        f = new How_to_play_bod_4();
+                        break;
+                }
                 break;
-            case 3:
-                f = new How_to_play_4();
+            case "OKPLAY":
+                switch (position) {
+                    case 0:
+                        f = new Okplay_how_1();
+                        break;
+                    case 1:
+                        f = new Okplay_how_2();
+                        break;
+                    case 2:
+                        f = new Okplay_how_3();
+                        break;
+                    case 3:
+                        f = new Okplay_how_4();
+                        break;
+                }
                 break;
-        }}else{
-            Bundle bundle = new Bundle();
-            switch (position) {
+            case "MR LISTERS":
+                switch (position) {
+                    case 0:
+                        f = new Mr_how_1();
+                        break;
+                    case 1:
+                        f = new Mr_how_2();
+                        break;
+                    case 2:
+                        f = new Mr_how_3();
+                        break;
+                    case 3:
+                        f = new Mr_how_4();
+                        break;
+                }
+                break;
 
-                case 0:
 
-                    f = new How_to_play_rainbow_1();
-                    bundle.putString("call","0");
-                    f.setArguments(bundle);
-                    break;
-                case 1:
-
-                    f = new How_to_play_rainbow_1();
-                    bundle.putString("call","1");
-                    f.setArguments(bundle);
-                    break;
-                case 2:
-
-                    f = new How_to_play_rainbow_1();
-                    bundle.putString("call","2");
-                    f.setArguments(bundle);
-                    break;
-                case 3:
-
-                    f = new How_to_play_rainbow_1();
-                    bundle.putString("call","3");
-                    f.setArguments(bundle);
-                    break;
-                case 4:
-
-                    f = new How_to_play_rainbow_1();
-                    bundle.putString("call","4");
-                    f.setArguments(bundle);
-                    break;
-            }
         }
         return f;
     }

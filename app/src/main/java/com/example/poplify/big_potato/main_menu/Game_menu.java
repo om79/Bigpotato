@@ -5,27 +5,25 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.poplify.big_potato.R;
 import com.example.poplify.big_potato.adapters.SaveData;
 import com.example.poplify.big_potato.adapters.UsefullData;
+import com.example.poplify.big_potato.bucket_of_doom.Bod_homepage;
+import com.example.poplify.big_potato.mr_lister.Mr_homepage;
+import com.example.poplify.big_potato.ok_play.Ok_play_homescreen;
 import com.example.poplify.big_potato.qwordie.Qwordie_activity;
 import com.example.poplify.big_potato.rainbow_rage.RainbowRage;
 
@@ -33,7 +31,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
-import java.util.logging.Handler;
 
 /**
  * Created by POPLIFY on 5/18/2016.
@@ -44,22 +41,20 @@ import java.util.logging.Handler;
     UsefullData usefull;
     SaveData save;
     AnimatedExpandableListView expListView;
-    List<Integer> listDataHeader;
-    HashMap<Integer, List<String>> listDataChild;
+    List<String> listDataHeader;
+
+    HashMap<String, List<String>> listDataChild;
     Typeface regular, bold;
-    boolean open=false;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.game_menu);
-        RelativeLayout progress = new RelativeLayout(this);
-        progress.setLayoutParams(new GridView.LayoutParams(GridView.LayoutParams.MATCH_PARENT, 100));
-        progress.setGravity(Gravity.CENTER);
-        progress.addView(new ProgressBar(this));
-        expListView = (AnimatedExpandableListView) findViewById(R.id.expandableListView);
+
+        LinearLayout container = (LinearLayout) findViewById(R.id.menu_container);
+         expListView = (AnimatedExpandableListView) findViewById(R.id.expandableListView);
         usefull = new UsefullData(getApplicationContext());
-        save=new SaveData(getApplicationContext());
+        save = new SaveData(getApplicationContext());
         regular = Typeface.createFromAsset(getAssets(), "Interstate-Regular.ttf");
         bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
         // preparing list data
@@ -70,9 +65,7 @@ import java.util.logging.Handler;
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
-
-
-        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+       expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
 
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
@@ -81,13 +74,23 @@ import java.util.logging.Handler;
                 // expansion/collapse.
                 usefull.trimCache(getApplicationContext());
                 if (expListView.isGroupExpanded(groupPosition)) {
-//                    expListView.collapseGroupWithAnimation(groupPosition);
-
-
                 } else {
 
-                    expListView.expandGroupWithAnimation(groupPosition);
-                    open=true;
+                    switch (groupPosition){
+                        case 6:
+                            usefull.showMsgOnUI("Coming soon!");
+                            break;
+                        case 7:
+                            save.save("current_game","OKPLAY");
+                            Intent ok=new Intent(getApplicationContext(), Ok_play_homescreen.class);
+                            startActivity(ok);
+                            break;
+                        default:
+                            expListView.expandGroupWithAnimation(groupPosition);
+                            break;
+                    }
+
+
 
                 }
 
@@ -95,19 +98,13 @@ import java.util.logging.Handler;
                 if (lastExpandedPosition != -1
                         && groupPosition != lastExpandedPosition) {
                     expListView.collapseGroupWithAnimation(lastExpandedPosition);
-                    open=false;
+
                 }
                 lastExpandedPosition = groupPosition;
                 return true;
             }
 
         });
-
-
-
-
-
-
 
 //        expListView.postDelayed(new Runnable() {
 //            @Override
@@ -117,84 +114,99 @@ import java.util.logging.Handler;
 //        }, 500);
 
 
-
         expListView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState)
-            {
-
-                Log.i("---",""+open);
-                if(open==true) {
-                    if (expListView.getLastVisiblePosition() == (listDataHeader.size())) {
-//                    prepareListData();
-//                    expListView.setAdapter(listAdapter);
-//                    listAdapter.notifyDataSetChanged();
-//                    expListView.setSelectionAfterHeaderView();
-//                    expListView.smoothScrollToPosition(0);
-                        expListView.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                expListView.setSelectionAfterHeaderView();
-                                expListView.smoothScrollToPosition(0);
-                                expListView.setSelectionAfterHeaderView();
-                            }
-                        });
-                    }
-                }else{
-                    if (expListView.getLastVisiblePosition() == (listDataHeader.size()-1)) {
-//                    prepareListData();
-//                    expListView.setAdapter(listAdapter);
-//                    listAdapter.notifyDataSetChanged();
-//                    expListView.setSelectionAfterHeaderView();
-//                    expListView.smoothScrollToPosition(0);
-                        expListView.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                expListView.setSelectionAfterHeaderView();
-                                expListView.smoothScrollToPosition(0);
-                                expListView.setSelectionAfterHeaderView();
-                            }
-                        });
-                    }
-                }
-
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+//
+//
+//
+//
+//
+//
             }
-
+//
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem,
-                                 int visibleItemCount, int totalItemCount)
-            {
+                                 int visibleItemCount, int totalItemCount) {
+
+                if (expListView.getLastVisiblePosition() == (listDataHeader.size()-1)) {
+//                    listDataHeader = new ArrayList<String>();
+//                    listDataChild = new HashMap<String, List<String>>();
+//
+//                    // Adding child data
+//                    listDataHeader.add("BUCKET OF DOOM");
+//                    listDataHeader.add("QWORDIE");
+//                    listDataHeader.add("SCRAML");
+//                    listDataHeader.add("RAINBOW");
+//                    listDataHeader.add("MR LISTERS");
+//                    listDataHeader.add("OBAMA");
+//                    listDataHeader.add("SOCIAL");
+//                    listDataHeader.add("OKPLAY");
+//
+//
+//                    // Adding child data
+//                    List<String> top250 = new ArrayList<String>();
+//                    top250.add("BUCKET OF DOOM|When the s**t hits the fan,\nyou need a plan.|ADULT PARTY GAME • 17+|#E6007E");
+//
+//                    List<String> nowShowing = new ArrayList<String>();
+//                    nowShowing.add("QWORDIE|If Scrabble and Trivial Pursuit \nhad a love child, this would be it.|FAMILY GAME • 14+|#009FE3");
+//
+//                    List<String> comingSoon = new ArrayList<String>();
+//                    comingSoon.add("SCRAML|Disastrous doodles and godawful \nguesses. Most grins wins.|ADULT PARTY GAME • 17+|#00AC13");
+//
+//                    List<String> comingSoon1 = new ArrayList<String>();
+//                    comingSoon1.add("RAINBOW|Think you know the seven colours \nin the rainbow? Not so fast.|SPOT-THE-DIFFERENCE GAME • 8+|#1A1A1A");
+//
+//                    List<String> comingSoon2 = new ArrayList<String>();
+//                    comingSoon2.add("MR LISTERS|Like a Wile West shootout but \nwith brains for guns.|QUIZ PARTY GAME • 14+|#078489");
+//
+//                    List<String> comingSoon3 = new ArrayList<String>();
+//                    comingSoon3.add("OBAMA|The rhyming charades game with \nthe strange sounding name.|PARTY GAME • 14+|#A765FF");
+//
+//                    List<String> comingSoon4 = new ArrayList<String>();
+//                    comingSoon4.add("SOCIAL|The rhyming charades game with \nthe strange sounding name.|PARTY GAME • 14+|#FFE00F");
+//
+//                    List<String> comingSoon5 = new ArrayList<String>();
+//                    comingSoon4.add("OKPLAY|The rhyming charades game with \nthe strange sounding name.|PARTY GAME • 14+|#FFE00F");
+//
+//
+//                    listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
+//                    listDataChild.put(listDataHeader.get(1), nowShowing);
+//                    listDataChild.put(listDataHeader.get(2), comingSoon);
+//                    listDataChild.put(listDataHeader.get(3), comingSoon1);
+//                    listDataChild.put(listDataHeader.get(4), comingSoon2);
+//                    listDataChild.put(listDataHeader.get(5), comingSoon3);
+//                    listDataChild.put(listDataHeader.get(6), comingSoon4);
+//                    listDataChild.put(listDataHeader.get(7), comingSoon5);
+//
+//
+//                    expListView.setAdapter(listAdapter);
+//                    listAdapter.notifyDataSetChanged();
+
+                }
+
+        }
 
 
-            }
-        });
-
+});
 
 
     }
-
-
-
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
 
     private void prepareListData() {
-        listDataHeader = new ArrayList<Integer>();
-        listDataChild = new HashMap<Integer, List<String>>();
+
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
 
         // Adding child data
-        listDataHeader.add(R.mipmap.bod);
-        listDataHeader.add(R.mipmap.qwordie);
-        listDataHeader.add(R.mipmap.scrawl);
-        listDataHeader.add(R.mipmap.rainbow_rage);
-        listDataHeader.add(R.mipmap.mr_lister);
-        listDataHeader.add(R.mipmap.obamallama);
+        listDataHeader.add("BUCKET OF DOOM");
+        listDataHeader.add("QWORDIE");
+        listDataHeader.add("SCRAML");
+        listDataHeader.add("RAINBOW");
+        listDataHeader.add("MR LISTERS");
+        listDataHeader.add("OBAMA");
+        listDataHeader.add("SOCIAL");
+        listDataHeader.add("OKPLAY");
 
 
         // Adding child data
@@ -216,6 +228,12 @@ import java.util.logging.Handler;
         List<String> comingSoon3 = new ArrayList<String>();
         comingSoon3.add("OBAMA|The rhyming charades game with \nthe strange sounding name.|PARTY GAME • 14+|#A765FF");
 
+        List<String> comingSoon4 = new ArrayList<String>();
+        comingSoon4.add("SOCIAL|The rhyming charades game with \nthe strange sounding name.|PARTY GAME • 14+|#FFE00F");
+
+        List<String> comingSoon5 = new ArrayList<String>();
+        comingSoon4.add("OKPLAY|Have game, will travel.Take it \nanywhere, play it with anyone|Simple Tile Game|#FFE00F");
+
 
         listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
         listDataChild.put(listDataHeader.get(1), nowShowing);
@@ -223,21 +241,23 @@ import java.util.logging.Handler;
         listDataChild.put(listDataHeader.get(3), comingSoon1);
         listDataChild.put(listDataHeader.get(4), comingSoon2);
         listDataChild.put(listDataHeader.get(5), comingSoon3);
+        listDataChild.put(listDataHeader.get(6), comingSoon4);
+        listDataChild.put(listDataHeader.get(7), comingSoon5);
     }
 
 
     public class ExpandableListAdapter extends AnimatedExpandableListView.AnimatedExpandableListAdapter {
 
         private Context _context;
-        private List<Integer> _listDataHeader; // header titles
+        private List<String> _listDataHeader; // header titles
         // child data in format of header title, child title
-        private HashMap<Integer, List<String>> _listDataChild;
+        private HashMap<String, List<String>> _listDataChild;
 
 
 
 
-        public ExpandableListAdapter(Context context, List<Integer> listDataHeader,
-                                     HashMap<Integer, List<String>> listChildData) {
+        public ExpandableListAdapter(Context context, List<String> listDataHeader,
+                                     HashMap<String, List<String>> listChildData) {
             this._context = context;
             this._listDataHeader = listDataHeader;
             this._listDataChild = listChildData;
@@ -296,25 +316,28 @@ import java.util.logging.Handler;
             layout.setBackgroundColor(Color.parseColor(color));
             btn.setTypeface(bold);
 
-            switch (groupPosition) {
+            switch (text1) {
 
-                case 0:
+                case "BUCKET OF DOOM":
                     headtxt.setImageResource(R.mipmap.bod_head);
                     break;
-                case 1:
+                case "QWORDIE":
                     headtxt.setImageResource(R.mipmap.quoride_head);
                     break;
-                case 2:
+                case "SCRAML":
                     headtxt.setImageResource(R.mipmap.scrwal_head);
                     break;
-                case 3:
+                case "RAINBOW":
                     headtxt.setImageResource(R.mipmap.rainbow_head);
                     break;
-                case 4:
+                case "MR LISTERS":
                     headtxt.setImageResource(R.mipmap.mr_lister_head);
                     break;
-                case 5:
+                case "OBAMA":
                     headtxt.setImageResource(R.mipmap.obama_head);
+                    break;
+                case "SOCIAL":
+                    headtxt.setImageResource(R.mipmap.social_head);
                     break;
 
             }
@@ -325,6 +348,15 @@ import java.util.logging.Handler;
                 public void onClick(View v) {
                     usefull.trimCache(getApplicationContext());
                     switch (text1) {
+
+                        case "BUCKET OF DOOM":
+                            save.save("current_game","BUCKET OF DOOM");
+                            Intent b = new Intent(_context, Bod_homepage.class);
+                            b.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            b.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            _context.startActivity(b);
+                            overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
+                            break;
 
                         case "QWORDIE":
 
@@ -343,6 +375,16 @@ import java.util.logging.Handler;
                             _context.startActivity(i1);
                             overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                             break;
+
+                        case "MR LISTERS":
+                            save.save("current_game","MR LISTERS");
+                            Intent bm = new Intent(_context, Mr_homepage.class);
+                            bm.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            bm.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            _context.startActivity(bm);
+                            overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
+                            break;
+
                     }
 
                 }
@@ -358,6 +400,7 @@ import java.util.logging.Handler;
 
         @Override
         public Object getGroup(int groupPosition) {
+
             return this._listDataHeader.get(groupPosition);
         }
 
@@ -374,7 +417,7 @@ import java.util.logging.Handler;
         @Override
         public View getGroupView(final int groupPosition, boolean isExpanded,
                                  View convertView, ViewGroup parent) {
-            Integer headerTitle = (Integer) getGroup(groupPosition);
+            String text1 = (String) getGroup(groupPosition);
             if (convertView == null) {
                 LayoutInflater infalInflater = (LayoutInflater) this._context
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -390,43 +433,65 @@ import java.util.logging.Handler;
             LinearLayout gif_back = (LinearLayout) convertView
                     .findViewById(R.id.gif_back);
 
-            lblListHeader.setImageResource(headerTitle);
+//            StringTokenizer tokens = new StringTokenizer(headerTitle, "|");
 
-            switch (groupPosition) {
-                case 0:
-                    lblListHeader.setBackgroundColor(Color.parseColor("#E6007E"));
-                    break;
-                case 1:
-                    lblListHeader.setBackgroundColor(Color.parseColor("#009FE3"));
-                    break;
-                case 2:
-                    lblListHeader.setBackgroundColor(Color.parseColor("#00AC13"));
-                    break;
-                case 3:
-                    lblListHeader.setBackgroundColor(Color.parseColor("#1A1A1A"));
-                    break;
-                case 4:
-                    lblListHeader.setBackgroundColor(Color.parseColor("#078489"));
-                    break;
-                case 5:
-                    lblListHeader.setBackgroundColor(Color.parseColor("#A765FF"));
-                    break;
+//            final String text1 = tokens.nextToken();
 
-            }
+
+
+
+
             if (isExpanded == false) {
                 usefull.trimCache(getApplicationContext());
                 cross.setVisibility(View.GONE);
-                lblListHeader.setImageResource(headerTitle);
                 gif_back.setVisibility(View.GONE);
-
                 lblListHeader.setVisibility(View.VISIBLE);
+                switch (text1) {
+                    case "BUCKET OF DOOM":
+                        lblListHeader.setBackgroundColor(Color.parseColor("#E6007E"));
+                        lblListHeader.setImageResource(R.mipmap.bod);
+                        break;
+                    case "QWORDIE":
+                        lblListHeader.setBackgroundColor(Color.parseColor("#009FE3"));
+                        lblListHeader.setImageResource(R.mipmap.qwordie);
+                        break;
+                    case "SCRAML":
+                        lblListHeader.setBackgroundColor(Color.parseColor("#00AC13"));
+                        lblListHeader.setImageResource(R.mipmap.scrawl);
+                        break;
+                    case "RAINBOW":
+                        lblListHeader.setBackgroundColor(Color.parseColor("#1A1A1A"));
+                        lblListHeader.setImageResource(R.mipmap.rainbow_rage);
+                        break;
+                    case "MR LISTERS":
+                        lblListHeader.setBackgroundColor(Color.parseColor("#078489"));
+                        lblListHeader.setImageResource(R.mipmap.mr_lister);
+                        break;
+                    case "OBAMA":
+                        lblListHeader.setBackgroundColor(Color.parseColor("#A765FF"));
+                        lblListHeader.setImageResource(R.mipmap.obamallama);
+                        break;
+                    case "SOCIAL":
+                        lblListHeader.setBackgroundColor(Color.parseColor("#FFE00F"));
+                        lblListHeader.setImageResource(R.mipmap.social);
+                        break;
+                    case "OKPLAY":
+                        lblListHeader.setBackgroundColor(Color.parseColor("#f08a16"));
+                        lblListHeader.setImageResource(R.mipmap.ok_play);
+                        break;
+                    default:
+                        break;
+
+                }
+
             } else {
                 usefull.trimCache(getApplicationContext());
                 cross.setVisibility(View.VISIBLE);
-                gif_back.setVisibility(View.VISIBLE);
                 lblListHeader.setVisibility(View.GONE);
-                switch (groupPosition) {
-                    case 0:
+                gif_back.setVisibility(View.VISIBLE);
+
+                switch (text1) {
+                    case "BUCKET OF DOOM":
 
                         gif.setPaused(false);
                         gif_back.setBackgroundColor(Color.parseColor("#E6007E"));
@@ -440,7 +505,7 @@ import java.util.logging.Handler;
                         }.start();
 
                         break;
-                    case 1:
+                    case "QWORDIE":
 
                         gif.setPaused(false);
                         gif_back.setBackgroundColor(Color.parseColor("#009FE3"));
@@ -454,7 +519,7 @@ import java.util.logging.Handler;
                         }.start();
 
                         break;
-                    case 2:
+                    case "SCRAML":
 
                         gif.setPaused(false);
                         gif_back.setBackgroundColor(Color.parseColor("#00AC13"));
@@ -468,7 +533,7 @@ import java.util.logging.Handler;
                             }
                         }.start();
                         break;
-                    case 3:
+                    case "RAINBOW":
 
                         gif.setPaused(false);
                         gif_back.setBackgroundColor(Color.parseColor("#1A1A1A"));
@@ -483,7 +548,7 @@ import java.util.logging.Handler;
                         }.start();
 
                         break;
-                    case 4:
+                    case "MR LISTERS":
                         gif.setPaused(false);
 
                         gif_back.setBackgroundColor(Color.parseColor("#078489"));
@@ -497,9 +562,8 @@ import java.util.logging.Handler;
                             }
                         }.start();
                         break;
-                    case 5:
+                    case "OBAMA":
                         gif.setPaused(false);
-
                         gif_back.setBackgroundColor(Color.parseColor("#A765FF"));
                         gif.setMovieResource(R.raw.obama_animation);
 
@@ -510,6 +574,8 @@ import java.util.logging.Handler;
                                 gif.setPaused(true);
                             }
                         }.start();
+                        break;
+                    default:
                         break;
 
                 }
@@ -524,11 +590,11 @@ import java.util.logging.Handler;
                     usefull.trimCache(getApplicationContext());
                     if (expListView.isGroupExpanded(groupPosition)) {
                         expListView.collapseGroupWithAnimation(groupPosition);
-                        open=false;
+
 
                     } else {
                         expListView.expandGroupWithAnimation(groupPosition);
-                        open=true;
+
                     }
 
 
@@ -550,6 +616,7 @@ import java.util.logging.Handler;
         }
 
     }
+
 
 
 

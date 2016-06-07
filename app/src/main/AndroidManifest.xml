@@ -10,13 +10,14 @@
         android:resizeable="true"
         android:anyDensity="true">
     </supports-screens>
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
@@ -40,10 +41,45 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:noHistory="true">
         </activity>
-
-
-
-
+        <activity android:name=".viewpager_training.Startup_training_activity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:noHistory="true">
+        </activity>
+        <activity
+            android:name=".bucket_of_doom.Bod_homepage"
+            android:label="@string/title_activity_games__list"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ok_play.Ok_play_homescreen"
+            android:label="@string/title_activity_games__list"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".mr_lister.Mr_homepage"
+            android:label="@string/title_activity_games__list"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".bucket_of_doom.Bod_extra_cards"
+            android:label="@string/title_activity_games__list"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".bucket_of_doom.Bod_cards"
+            android:label="@string/title_activity_games__list"
+            android:noHistory="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity
             android:name=".rainbow_rage.RainbowRage"
             android:label="@string/app_name"
@@ -62,6 +98,34 @@
         <activity
             android:name=".main_menu.Game_menu"
              android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".bucket_of_doom.Bod_scenario"
+            android:screenOrientation="portrait"
+            android:noHistory="true"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ok_play.Okplay_timer"
+            android:screenOrientation="portrait"
+            android:noHistory="true"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".mr_lister.Mr_sound_effect"
+            android:screenOrientation="portrait"
+            android:noHistory="true"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".mr_lister.Mr_extra_cards"
+            android:screenOrientation="portrait"
+            android:noHistory="true"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

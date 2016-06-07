@@ -47,7 +47,6 @@ public class MainActivityFragment extends Fragment {
         _btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _btn1.setImageResource(R.drawable.full_whitedot);
                 _mViewPager.setCurrentItem(0);
             }
         });
@@ -55,28 +54,24 @@ public class MainActivityFragment extends Fragment {
         _btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _btn2.setImageResource(R.drawable.full_whitedot);
                 _mViewPager.setCurrentItem(1);
             }
         });
         _btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _btn3.setImageResource(R.drawable.full_whitedot);
                 _mViewPager.setCurrentItem(2);
             }
         });
         _btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _btn3.setImageResource(R.drawable.full_whitedot);
                 _mViewPager.setCurrentItem(3);
             }
         });
         _btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _btn3.setImageResource(R.drawable.full_whitedot);
                 _mViewPager.setCurrentItem(4);
             }
         });
@@ -107,14 +102,12 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onPageSelected(int position) {
                 // TODO Auto-generated method stub
-                if(savePosition>position)
-                {
-                    btnAction(-position-1);
-                }else
-                {
+                _btn1.setImageResource(R.drawable.less_white_dot);
+                _btn2.setImageResource(R.drawable.less_white_dot);
+                _btn3.setImageResource(R.drawable.less_white_dot);
+                _btn4.setImageResource(R.drawable.less_white_dot);
+                _btn5.setImageResource(R.drawable.less_white_dot);
                     btnAction(position);
-                }
-                savePosition = position;
 
 
             }
@@ -147,23 +140,6 @@ public class MainActivityFragment extends Fragment {
 
                 break;
 
-
-            case -1:
-                _btn2.setImageResource(R.drawable.less_white_dot);
-
-                break;
-            case -2:
-                _btn3.setImageResource(R.drawable.less_white_dot);
-
-                break;
-            case -3:
-                _btn4.setImageResource(R.drawable.less_white_dot);
-
-                break;
-            case -4:
-                _btn5.setImageResource(R.drawable.less_white_dot);
-
-                break;
         }
     }
 
@@ -175,10 +151,10 @@ public class MainActivityFragment extends Fragment {
         _btn4 = (ImageView) getView().findViewById(R.id.btn4);
         _btn5 = (ImageView) getView().findViewById(R.id.btn5);
 
-        if(save.getString("current_game").equals("QWORDIE")){
-            _btn5.setVisibility(View.GONE);
-        }else {
+        if(save.getString("current_game").equals("RAINBOW")){
             _btn5.setVisibility(View.VISIBLE);
+        }else {
+            _btn5.setVisibility(View.GONE);
         }
 
     }

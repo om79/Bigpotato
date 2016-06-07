@@ -4,7 +4,7 @@ android {
     buildToolsVersion "23.0.3"
     defaultConfig {
         applicationId "com.example.poplify.big_potato"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -36,5 +36,6 @@ android {
 }
 
 dependencies {
-    compile files('libs/Android-InfiniteScrolling.jar')
+    compile files('libs/okhttp-3.3.1.jar')
+    compile files('libs/okio-1.8.0.jar')
 }

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:id="@+id/menu_container"
     android:layout_height="match_parent">
 
     <com.example.poplify.big_potato.main_menu.AnimatedExpandableListView
 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:groupIndicator="@null"
         android:divider="@null"
         android:focusable="true"
         android:smoothScrollbar="true"
-        android:transcriptMode="alwaysScroll"
         android:id="@+id/expandableListView" />
 </LinearLayout>

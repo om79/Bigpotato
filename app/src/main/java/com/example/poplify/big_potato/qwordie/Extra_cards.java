@@ -160,6 +160,7 @@ public class Extra_cards extends Activity
 
 
             final ImageView cross = (ImageView) layout.findViewById(R.id.imageViewcross);
+            final RelativeLayout card_back = (RelativeLayout) layout.findViewById(R.id.card_background);
             final TextView textView = (TextView) layout.findViewById(R.id.textView_ques);
             textView.setText(ques[position]);
             textView.setTypeface(regular);
@@ -181,25 +182,21 @@ public class Extra_cards extends Activity
 
 
                         case "Return to question":
-                            textView.setText(ques[position]);
-                            button.setText("Reveal answers");
-//                            main.startAnimation(rotation);
                             flip.setTarget(main);
                             flip.start();
-//                            9592
-//                            cross.startAnimation(rotation);
-//                            button.startAnimation(move);
+                            textView.setText(ques[position]);
+                            button.setText("Reveal answers");
+                            card_back.setBackground(getResources().getDrawable(R.mipmap.card_back));
 
 
                             break;
                         case "Reveal answers":
 
-                            textView.setText(ans[position]);
-                            button.setText("Return to question");
-//                            main.startAnimation(rotation);
                             flip.setTarget(main);
                             flip.start();
-//                            button.startAnimation(move);
+                            textView.setText(ans[position]);
+                            button.setText("Return to question");
+                            card_back.setBackground(getResources().getDrawable(R.mipmap.ans_card));
 
 
                             break;

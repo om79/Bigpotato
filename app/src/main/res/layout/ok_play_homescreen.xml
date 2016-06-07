@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/okplay_back"
+    android:id="@+id/main_layout"
+    tools:context=".qwordie.Qwordie_activity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:weightSum="1"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_weight=".5"
+            android:layout_height="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/okplay_mainpic"
+
+                    android:id="@+id/imageView3" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+
+                    android:weightSum="1"
+                    android:gravity="right|center"
+                    android:layout_height="50dp">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/back"
+                        android:layout_weight=".1"
+                        android:id="@+id/back_bod_okplay" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_weight=".8"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".1"
+                        android:id="@+id/imageView2" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_weight=".35"
+
+            android:gravity="top"
+            android:layout_height="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/How"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
+                android:onClick="onClick"
+                android:textColor="@color/white"
+                android:id="@+id/exta_cards_bod_okplay" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/turn"
+
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+                android:id="@+id/how_to_play_bod_okplay" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Buy"
+                android:layout_margin="8dp"
+                android:textColor="@color/white"
+
+                android:id="@+id/buy_the_game_bod_okplay" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_weight=".15"
+            android:id="@+id/relativeLayout_bod_okplay"
+            android:layout_height="0dp">
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@mipmap/okplay_back">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+
+        android:gravity="center"
+
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView4" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_weight=".1"
+                        android:weightSum="1"
+                        android:layout_gravity="left|center"
+                        android:layout_height="50dp">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/back"
+                            android:layout_gravity="left|center"
+                            android:layout_weight=".1"
+                            android:id="@+id/back_play_2_ok4" />
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="0dp"
+                            android:layout_weight=".8"
+                            android:layout_height="match_parent"></LinearLayout>
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".1"
+                            android:id="@+id/imageView2" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ok_play_how_4"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:id="@+id/imageView4" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/okplay_4"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="35dp"
+
+                    android:gravity="top"
+                    android:id="@+id/textView5__2_ok4" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

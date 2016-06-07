@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@mipmap/background">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight=".1"
+        android:weightSum="1"
+        android:layout_gravity="left|center"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back"
+            android:layout_gravity="left|center"
+            android:layout_weight=".1"
+            android:id="@+id/back_playbddd_4" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_weight=".8"
+            android:layout_height="match_parent"></LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".1"
+            android:id="@+id/imageView2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_weight=".9"
+        android:gravity="center"
+        android:layout_height="0dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView6" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_marginTop="50dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/bod_play_4"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="35dp"
+                    android:id="@+id/text_View3bddd" />
+
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="150dp"
+                        android:layout_height="60dp"
+                        android:text="Main menu"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@mipmap/bod_play_menu_4"
+                        android:textSize="15dp"
+                        android:textAllCaps="false"
+                        android:id="@+id/button_menubdd" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

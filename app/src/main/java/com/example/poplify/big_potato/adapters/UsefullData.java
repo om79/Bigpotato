@@ -161,14 +161,11 @@ public class UsefullData  {
 	}
 
 	public void showMsgOnUI(final String msg) {
-		((Activity) _context).runOnUiThread(new Runnable() {
 
-			@Override
-			public void run() {
+
 				Toast.makeText(_context, msg, Toast.LENGTH_SHORT).show();
 
-			}
-		});
+
 
 	}
 
@@ -285,27 +282,25 @@ public class UsefullData  {
 					// We need to get the instance of the LayoutInflater
 //					rotation = AnimationUtils.loadAnimation(_context, R.anim.rotate);
 					LayoutInflater inflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-					View layout = inflater.inflate(R.layout.popup_view_buy,null,false);
+					View layout = inflater.inflate(R.layout.bod_buy_popup,null,false);
 					pwindo = new PopupWindow(layout, AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.MATCH_PARENT, true);
 					pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
 					pwindo.setOutsideTouchable(false);
 
 					pwindo.setFocusable(true);
-					final  RelativeLayout anim = (RelativeLayout) layout.findViewById(R.id.buy_layout_popup);
-					Button no = (Button) layout.findViewById(R.id.button_no);
+					final RelativeLayout anim = (RelativeLayout) layout.findViewById(R.id.buy_layout_popup_bod);
+					ImageView no = (ImageView) layout.findViewById(R.id.button_no_bod);
 					no.setOnClickListener(new View.OnClickListener() {
 						@Override
 						public void onClick(View v) {
-//							anim.startAnimation(rotation);
 							pwindo.dismiss();
 						}
 					});
 
-					Button yes = (Button) layout.findViewById(R.id.button_yes);
+					ImageView yes = (ImageView) layout.findViewById(R.id.button_yes_bod);
 					yes.setOnClickListener(new View.OnClickListener() {
 						@Override
 						public void onClick(View v) {
-//							anim.startAnimation(rotation);
 							Intent i = new Intent(Intent.ACTION_VIEW);
 							i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 							i.setData(Uri.parse("http://www.google.com"));

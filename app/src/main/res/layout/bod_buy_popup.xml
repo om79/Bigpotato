@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/popup_element_buy"
+    android:background="#F2444444"
+    android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:id="@+id/buy_layout_popup_bod"
+            android:layout_height="370dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:background="@mipmap/bod_popup_back"
+                android:layout_margin="30dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:weightSum="1"
+                    android:layout_margin="50dp"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_weight=".2"
+                        android:weightSum="1"
+                        android:gravity="center_horizontal"
+                        android:layout_height="0dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_weight=".8"
+                            android:layout_width="0dp"
+                            android:gravity="center"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/target"
+                                android:id="@+id/imageView8"
+
+
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="0dp"
+                            android:layout_weight=".2"
+                            android:layout_gravity="right"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@mipmap/cross"
+                                android:padding="10dp"
+                                android:textColor="@color/white"
+                                android:layout_marginRight="10dp"
+                                android:id="@+id/button_no_bod"
+                                android:layout_alignParentRight="true" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_weight=".5"
+                        android:gravity="left|top"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="0dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/buy_bod_msg"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:id="@+id/textView6" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_weight=".3"
+                        android:gravity="center"
+
+                        android:layout_height="0dp">
+
+                        <ImageView
+                             android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/bod_continue"
+                             android:id="@+id/button_yes_bod" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

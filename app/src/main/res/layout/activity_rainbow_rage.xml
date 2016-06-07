@@ -1,76 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:weightSum="1"
     android:background="@mipmap/background"
-    >
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:layout_weight=".1"
+        android:layout_marginLeft="10dp"
+        android:layout_height="0dp">
 
-        android:id="@+id/relativeLayout"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="howtoplay"
+            android:src="@mipmap/back_arrow"
+            android:id="@+id/imageView7_back" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight=".75"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ScrollView
+
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
 
         >
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:gravity="left|center"
-            android:layout_marginLeft="10dp"
-            android:layout_height="50dp">
+            android:layout_height="match_parent"
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="howtoplay"
-                android:src="@mipmap/back_arrow"
-                android:id="@+id/imageView7_back" />
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:src="@mipmap/wholescreen"
-            android:id="@+id/imageView5"
-            android:layout_gravity="right" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/relativeLayout"
             android:orientation="vertical"
-            android:layout_below="@+id/relativeLayout"
+
             >
 
-            <TextView
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="How to play"
-                android:id="@+id/how_to_play_rainbow"
-                android:textColor="#ffffff"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_marginTop="30dp"
-                android:onClick="howtoplay"
-                android:textAlignment="center"/>
+                android:layout_height="300dp"
+                android:src="@mipmap/wholescreen"
+                android:id="@+id/imageView5"
+                android:layout_gravity="right" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Buy the game"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:gravity="center"
-                android:id="@+id/textView2"
-                android:textColor="#ffffff"
-                android:layout_marginTop="30dp"
-                android:onClick="howtoplay"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_below="@+id/relativeLayout"
+                >
 
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="How to play"
+                    android:id="@+id/how_to_play_rainbow"
+                    android:textColor="#ffffff"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_marginTop="10dp"
+                    android:onClick="howtoplay"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rainbow training "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:gravity="center"
+                    android:id="@+id/textView23"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="10dp"
+                    android:onClick="howtoplay"
+
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Buy the game"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:gravity="center"
+                    android:id="@+id/textView2"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="10dp"
+                    android:onClick="howtoplay"
+
+                    />
+
+            </LinearLayout>
+
+
+
         </LinearLayout>
+
+    </ScrollView>
     </LinearLayout>
 
-</ScrollView>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight=".15"
+        android:id="@+id/rain_linear"
+        android:layout_height="0dp">
 
+    </LinearLayout>
+
+</LinearLayout>
