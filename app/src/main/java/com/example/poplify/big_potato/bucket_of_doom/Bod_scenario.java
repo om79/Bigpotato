@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.poplify.big_potato.R;
+import com.example.poplify.big_potato.adapters.ConnectionDetector;
 import com.example.poplify.big_potato.adapters.Image;
 
 import java.io.IOException;
@@ -48,6 +49,7 @@ public class Bod_scenario extends Activity
     Button submit;
     ImageView back;
     Typeface regular,bold;
+    ConnectionDetector condec;
     public static final MediaType FORM_DATA_TYPE
             = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
     public static final String URL="https://docs.google.com/forms/d/1r3aEsOUgJr44mTBx39FaMXimPvruGHk7LYdeFjj64aQ/formResponse";
@@ -55,11 +57,14 @@ public class Bod_scenario extends Activity
     public static final String SECINARIO_KEY="entry.243902145";
     public static final String EMAIL_KEY="entry.1153849184";
     PopupWindow pwindo;
+    Boolean isInternetPresent = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bod_scenario);
 
+        condec = new ConnectionDetector(getApplicationContext());
+        isInternetPresent = condec.isConnectingToInternet();
         scenario=(EditText) findViewById(R.id.editText3_scenario);
         name=(EditText) findViewById(R.id.editText_fullname);
         email=(EditText) findViewById(R.id.editText2emai);
@@ -102,15 +107,31 @@ public class Bod_scenario extends Activity
                 }
 
                 //Create an object for PostDataTask AsyncTask
-                PostDataTask postDataTask = new PostDataTask();
+                if(isInternetPresent) {
+                    PostDataTask postDataTask = new PostDataTask();
 
-                //execute asynctask
-                postDataTask.execute(URL,name.getText().toString(),
-                        email.getText().toString(),
-                        scenario.getText().toString());
+                    //execute asynctask
+                    postDataTask.execute(URL, name.getText().toString(),
+                            email.getText().toString(),
+                            scenario.getText().toString());
+                }else {
+                    Toast.makeText(getApplicationContext(),"Check your internet connection",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isInternetPresent = condec.isConnectingToInternet();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isInternetPresent = condec.isConnectingToInternet();
     }
 
 

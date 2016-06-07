@@ -93,7 +93,7 @@ public class Bod_extra_cards extends Activity
         for (int i = 0; i < 10; i++) {
             Image actor = new Image();
 
-            if(save_data.isExist(""+i)==true)
+            if(save_data.isExist("bod"+i)==true)
             {
                 actor.setimage(R.mipmap.bod_open_card);
                 actor.settitle(ques[i]);
@@ -125,7 +125,7 @@ public class Bod_extra_cards extends Activity
                                     long id) {
 
                 usefull.trimCache(getApplicationContext());
-                save_data.save(""+position,position);
+                save_data.save("bod"+position,position);
 
                 Intent b= new Intent(getApplicationContext(),Bod_cards.class);
                 b.putExtra("data",ques[position]);

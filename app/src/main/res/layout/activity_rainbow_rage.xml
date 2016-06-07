@@ -22,6 +22,19 @@
             android:onClick="howtoplay"
             android:src="@mipmap/back_arrow"
             android:id="@+id/imageView7_back" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:gravity="right"
+            android:layout_marginRight="20dp"
+            android:text="#RainbowRage"
+            android:textColor="@color/white"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
     </LinearLayout>
 
     <LinearLayout

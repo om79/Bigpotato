@@ -4,9 +4,12 @@ import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -93,22 +96,7 @@ public class Extra_cards extends Activity
         image_adapter = new ImageAdapter(getApplicationContext(), R.layout.rowhome, actorsList);
         gv.setAdapter(image_adapter);
 
-        for (int i = 0; i < 10; i++) {
-            Image actor = new Image();
-
-             if(save_data.isExist(""+i)==true)
-            {
-                actor.setimage(R.mipmap.card_back);
-                actor.settitle(ques[i]);
-
-            }else {
-                 actor.setimage(R.mipmap.ques_card);
-                 actor.settitle("");
-             }
-            actorsList.add(actor);
-        }
-
-        image_adapter.notifyDataSetChanged();
+        new set_images().execute();
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +116,7 @@ public class Extra_cards extends Activity
                                     long id) {
 
                 usefull.trimCache(getApplicationContext());
-                save_data.save(""+position,position);
+                save_data.save("qwordie"+position,position);
                 initiatePopupWindow(position);
             }
         });
@@ -220,22 +208,7 @@ public class Extra_cards extends Activity
                 public void onClick(View v) {
                     usefull.trimCache(getApplicationContext());
                     pwindo.dismiss();
-                    actorsList.clear();
-                    for (int i = 0; i < 10; i++) {
-                        Image actor = new Image();
-                        if(save_data.isExist(""+i)==true)
-                        {
-                            actor.setimage(R.mipmap.card_back);
-                            actor.settitle(ques[i]);
-
-                        }else {
-                            actor.setimage(R.mipmap.ques_card);
-                            actor.settitle("");
-                        }
-                        actorsList.add(actor);
-                    }
-
-                    image_adapter.notifyDataSetChanged();
+                   new set_images().execute();
                 }
             });
 
@@ -247,6 +220,44 @@ public class Extra_cards extends Activity
         }
 
     }
+
+
+
+    class set_images extends AsyncTask<Void, Void, Void> {
+        ProgressDialog dialog;
+        protected void onPreExecute()
+        {
+            actorsList.clear();
+            dialog = new ProgressDialog(Extra_cards.this, AlertDialog.THEME_HOLO_DARK);
+            dialog.setMessage("Please wait a moment");
+            dialog.show();
+            dialog.setCancelable(false);
+
+        }
+        protected Void doInBackground(Void... arg0) {
+            for (int i = 0; i < 10; i++) {
+                Image actor = new Image();
+                if(save_data.isExist("qwordie"+i)==true)
+                {
+                    actor.setimage(R.mipmap.card_back);
+                    actor.settitle(ques[i]);
+
+                }else {
+                    actor.setimage(R.mipmap.ques_card);
+                    actor.settitle("");
+                }
+                actorsList.add(actor);
+            }
+            return null;
+        }
+        protected void onPostExecute(Void result)
+        {
+            dialog.cancel();
+            image_adapter.notifyDataSetChanged();
+        }
+
+    }
+
 
 
 }
