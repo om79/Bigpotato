@@ -13,10 +13,12 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -28,6 +30,7 @@ import android.widget.Toast;
 import com.example.poplify.big_potato.R;
 import com.example.poplify.big_potato.adapters.ConnectionDetector;
 import com.example.poplify.big_potato.adapters.Image;
+import com.example.poplify.big_potato.webview.WebView_link;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -49,6 +52,8 @@ public class Bod_scenario extends Activity
     Button submit;
     ImageView back;
     Typeface regular,bold;
+    CheckBox check;
+    TextView terms;
     ConnectionDetector condec;
     public static final MediaType FORM_DATA_TYPE
             = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
@@ -69,21 +74,67 @@ public class Bod_scenario extends Activity
         name=(EditText) findViewById(R.id.editText_fullname);
         email=(EditText) findViewById(R.id.editText2emai);
         submit=(Button) findViewById(R.id.button_sbmit);
+        check=(CheckBox) findViewById(R.id.checkBox);
         back=(ImageView) findViewById(R.id.back_play_2_bos2);
+        terms=(TextView) findViewById(R.id.textView4_condition);
+        regular= Typeface.createFromAsset(getAssets(), "Interstate-Regular.ttf");
+        bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
 
         scenario.setTypeface(regular);
         name.setTypeface(regular);
         email.setTypeface(regular);
-        submit.setTypeface(regular);
+        submit.setTypeface(bold);
+        terms.setTypeface(regular);
+
+        name.setCursorVisible(false);
+        scenario.setCursorVisible(false);
+        email.setCursorVisible(false);
+
+        name.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                name.setFocusable(true);
+                name.setCursorVisible(true);
+                name.setHint("");
+                return false;
+            }
+        });
+
+        scenario.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                scenario.setFocusable(true);
+                scenario.setCursorVisible(true);
+                scenario.setHint("");
+                return false;
+            }
+        });
+        email.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                email.setFocusable(true);
+                email.setCursorVisible(true);
+                email.setHint("");
+                return false;
+            }
+        });
 
 
-        regular= Typeface.createFromAsset(getAssets(), "Interstate-Regular.ttf");
-        bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
+
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent how23=new Intent(getApplicationContext(),Bod_homepage.class);
+                startActivity(how23);
+                overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+            }
+        });
+        terms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent how23=new Intent(getApplicationContext(),WebView_link.class);
                 startActivity(how23);
                 overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
             }
@@ -107,6 +158,7 @@ public class Bod_scenario extends Activity
                 }
 
                 //Create an object for PostDataTask AsyncTask
+                isInternetPresent = condec.isConnectingToInternet();
                 if(isInternetPresent) {
                     PostDataTask postDataTask = new PostDataTask();
 
@@ -122,17 +174,7 @@ public class Bod_scenario extends Activity
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        isInternetPresent = condec.isConnectingToInternet();
-    }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        isInternetPresent = condec.isConnectingToInternet();
-    }
 
 
     private class PostDataTask extends AsyncTask<String, Void, Boolean> {
@@ -206,6 +248,7 @@ public class Bod_scenario extends Activity
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             // your code
+            finish();
             Intent how23=new Intent(getApplicationContext(),Bod_homepage.class);
             startActivity(how23);
             overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
@@ -228,6 +271,9 @@ public class Bod_scenario extends Activity
             pwindo.setFocusable(true);
 
             final Button button = (Button) layout.findViewById(R.id.button_thnx);
+            final TextView txt = (TextView) layout.findViewById(R.id.textView6thnx);
+            txt.setTypeface(regular);
+            button.setTypeface(regular);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
@@ -249,6 +295,7 @@ public class Bod_scenario extends Activity
         }
 
     }
+
 
 
 }

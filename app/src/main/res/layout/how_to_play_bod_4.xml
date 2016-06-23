@@ -17,6 +17,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@mipmap/back"
+            android:visibility="invisible"
             android:layout_gravity="left|center"
             android:layout_weight=".1"
             android:id="@+id/back_playbddd_4" />
@@ -71,13 +72,13 @@
                     android:layout_height="wrap_content">
 
                     <Button
-                        android:layout_width="150dp"
-                        android:layout_height="60dp"
+                        android:layout_width="170dp"
+                        android:layout_height="70dp"
                         android:text="Main menu"
                         android:textStyle="bold"
                         android:gravity="center"
                         android:background="@mipmap/bod_play_menu_4"
-                        android:textSize="15dp"
+                        android:textSize="23dp"
                         android:textAllCaps="false"
                         android:id="@+id/button_menubdd" />
                 </LinearLayout>

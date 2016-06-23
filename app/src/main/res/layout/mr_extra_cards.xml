@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:weightSum="1"
-    android:background="@mipmap/background"
+    android:background="@mipmap/mr_back"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -38,8 +38,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_weight=".1"
-        android:gravity="top|center"
+        android:layout_weight=".15"
+        android:gravity="center"
         android:layout_height="0dp">
 
         <ImageView
@@ -65,7 +65,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_weight=".8"
+        android:layout_weight=".75"
         android:layout_height="0dp">
 
         <GridView
@@ -74,8 +74,8 @@
             android:numColumns="2"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:horizontalSpacing="10dp"
-            android:verticalSpacing="10dp"
+            android:horizontalSpacing="20dp"
+            android:verticalSpacing="20dp"
             android:id="@+id/gridView_bod_extra_mr" />
     </LinearLayout>
 </LinearLayout>

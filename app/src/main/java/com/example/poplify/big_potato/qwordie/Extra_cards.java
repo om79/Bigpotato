@@ -1,8 +1,10 @@
 package com.example.poplify.big_potato.qwordie;
 
+import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
-import android.animation.ValueAnimator;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -11,13 +13,14 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.Transformation;
+import android.view.animation.LinearInterpolator;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -26,16 +29,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.ViewAnimator;
 
+import com.example.poplify.big_potato.R;
 import com.example.poplify.big_potato.adapters.Image;
 import com.example.poplify.big_potato.adapters.ImageAdapter;
-import com.example.poplify.big_potato.R;
 import com.example.poplify.big_potato.adapters.SaveData;
 import com.example.poplify.big_potato.adapters.UsefullData;
 
 import java.util.ArrayList;
+
 
 /**
  * Created by POPLIFY on 5/16/2016.
@@ -48,35 +52,45 @@ public class Extra_cards extends Activity
     PopupWindow pwindo;
     SaveData save_data;
     UsefullData usefull;
-    String[] ques={ "There are seven colours in rainbow.\n Spell one",
-            "Aggrefgfdgdfgdgssive",
-            "Alonefgfdgdfg gffdgfgfgf",
-            "Amazedgfdgdfg",
-            "Angrydgdfg",
-            "Annoyed",
-            "Anxious",
-            "Artdgfdgdy",
-            "Bitchy",
-            "Blah"
+    boolean mIsBackVisible = false;
+    String[] ques={
+            "There are six main characters in the first and best ’Toy Story’ movie. Spell one.",
+            "A standard drum kit makes a lot of noise and contains five types of drum. Spell one.",
+            "According to the McDonald’s website, a ‘Big Mac’ suspiciously contains only seven ingredients. Spell one.",
+            "There are four primary ingredients that are required to brew lovely, lovely beer. Spell one.",
+            "There are four types of common saxophone (all of which can play ‘Careless Whisper’). Spell one.",
+            "Friday the 13th, Hellraiser, Psycho and The Omen all had some villains that you'd probably rather forget. Spell one. (First name only.)",
+            "Since 1979, there have been five UK Prime Ministers in power. Spell one. (first name only.)",
+            "There were five different coloured rings in the Olympics logo (before it got messed up). Spell one.",
+            "All aboard the Mystery Machine! Five cowardly and courageous characters teamed up with Scooby Doo on his adventures. Spell one.",
+            "Pretend your back at school and try to remember the 10 types of energy in the world. Then spell one.",
+            "The most dysfunctional family in animated history, there were seven dwarfs from the Disney movie, ‘Snow White’. Spell one.",
+            "The over-bearing and demanding game of ‘Bop It’ (original version) requires a player to perform one of five actions. Spell one."
 
     };
     String[] ans={
-            " Red\n Orange\n Yellow\n Green\n Blue\n Indigo\n Violet",
-            "Alonefgfdgdfggffdgfgfgf",
-            "Amazedgfdgdfg",
-            "Angrydgdfg",
-            "Annoyed",
-            "Anxious",
-            "Artdgfdgdy",
-            "Bitchy",
-            "Annoyed",
-            "Blah"
+            " Woody, Buzz, Rex, Slinky, Hamm, Potato Head",
+            " Bass, Snare, Tom, HiHat, Cymbal",
+            " Beef/Patty, Lettuce, Cheese, Pickles, Onions, Bun, Sauce",
+            " Grain/Barley, Hops, Yeast, Water",
+            " Soprano, Alto, Tenor, Baritone",
+            " Jason, Pinhead, Norman, Damien",
+            " Margaret, John, Tony, Gordon, David",
+            " Blue, Yellow, Black, Green, Red",
+            " Shaggy, Velma, Daphne, Fred, Scrappy",
+            " Magnetic, Kinetic, Heat, Light, Gravity/Gravitational, Chemical, Sound, Elastic, Nuclear, Electrical",
+            " Bashful, Doc, Dopey, Happy, Sleepy, Sneezy, Grumpy",
+            " Pull, Spin, Flick, Twist, Bop",
+
+
 
     };
     ArrayList<Image> actorsList=new ArrayList<Image>();
     Animation move,rotation;
-    AnimatorSet flip;
+    AnimatorSet flip,out,in;
+    Handler handler = new Handler();
     Typeface regular,bold;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -123,6 +137,8 @@ public class Extra_cards extends Activity
 
 
         flip = (AnimatorSet) AnimatorInflater.loadAnimator(Extra_cards.this,R.animator.flip);
+        out = (AnimatorSet) AnimatorInflater.loadAnimator(Extra_cards.this,R.animator.out_animation);
+        in = (AnimatorSet) AnimatorInflater.loadAnimator(Extra_cards.this,R.animator.in_animation);
         move = AnimationUtils.loadAnimation(Extra_cards.this, R.anim.move);
         rotation = AnimationUtils.loadAnimation(Extra_cards.this, R.anim.rotate);
 
@@ -137,6 +153,8 @@ public class Extra_cards extends Activity
     private void initiatePopupWindow(final int position) {
         try {
             // We need to get the instance of the LayoutInflater
+
+
             LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             final View layout = inflater.inflate(R.layout.popup_view,
                     (ViewGroup) findViewById(R.id.popup_element));
@@ -150,41 +168,91 @@ public class Extra_cards extends Activity
             final ImageView cross = (ImageView) layout.findViewById(R.id.imageViewcross);
             final RelativeLayout card_back = (RelativeLayout) layout.findViewById(R.id.card_background);
             final TextView textView = (TextView) layout.findViewById(R.id.textView_ques);
+            final TextView textView_ques = (TextView) layout.findViewById(R.id.textView_main_ques);
             textView.setText(ques[position]);
             textView.setTypeface(regular);
             final LinearLayout main = (LinearLayout) layout
                     .findViewById(R.id.main_layout_popup);
-//            final ScrollView s = (ScrollView) layout
-//                    .findViewById(R.id.popup_element);
+
+            final  View  mCardBackLayout = layout.findViewById(R.id.card_back);
+            final View  mCardFrontLayout = layout.findViewById(R.id.card_front);
+
+            int distance = 8000;
+            float scale = getResources().getDisplayMetrics().density * distance;
+            mCardFrontLayout.setCameraDistance(scale);
+            mCardBackLayout.setCameraDistance(scale);
 
 
 
-
+            textView_ques.setText(ques[position]);
             final Button button = (Button) layout.findViewById(R.id.button_reveal);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
-                    usefull.trimCache(getApplicationContext());
+
+
+
+
                     switch (button.getText().toString())
                     {
 
 
                         case "Return to question":
-                            flip.setTarget(main);
-                            flip.start();
-                            textView.setText(ques[position]);
+
+                            if (!mIsBackVisible) {
+                                out.setTarget(mCardFrontLayout);
+                                in.setTarget(mCardBackLayout);
+                                out.start();
+                                in.start();
+                                mIsBackVisible = true;
+                            } else {
+                                out.setTarget(mCardBackLayout);
+                                in.setTarget(mCardFrontLayout);
+                                out.start();
+                                in.start();
+                                mIsBackVisible = false;
+                            }
+
                             button.setText("Reveal answers");
-                            card_back.setBackground(getResources().getDrawable(R.mipmap.card_back));
+                            handler.postDelayed(new Runnable(){
+                                @Override
+                                public void run() {
+                                    textView_ques.setText(ques[position]);
+                                    card_back.setBackground(getResources().getDrawable(R.mipmap.card_back));
+                                }
+                            }, 700);
+
+
 
 
                             break;
                         case "Reveal answers":
 
-                            flip.setTarget(main);
-                            flip.start();
-                            textView.setText(ans[position]);
+                            if (!mIsBackVisible) {
+                                out.setTarget(mCardFrontLayout);
+                                in.setTarget(mCardBackLayout);
+                                out.start();
+                                in.start();
+                                mIsBackVisible = true;
+                            } else {
+                                out.setTarget(mCardBackLayout);
+                                in.setTarget(mCardFrontLayout);
+                                out.start();
+                                in.start();
+                                mIsBackVisible = false;
+                            }
+
                             button.setText("Return to question");
-                            card_back.setBackground(getResources().getDrawable(R.mipmap.ans_card));
+                            handler.postDelayed(new Runnable(){
+                                @Override
+                                public void run() {
+                                    textView.setText(ans[position].replace(",","\n"));
+
+                                    card_back.setBackground(getResources().getDrawable(R.mipmap.ans_card));
+                                }
+                            }, 700);
+
+
 
 
                             break;
@@ -194,6 +262,8 @@ public class Extra_cards extends Activity
 
                 }
             });
+
+
 
 
 
@@ -235,7 +305,7 @@ public class Extra_cards extends Activity
 
         }
         protected Void doInBackground(Void... arg0) {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 12; i++) {
                 Image actor = new Image();
                 if(save_data.isExist("qwordie"+i)==true)
                 {
@@ -257,6 +327,10 @@ public class Extra_cards extends Activity
         }
 
     }
+
+
+
+
 
 
 

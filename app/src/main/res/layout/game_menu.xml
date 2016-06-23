@@ -4,13 +4,12 @@
     android:id="@+id/menu_container"
     android:layout_height="match_parent">
 
-    <com.example.poplify.big_potato.main_menu.AnimatedExpandableListView
-
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/my_recycler_view_menu"
+        android:scrollbars="none"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:groupIndicator="@null"
-        android:divider="@null"
-        android:focusable="true"
-        android:smoothScrollbar="true"
-        android:id="@+id/expandableListView" />
+        android:layout_height="match_parent" />
+
+
 </LinearLayout>

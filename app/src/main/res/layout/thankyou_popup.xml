@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:id="@+id/popup_element_thnx"
-    android:background="#F2444444"
+    android:background="#CC444444"
     android:layout_height="match_parent">
 
 
@@ -19,22 +19,21 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:id="@+id/thnx_layout_popup"
-
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:weightSum="1"
                 android:background="@mipmap/thnx_back"
-                android:layout_margin="10dp"
                 android:layout_height="match_parent">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:weightSum="1"
-                    android:layout_margin="40dp"
+
+                    android:layout_margin="60dp"
                     android:layout_height="match_parent">
 
                     <LinearLayout
@@ -54,21 +53,21 @@
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="match_parent"
-
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:gravity="center"
                             android:layout_height="match_parent">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:gravity="left|center"
+                                android:gravity="left"
                                 android:textAppearance="?android:attr/textAppearanceMedium"
                                 android:text="@string/thnx_msg"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginRight="30dp"
-
                                 android:textColor="@color/black"
-                                android:id="@+id/textView6" />
+                                android:id="@+id/textView6thnx" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -84,12 +83,14 @@
 
 
                         <Button
-                            style="?android:attr/buttonStyleSmall"
+
                             android:layout_width="150dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="60dp"
                             android:text="Main menu"
                             android:textColor="@color/white"
-
+                            android:textAllCaps="false"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="20dp"
                             android:background="@mipmap/thnx_menu_back"
                             android:id="@+id/button_thnx" />
                     </LinearLayout>

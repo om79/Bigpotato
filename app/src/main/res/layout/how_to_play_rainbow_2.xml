@@ -20,6 +20,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@mipmap/back"
+            android:visibility="invisible"
             android:layout_weight=".1"
             android:id="@+id/back1" />
 
@@ -66,25 +67,27 @@
                     android:text="Turn over an Easy Card and spot which two colours from the rainbow have swapped places."
                     android:id="@+id/textView"
                     android:textColor="#ffffff"
-                    android:textSize="24sp"
+
 
                    />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
                     android:id="@+id/imageView"
                     android:src="@mipmap/rain_play_3"
 
-                    android:layout_marginTop="20dp"/>
+                    android:layout_marginTop="15dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:text='Grab the corresponding stacks. Grab one correct stack and win a block from it. Grab two correct stacks and win both blocks.'
                     android:id="@+id/textView3"
                     android:textColor="#ffffff"
-                    android:textSize="24sp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+
 
                     />
 
@@ -92,7 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageView2"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:background="@mipmap/blocks"
                     android:layout_below="@+id/textView3"
                     android:layout_centerHorizontal="true"/>

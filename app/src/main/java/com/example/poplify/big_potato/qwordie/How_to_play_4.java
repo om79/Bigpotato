@@ -21,7 +21,7 @@ import com.example.poplify.big_potato.R;
 public class How_to_play_4 extends Fragment implements View.OnClickListener
 {
 
-    ImageView back;
+
     Button menu;
     Typeface regular,bold;
 
@@ -37,9 +37,6 @@ public class How_to_play_4 extends Fragment implements View.OnClickListener
         View rootView = inflater.inflate(R.layout.how_to_play_4, container, false);
 
 
-
-        back = (ImageView) rootView.findViewById(R.id.back_play_4);
-        back.setOnClickListener(this);
 
 
         menu = (Button) rootView.findViewById(R.id.button_menu);
@@ -62,14 +59,7 @@ public class How_to_play_4 extends Fragment implements View.OnClickListener
 
         switch (view.getId())
         {
-            //handle multiple view click events
-
-            case R.id.back_play_4:
-                Intent how23=new Intent(getActivity(),Qwordie_activity.class);
-                startActivity(how23);
-                getActivity().overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
-                break;
-             case R.id.button_menu:
+               case R.id.button_menu:
                 Intent howm=new Intent(getActivity(),Qwordie_activity.class);
                 startActivity(howm);
                getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);

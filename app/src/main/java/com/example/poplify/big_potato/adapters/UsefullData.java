@@ -303,7 +303,7 @@ public class UsefullData  {
 						public void onClick(View v) {
 							Intent i = new Intent(Intent.ACTION_VIEW);
 							i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-							i.setData(Uri.parse("http://www.google.com"));
+							i.setData(Uri.parse("http://bigpotato.co.uk/"));
 							_context.startActivity(i);
 							pwindo.dismiss();
 

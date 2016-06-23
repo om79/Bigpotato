@@ -17,6 +17,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@mipmap/back"
+            android:visibility="invisible"
             android:layout_weight=".1"
             android:id="@+id/back_play_1" />
 
@@ -61,7 +62,7 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="300dp"
                     android:layout_marginTop="10dp"
                     android:src="@mipmap/pool_1"
                     android:id="@+id/imageView4" />

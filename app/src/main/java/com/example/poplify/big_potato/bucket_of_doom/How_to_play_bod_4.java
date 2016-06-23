@@ -20,7 +20,7 @@ import com.example.poplify.big_potato.qwordie.Qwordie_activity;
 public class How_to_play_bod_4 extends Fragment implements View.OnClickListener
 {
 
-    ImageView back;
+
     Button menu;
     Typeface regular,bold;
 
@@ -37,8 +37,6 @@ public class How_to_play_bod_4 extends Fragment implements View.OnClickListener
 
 
 
-        back = (ImageView) rootView.findViewById(R.id.back_playbddd_4);
-        back.setOnClickListener(this);
 
 
         menu = (Button) rootView.findViewById(R.id.button_menubdd);
@@ -63,12 +61,7 @@ public class How_to_play_bod_4 extends Fragment implements View.OnClickListener
         {
             //handle multiple view click events
 
-            case R.id.back_playbddd_4:
-                Intent how23=new Intent(getActivity(),Bod_homepage.class);
-                startActivity(how23);
-                getActivity().overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
-                break;
-             case R.id.button_menubdd:
+                       case R.id.button_menubdd:
                 Intent howm=new Intent(getActivity(),Bod_homepage.class);
                 startActivity(howm);
                getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);

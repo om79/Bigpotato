@@ -15,10 +15,10 @@ import com.example.poplify.big_potato.R;
 /**
  * Created by POPLIFY on 6/6/2016.
  */
-public class Mr_how_2 extends Fragment implements View.OnClickListener
+public class Mr_how_2 extends Fragment
 {
 
-    ImageView back;
+
     Typeface regular,bold;
 
     public Mr_how_2() {
@@ -33,8 +33,6 @@ public class Mr_how_2 extends Fragment implements View.OnClickListener
         View rootView = inflater.inflate(R.layout.mr_how_2, container, false);
 
 
-        back = (ImageView) rootView.findViewById(R.id.back_play_2_mr2);
-        back.setOnClickListener(this);
 
         regular= Typeface.createFromAsset(getActivity().getAssets(), "Interstate-Regular.ttf");
         bold = Typeface.createFromAsset(getActivity().getAssets(), "ufonts.com_interstate-bold.ttf");
@@ -46,23 +44,6 @@ public class Mr_how_2 extends Fragment implements View.OnClickListener
         return rootView;
     }
 
-    @Override
-    public void onClick(View view)
-    {
-
-
-        switch (view.getId())
-        {
-            //handle multiple view click events
-
-            case R.id.back_play_2_mr2:
-                Intent how23=new Intent(getActivity(),Mr_homepage.class);
-                startActivity(how23);
-                getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
-                break;
-
-        }
-    }
 
 
 }

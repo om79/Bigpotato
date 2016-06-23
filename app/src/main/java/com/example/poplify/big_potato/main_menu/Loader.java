@@ -1,68 +1,92 @@
 package com.example.poplify.big_potato.main_menu;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.SeekBar;
 
 import com.example.poplify.big_potato.R;
-import com.example.poplify.big_potato.adapters.UsefullData;
+import com.example.poplify.big_potato.main_menu.Game_menu;
 
-import java.util.Random;
-
-public class Loader extends AppCompatActivity {
+public class Loader extends Activity {
 
 
     ProgressBar s;
-    UsefullData usefull;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loader);
 
-        s=(ProgressBar) findViewById(R.id.pb_loading);
-        usefull=new UsefullData(getApplicationContext());
-        ObjectAnimator animation = ObjectAnimator.ofInt(s, "progress", 0, 100);
-        animation.setDuration(1500);
-        animation.setInterpolator(new DecelerateInterpolator());
-        animation.start();
+//            s=(ProgressBar) findViewById(R.id.pb_loading);
+//
+//            ObjectAnimator animation = ObjectAnimator.ofInt(s, "progress", 0, 100);
+//            animation.setDuration(1500);
+//            animation.setInterpolator(new DecelerateInterpolator());
+//            animation.start();
+
+
+//        Intent i = new Intent(getApplicationContext(), Game_menu.class);
+//        startActivity(i);
+
+        new load().execute();
+     }
+
+
+    class load extends AsyncTask<Void, Void, Void> {
+        protected void onPreExecute()
+        {
+
+            s=(ProgressBar) findViewById(R.id.pb_loading);
+
+            ObjectAnimator animation = ObjectAnimator.ofInt(s, "progress", 0, 100);
+            animation.setDuration(1500);
+            animation.setInterpolator(new DecelerateInterpolator());
+            animation.start();
+
+
+        }
+        protected Void doInBackground(Void... arg0) {
 
 
 
-        Thread background = new Thread() {
-            public void run() {
+            Thread background = new Thread() {
+                public void run() {
 
-                try {
-                    // Thread will sleep for 5 seconds
-                    sleep(1700);
+                    try {
+                        sleep(1700);
 
-                    // After 5 seconds redirect to another intent
-                    usefull.trimCache(getApplicationContext());
-                    Intent i = new Intent(Loader.this, Game_menu.class);
-                    startActivity(i);
+                        Intent i = new Intent(getApplicationContext(), Game_menu.class);
+                        startActivity(i);
+                        finish();
 
-                    finish();
+                    } catch (Exception e) {
 
-                } catch (Exception e) {
-
+                    }
                 }
-            }
-        };
 
 
-        background.start();
+            };
 
 
+            background.start();
+
+
+
+            return null;
+        }
+
+
+        protected void onPostExecute(Void result)
+        {
+
+        }
 
     }
 

@@ -38,61 +38,50 @@
         android:layout_width="match_parent"
         android:layout_weight=".9"
         android:gravity="top|center"
-
+        android:weightSum="1"
         android:layout_height="0dp">
 
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/scrollView2" >
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_weight=".3"
+            android:layout_height="0dp">
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@mipmap/p15"
+                android:id="@+id/imageView10_timer" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_weight=".5"
+            android:layout_height="0dp">
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:layout_height="match_parent">
+            <Button
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:background="@drawable/button_selector"
+                android:id="@+id/imageButton2_timer" />
+        </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:src="@mipmap/p15"
-                        android:id="@+id/imageView10_timer" />
-                </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_weight=".2"
+            android:layout_height="0dp">
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:layout_height="match_parent">
-
-                    <Button
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:background="@drawable/button_selector"
-                        android:id="@+id/imageButton2_timer" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:layout_height="match_parent">
-
-                    <Button
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:background="@drawable/play_btn_selector"
-                        android:id="@+id/imageButton3_timer" />
-                </LinearLayout>
-
-            </LinearLayout>
-        </ScrollView>
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:background="@drawable/play_btn_selector"
+                android:id="@+id/imageButton3_timer" />
+        </LinearLayout>
 
     </LinearLayout>
 

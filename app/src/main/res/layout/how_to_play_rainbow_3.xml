@@ -23,6 +23,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@mipmap/back"
+            android:visibility="invisible"
             android:layout_weight=".1"
             android:id="@+id/back2" />
 
@@ -61,15 +62,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Grab the wrong stock and lose a block. But watch out! Hidden amongst the cards are real rainbow cards, where no colours have swapped places."
+                android:text="Grab the wrong stack and lose a block. But watch out! Hidden amongst the cards are real rainbow cards, where no colours have swapped places."
                 android:id="@+id/textView"
                 android:textColor="#ffffff"
-                android:textSize="24sp"
+
                />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
                 android:layout_marginTop="20dp"
                 android:src="@mipmap/perfect_card"
                 android:id="@+id/imageView9" />
@@ -78,10 +79,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text='See one, shout "Rainbow!" and take a block of your choice. Shout "Rainbow!" incorrectly and lose ALL your chips.'
                 android:id="@+id/textView3"
                 android:textColor="#ffffff"
-                android:textSize="24sp"
+
                />
 
         </LinearLayout>

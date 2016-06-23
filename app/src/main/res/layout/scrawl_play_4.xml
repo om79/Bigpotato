@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@mipmap/scrawl_how_back">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight=".1"
+        android:weightSum="1"
+        android:layout_gravity="left|center"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back"
+            android:layout_gravity="left|center"
+            android:layout_weight=".1"
+            android:visibility="invisible"
+            android:id="@+id/back_play_2_mr34" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+
+            android:layout_weight=".8"
+            android:layout_height="match_parent"></LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".1"
+            android:id="@+id/imageView2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_weight=".9"
+        android:gravity="center"
+
+        android:layout_height="0dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView4" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="35dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/scrawl_play_4"
+                    android:id="@+id/textVidfsdfew3__2mm34" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:gravity="right"
+
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="310dp"
+                        android:layout_height="140dp"
+                        android:src="@mipmap/scrawl_play_4"
+
+                        android:id="@+id/imageView4" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/scrawl_play_41"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="35dp"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="top"
+                    android:id="@+id/textView5__2_mr34dfdfs" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:layout_width="160dp"
+                        android:layout_height="65dp"
+                        android:text="Main Menu"
+                        android:id="@+id/button_menubdd34"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"
+                        android:background="@mipmap/main_menu_button_13"
+                        android:textAllCaps="false"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

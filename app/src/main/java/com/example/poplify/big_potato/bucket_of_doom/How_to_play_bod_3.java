@@ -16,10 +16,10 @@ import com.example.poplify.big_potato.qwordie.Qwordie_activity;
 /**
  * Created by POPLIFY on 5/17/2016.
  */
-public class How_to_play_bod_3 extends Fragment implements View.OnClickListener
+public class How_to_play_bod_3 extends Fragment
 {
 
-    ImageView back;
+
     Typeface regular,bold;
 
     public How_to_play_bod_3() {
@@ -33,8 +33,6 @@ public class How_to_play_bod_3 extends Fragment implements View.OnClickListener
 
         View rootView = inflater.inflate(R.layout.how_to_play_bod_3, container, false);
 
-        back = (ImageView) rootView.findViewById(R.id.back_play_2_bod3);
-        back.setOnClickListener(this);
 
 
         regular= Typeface.createFromAsset(getActivity().getAssets(), "Interstate-Regular.ttf");
@@ -48,23 +46,7 @@ public class How_to_play_bod_3 extends Fragment implements View.OnClickListener
         return rootView;
     }
 
-    @Override
-    public void onClick(View view)
-    {
 
-
-        switch (view.getId())
-        {
-            //handle multiple view click events
-
-            case R.id.back_play_2_bod3:
-                Intent how23=new Intent(getActivity(),Bod_homepage.class);
-                startActivity(how23);
-                getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
-                break;
-
-        }
-    }
 
 
 }

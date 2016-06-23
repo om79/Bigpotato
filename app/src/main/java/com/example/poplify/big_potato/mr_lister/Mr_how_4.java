@@ -20,7 +20,7 @@ import com.example.poplify.big_potato.bucket_of_doom.Bod_homepage;
 public class Mr_how_4 extends Fragment implements View.OnClickListener
 {
 
-    ImageView back;
+
     Typeface regular,bold;
     Button menu;
 
@@ -36,8 +36,6 @@ public class Mr_how_4 extends Fragment implements View.OnClickListener
         View rootView = inflater.inflate(R.layout.mr_how_4, container, false);
 
 
-        back = (ImageView) rootView.findViewById(R.id.back_play_2_mr34);
-        back.setOnClickListener(this);
 
         menu = (Button) rootView.findViewById(R.id.button_menubdd34);
         menu.setOnClickListener(this);
@@ -50,6 +48,8 @@ public class Mr_how_4 extends Fragment implements View.OnClickListener
 
         TextView v1=(TextView)  rootView.findViewById(R.id.textView5__2_mr34);
         v1.setTypeface(regular);
+
+        menu.setTypeface(bold);
 
 
         return rootView;
@@ -64,12 +64,7 @@ public class Mr_how_4 extends Fragment implements View.OnClickListener
         {
             //handle multiple view click events
 
-            case R.id.back_play_2_mr34:
-                Intent how23=new Intent(getActivity(),Mr_homepage.class);
-                startActivity(how23);
-                getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
-                break;
-            case R.id.button_menubdd34:
+             case R.id.button_menubdd34:
                 Intent howm=new Intent(getActivity(),Mr_homepage.class);
                 startActivity(howm);
                 getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);

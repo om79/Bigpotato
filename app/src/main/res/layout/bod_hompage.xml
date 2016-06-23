@@ -55,11 +55,11 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:layout_height="wrap_content"
                         android:layout_weight=".4"
                         android:gravity="center"
-                        android:textColor="@color/white"
+                        android:textColor="#A6ffffff"
                         android:text="#Bucketofdoom" />
                 </LinearLayout>
             </RelativeLayout>
@@ -73,14 +73,26 @@
             android:gravity="top"
             android:layout_height="0dp">
 
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/How"
+                android:textStyle="bold"
+                android:layout_marginBottom="18dp"
+                android:textColor="@color/white"
+                android:id="@+id/how_to_play_bod" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/Extra"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp"
+
+                android:layout_marginBottom="18dp"
                 android:onClick="onClick"
                 android:textColor="@color/white"
                 android:id="@+id/exta_cards_bod" />
@@ -90,22 +102,13 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/Scenario"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp"
+
+                android:layout_marginBottom="18dp"
                 android:onClick="onClick"
                 android:textColor="@color/white"
                 android:id="@+id/exta_cards_scen_bod" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/How"
 
-                android:layout_margin="8dp"
-                android:textColor="@color/white"
-                android:id="@+id/how_to_play_bod" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -113,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/Buy"
-                android:layout_margin="8dp"
+
                 android:textColor="@color/white"
 
                 android:id="@+id/buy_the_game_bod" />
@@ -125,6 +128,12 @@
             android:layout_weight=".15"
             android:id="@+id/relativeLayout_bod"
             android:layout_height="0dp">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/my_recycler_view"
+                android:scrollbars="none"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
     </LinearLayout>

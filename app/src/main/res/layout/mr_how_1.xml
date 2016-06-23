@@ -19,6 +19,7 @@
             android:src="@mipmap/back"
             android:layout_gravity="left|center"
             android:layout_weight=".1"
+            android:visibility="invisible"
             android:id="@+id/back_play_2_mr1" />
 
         <LinearLayout
@@ -62,9 +63,9 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="150dp"
                     android:src="@mipmap/mr_how_1"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:id="@+id/imageView4" />
 
                 <TextView
@@ -73,7 +74,7 @@
                     android:text="@string/mr_how_half_1"
 
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:gravity="top"
                     android:id="@+id/textView5__2_mr1" />
             </LinearLayout>

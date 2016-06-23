@@ -4,7 +4,7 @@
 
     <item android:id="@android:id/background">
         <shape>
-            <solid android:color="@color/yellow" />
+            <solid android:color="@color/white" />
 
             <corners android:radius="20dp"
                 />
@@ -15,17 +15,8 @@
     </item>
     <item android:id="@android:id/progress">
 
-        <!-- <clip> -->
-        <!-- <shape> -->
-         <!--<solid android:color="@android:color/black" />-->
-
-
-
-        <!-- </shape> -->
-        <!-- </clip> -->
-
         <scale
             android:drawable="@drawable/custom_progress_primary"
-            android:scaleWidth="100%" /><!-- change here -->
+            android:scaleWidth="100%" />
     </item>
 </layer-list>

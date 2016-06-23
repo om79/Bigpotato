@@ -18,68 +18,70 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_weight=".1"
-            android:weightSum="1"
-            android:gravity="right|center"
-            android:layout_height="0dp">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/back"
-                android:layout_weight=".1"
-                android:id="@+id/back" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="0dp"
-                android:layout_weight=".6"
-                android:layout_height="match_parent"></LinearLayout>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".3"
-                android:gravity="center"
-                android:text="#Qwordie"
-                android:textColor="@color/white"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                 />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
             android:layout_weight=".5"
             android:layout_height="0dp">
 
-            <ImageView
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@mipmap/main_pic"
+                android:layout_height="match_parent">
 
-                android:id="@+id/imageView3" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_weight=".1"
+                    android:weightSum="1"
+                    android:gravity="right|center"
+                    android:layout_height="50dp">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/back"
+                        android:layout_weight=".1"
+                        android:id="@+id/back" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_weight=".6"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3"
+                        android:gravity="center"
+                        android:text="#Qwordie"
+                        android:textColor="#A6ffffff"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/main_pic"
+                        android:gravity="center"
+                        android:id="@+id/imageView3" />
+                </LinearLayout>
+
+            </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_weight=".25"
+            android:layout_weight=".35"
 
             android:gravity="top"
             android:layout_height="0dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/Extra"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp"
-                android:onClick="onClick"
-                android:textColor="@color/white"
-                android:id="@+id/exta_cards" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -87,8 +89,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/How"
-
-                android:layout_margin="8dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
                 android:textColor="@color/white"
                 android:id="@+id/how_to_play" />
 
@@ -97,8 +99,22 @@
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Extra"
+
+                android:layout_marginBottom="20dp"
+                android:onClick="onClick"
+                android:textColor="@color/white"
+                android:id="@+id/exta_cards" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/Buy"
-                android:layout_margin="8dp"
+
                 android:textColor="@color/white"
 
                 android:id="@+id/buy_the_game" />
@@ -110,6 +126,12 @@
             android:layout_weight=".15"
             android:id="@+id/relativeLayout"
             android:layout_height="0dp">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/my_recycler_view"
+                android:scrollbars="none"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
     </LinearLayout>

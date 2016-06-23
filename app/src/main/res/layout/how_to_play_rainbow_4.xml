@@ -22,6 +22,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@mipmap/back"
+            android:visibility="invisible"
             android:layout_weight=".1"
             android:id="@+id/back3" />
 
@@ -60,29 +61,30 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Play Hard Cards and all the colours have moved but two."
-                    android:id="@+id/textView"
+                    android:id="@+id/textView64"
                     android:textColor="#ffffff"
-                    android:textSize="24sp"
-
                     android:layout_marginLeft="35dp"
                     android:layout_marginRight="35dp"
                     android:layout_alignParentTop="true"
                     />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
                     android:src="@mipmap/rian_play_4"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginLeft="40dp"
                     android:id="@+id/imageView6" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text='Spot which two colours are still in their correct positions and grab the stacks to win the blocks.'
-                    android:id="@+id/textView3"
+                    android:id="@+id/textView354"
                     android:textColor="#ffffff"
-                    android:textSize="24sp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+
                     android:layout_marginLeft="35dp"
                     android:layout_marginRight="35dp"
                     android:layout_marginTop="30dp"

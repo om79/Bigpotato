@@ -40,6 +40,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:src="@mipmap/back"
+                            android:visibility="invisible"
                             android:layout_gravity="left|center"
                             android:layout_weight=".1"
                             android:id="@+id/back_play_2_ok" />

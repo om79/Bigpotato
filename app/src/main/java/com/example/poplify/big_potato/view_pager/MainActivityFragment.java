@@ -1,18 +1,25 @@
 package com.example.poplify.big_potato.view_pager;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import com.example.poplify.big_potato.R;
 import com.example.poplify.big_potato.adapters.SaveData;
+import com.example.poplify.big_potato.bucket_of_doom.Bod_homepage;
+import com.example.poplify.big_potato.mr_lister.Mr_homepage;
+import com.example.poplify.big_potato.obla.Obla_homapage;
+import com.example.poplify.big_potato.ok_play.Ok_play_homescreen;
+import com.example.poplify.big_potato.qwordie.Qwordie_activity;
+import com.example.poplify.big_potato.rainbow_rage.RainbowRage;
+import com.example.poplify.big_potato.scrawl.Scraml_homepage;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -21,6 +28,7 @@ public class MainActivityFragment extends Fragment {
     private ViewPager _mViewPager;
     private ImageViewPagerAdapter _adapter;
     private ImageView _btn1, _btn2, _btn3,_btn4,_btn5;
+    LinearLayout cross;
     SaveData save;
     public MainActivityFragment() {
     }
@@ -47,34 +55,88 @@ public class MainActivityFragment extends Fragment {
         _btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _mViewPager.setCurrentItem(0);
+                _mViewPager.setCurrentItem(1);
             }
         });
 
         _btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _mViewPager.setCurrentItem(1);
+                _mViewPager.setCurrentItem(2);
             }
         });
         _btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _mViewPager.setCurrentItem(2);
+                _mViewPager.setCurrentItem(3);
             }
         });
         _btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _mViewPager.setCurrentItem(3);
+                _mViewPager.setCurrentItem(4);
             }
         });
         _btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _mViewPager.setCurrentItem(4);
+                _mViewPager.setCurrentItem(5);
             }
         });
+
+
+        cross.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                switch (save.getString("current_game"))
+                {
+                    case "RAINBOW":
+                        Intent how23=new Intent(getActivity(),RainbowRage.class);
+                        startActivity(how23);
+                        getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+                        break;
+                    case "BUCKET OF DOOM":
+                        Intent how2=new Intent(getActivity(),Bod_homepage.class);
+                        startActivity(how2);
+                        getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+                        break;
+                    case "QWORDIE":
+                        Intent how3=new Intent(getActivity(),Qwordie_activity.class);
+                        startActivity(how3);
+                        getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+                        break;
+                    case "MR LISTERS":
+                        Intent hw23=new Intent(getActivity(),Mr_homepage.class);
+                        startActivity(hw23);
+                        getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+                        break;
+                    case "OKPLAY":
+
+                        Intent ho23=new Intent(getActivity(),Ok_play_homescreen.class);
+                        startActivity(ho23);
+                        getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+
+                        break;
+                    case "SCRAWL":
+
+                        Intent s=new Intent(getActivity(),Scraml_homepage.class);
+                        startActivity(s);
+                        getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+
+                        break;
+                    case "OBLA":
+
+                        Intent so=new Intent(getActivity(),Obla_homapage.class);
+                        startActivity(so);
+                        getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+
+                        break;
+                }
+            }
+        });
+
+
     }
 
     private void setUpView() {
@@ -117,44 +179,298 @@ public class MainActivityFragment extends Fragment {
     }
 
     private void btnAction(int action) {
-        switch (action) {
-            case 0:
-                _btn1.setImageResource(R.drawable.full_whitedot);
 
+
+
+
+        switch (save.getString("current_game"))
+        {
+            case "RAINBOW":
+                switch (action) {
+                    case 0:
+                        _btn1.setVisibility(View.GONE);
+                        _btn2.setVisibility(View.GONE);
+                        _btn3.setVisibility(View.GONE);
+                        _btn4.setVisibility(View.GONE);
+                        _btn5.setVisibility(View.GONE);
+                        break;
+                    case 1:
+                        _btn1.setVisibility(View.VISIBLE);
+                        _btn2.setVisibility(View.VISIBLE);
+                        _btn3.setVisibility(View.VISIBLE);
+                        _btn4.setVisibility(View.VISIBLE);
+                        _btn5.setVisibility(View.VISIBLE);
+                        _btn1.setImageResource(R.drawable.full_whitedot);
+                        break;
+                    case 2:
+                        _btn2.setImageResource(R.drawable.full_whitedot);
+                        break;
+                    case 3:
+                        _btn3.setImageResource(R.drawable.full_whitedot);
+                        break;
+                    case 4:
+                        _btn4.setImageResource(R.drawable.full_whitedot);
+                        break;
+                    case 5:
+                        _btn5.setImageResource(R.drawable.full_whitedot);
+                        break;
+
+                }
+                break;
+            case "BUCKET OF DOOM":
+                _btn5.setVisibility(View.GONE);
+                switch (action) {
+                    case 0:
+                        _btn1.setVisibility(View.GONE);
+                        _btn2.setVisibility(View.GONE);
+                        _btn3.setVisibility(View.GONE);
+                        _btn4.setVisibility(View.GONE);
+                        _btn5.setVisibility(View.GONE);
+                        break;
+                    case 1:
+                        _btn1.setVisibility(View.VISIBLE);
+                        _btn2.setVisibility(View.VISIBLE);
+                        _btn3.setVisibility(View.VISIBLE);
+                        _btn4.setVisibility(View.VISIBLE);
+
+                        _btn1.setImageResource(R.drawable.bod_dot);
+                        break;
+                    case 2:
+                        _btn2.setImageResource(R.drawable.bod_dot);
+                        break;
+                    case 3:
+                        _btn3.setImageResource(R.drawable.bod_dot);
+                        break;
+                    case 4:
+                        _btn4.setImageResource(R.drawable.bod_dot);
+                        break;
+                    case 5:
+                        _btn5.setImageResource(R.drawable.bod_dot);
+                        break;
+
+                }
+                break;
+            case "QWORDIE":
+                _btn5.setVisibility(View.GONE);
+                switch (action) {
+                    case 0:
+                        _btn1.setVisibility(View.GONE);
+                        _btn2.setVisibility(View.GONE);
+                        _btn3.setVisibility(View.GONE);
+                        _btn4.setVisibility(View.GONE);
+                        _btn5.setVisibility(View.GONE);
+                        break;
+                    case 1:
+                        _btn1.setVisibility(View.VISIBLE);
+                        _btn2.setVisibility(View.VISIBLE);
+                        _btn3.setVisibility(View.VISIBLE);
+                        _btn4.setVisibility(View.VISIBLE);
+
+                        _btn1.setImageResource(R.drawable.qwordie_dot);
+                        break;
+                    case 2:
+                        _btn2.setImageResource(R.drawable.qwordie_dot);
+                        break;
+                    case 3:
+                        _btn3.setImageResource(R.drawable.qwordie_dot);
+                        break;
+                    case 4:
+                        _btn4.setImageResource(R.drawable.qwordie_dot);
+                        break;
+                    case 5:
+                        _btn5.setImageResource(R.drawable.qwordie_dot);
+                        break;
+
+                }
+                break;
+            case "MR LISTERS":
+                _btn5.setVisibility(View.GONE);
+                switch (action) {
+                    case 0:
+                        _btn1.setVisibility(View.GONE);
+                        _btn2.setVisibility(View.GONE);
+                        _btn3.setVisibility(View.GONE);
+                        _btn4.setVisibility(View.GONE);
+                        _btn5.setVisibility(View.GONE);
+                        break;
+                    case 1:
+                        _btn1.setVisibility(View.VISIBLE);
+                        _btn2.setVisibility(View.VISIBLE);
+                        _btn3.setVisibility(View.VISIBLE);
+                        _btn4.setVisibility(View.VISIBLE);
+
+                        _btn1.setImageResource(R.drawable.mr_dot);
+                        break;
+                    case 2:
+                        _btn2.setImageResource(R.drawable.mr_dot);
+                        break;
+                    case 3:
+                        _btn3.setImageResource(R.drawable.mr_dot);
+                        break;
+                    case 4:
+                        _btn4.setImageResource(R.drawable.mr_dot);
+                        break;
+                    case 5:
+                        _btn5.setImageResource(R.drawable.mr_dot);
+                        break;
+
+                }
+                break;
+            case "OKPLAY":
+                _btn5.setVisibility(View.GONE);
+                switch (action) {
+                    case 0:
+                        _btn1.setVisibility(View.GONE);
+                        _btn2.setVisibility(View.GONE);
+                        _btn3.setVisibility(View.GONE);
+                        _btn4.setVisibility(View.GONE);
+                        _btn5.setVisibility(View.GONE);
+                        break;
+                    case 1:
+                        _btn1.setVisibility(View.VISIBLE);
+                        _btn2.setVisibility(View.VISIBLE);
+                        _btn3.setVisibility(View.VISIBLE);
+                        _btn4.setVisibility(View.VISIBLE);
+
+                        _btn1.setImageResource(R.drawable.okplay_dot);
+                        break;
+                    case 2:
+                        _btn2.setImageResource(R.drawable.okplay_dot);
+                        break;
+                    case 3:
+                        _btn3.setImageResource(R.drawable.okplay_dot);
+                        break;
+                    case 4:
+                        _btn4.setImageResource(R.drawable.okplay_dot);
+                        break;
+                    case 5:
+                        _btn5.setImageResource(R.drawable.okplay_dot);
+                        break;
+
+                }
                 break;
 
-            case 1:
-                _btn2.setImageResource(R.drawable.full_whitedot);
+            case "SCRAWL":
+                _btn5.setVisibility(View.GONE);
+                switch (action) {
+                    case 0:
+                        _btn1.setVisibility(View.GONE);
+                        _btn2.setVisibility(View.GONE);
+                        _btn3.setVisibility(View.GONE);
+                        _btn4.setVisibility(View.GONE);
+                        _btn5.setVisibility(View.GONE);
+                        break;
+                    case 1:
+                        _btn1.setVisibility(View.VISIBLE);
+                        _btn2.setVisibility(View.VISIBLE);
+                        _btn3.setVisibility(View.VISIBLE);
+                        _btn4.setVisibility(View.VISIBLE);
 
-                break;
-            case 2:
-                _btn3.setImageResource(R.drawable.full_whitedot);
+                        _btn1.setImageResource(R.drawable.full_whitedot);
+                        break;
+                    case 2:
+                        _btn2.setImageResource(R.drawable.full_whitedot);
+                        break;
+                    case 3:
+                        _btn3.setImageResource(R.drawable.full_whitedot);
+                        break;
+                    case 4:
+                        _btn4.setImageResource(R.drawable.full_whitedot);
+                        break;
+                    case 5:
+                        _btn5.setImageResource(R.drawable.full_whitedot);
+                        break;
 
+                }
                 break;
-            case 3:
-                _btn4.setImageResource(R.drawable.full_whitedot);
 
-                break;
-            case 4:
-                _btn5.setImageResource(R.drawable.full_whitedot);
+            case "OBLA":
+                _btn5.setVisibility(View.VISIBLE);
+                switch (action) {
+                    case 0:
+                        _btn1.setVisibility(View.GONE);
+                        _btn2.setVisibility(View.GONE);
+                        _btn3.setVisibility(View.GONE);
+                        _btn4.setVisibility(View.GONE);
+                        _btn5.setVisibility(View.GONE);
+                        break;
+                    case 1:
+                        _btn1.setVisibility(View.VISIBLE);
+                        _btn2.setVisibility(View.VISIBLE);
+                        _btn3.setVisibility(View.VISIBLE);
+                        _btn4.setVisibility(View.VISIBLE);
+                        _btn5.setVisibility(View.VISIBLE);
+                        _btn1.setImageResource(R.drawable.qwordie_dot);
+                        break;
+                    case 2:
+                        _btn2.setImageResource(R.drawable.qwordie_dot);
+                        break;
+                    case 3:
+                        _btn3.setImageResource(R.drawable.qwordie_dot);
+                        break;
+                    case 4:
+                        _btn4.setImageResource(R.drawable.qwordie_dot);
+                        break;
+                    case 5:
 
-                break;
+                        _btn5.setImageResource(R.drawable.qwordie_dot);
+                        break;
+
+                }
+
 
         }
+
+
     }
 
     private void initButton() {
         _btn1 = (ImageView) getView().findViewById(R.id.btn1);
-        _btn1.setImageResource(R.drawable.full_whitedot);
         _btn2 = (ImageView) getView().findViewById(R.id.btn2);
         _btn3 = (ImageView) getView().findViewById(R.id.btn3);
         _btn4 = (ImageView) getView().findViewById(R.id.btn4);
         _btn5 = (ImageView) getView().findViewById(R.id.btn5);
+        cross = (LinearLayout) getView().findViewById(R.id.back_play);
+        _btn1.setVisibility(View.GONE);
+        _btn2.setVisibility(View.GONE);
+        _btn3.setVisibility(View.GONE);
+        _btn4.setVisibility(View.GONE);
+        _btn5.setVisibility(View.GONE);
 
-        if(save.getString("current_game").equals("RAINBOW")){
-            _btn5.setVisibility(View.VISIBLE);
-        }else {
-            _btn5.setVisibility(View.GONE);
+
+        switch (save.getString("current_game"))
+        {
+            case "RAINBOW":
+
+                _btn1.setImageResource(R.drawable.full_whitedot);
+
+                break;
+            case "BUCKET OF DOOM":
+
+                _btn1.setImageResource(R.drawable.bod_dot);
+                break;
+            case "QWORDIE":
+
+                _btn1.setImageResource(R.drawable.qwordie_dot);
+                break;
+            case "MR LISTERS":
+
+                _btn1.setImageResource(R.drawable.mr_dot);
+                break;
+            case "OKPLAY":
+
+                _btn1.setImageResource(R.drawable.okplay_dot);
+                break;
+            case "SCRAWL":
+                _btn5.setVisibility(View.GONE);
+                _btn1.setImageResource(R.drawable.full_whitedot);
+
+                break;
+            case "OBLA":
+
+                _btn1.setImageResource(R.drawable.qwordie_dot);
+
+                break;
         }
 
     }

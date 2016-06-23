@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.poplify.big_potato.R;
+import com.example.poplify.big_potato.mr_lister.Mr_homepage;
 import com.example.poplify.big_potato.qwordie.Qwordie_activity;
 
 /**
@@ -19,9 +21,9 @@ import com.example.poplify.big_potato.qwordie.Qwordie_activity;
 public class Okplay_how_4 extends Fragment implements View.OnClickListener
 {
 
-    ImageView back;
-    Typeface regular,bold;
 
+    Typeface regular,bold;
+    Button menu;
     public Okplay_how_4() {
         // Required empty public constructor
     }
@@ -34,14 +36,16 @@ public class Okplay_how_4 extends Fragment implements View.OnClickListener
         View rootView = inflater.inflate(R.layout.okplay_how_4, container, false);
 
 
-        back = (ImageView) rootView.findViewById(R.id.back_play_2_ok4);
-        back.setOnClickListener(this);
-
-        regular= Typeface.createFromAsset(getActivity().getAssets(), "Interstate-Regular.ttf");
+       regular= Typeface.createFromAsset(getActivity().getAssets(), "Interstate-Regular.ttf");
         bold = Typeface.createFromAsset(getActivity().getAssets(), "ufonts.com_interstate-bold.ttf");
 
         TextView v1=(TextView)  rootView.findViewById(R.id.textView5__2_ok4);
         v1.setTypeface(regular);
+
+        menu = (Button) rootView.findViewById(R.id.button_menubdd34_okplay);
+        menu.setOnClickListener(this);
+
+        menu.setTypeface(bold);
         return rootView;
     }
 
@@ -54,9 +58,9 @@ public class Okplay_how_4 extends Fragment implements View.OnClickListener
         {
             //handle multiple view click events
 
-            case R.id.back_play_2_ok4:
-                Intent how23=new Intent(getActivity(),Ok_play_homescreen.class);
-                startActivity(how23);
+                       case R.id.button_menubdd34_okplay:
+                Intent howm=new Intent(getActivity(),Ok_play_homescreen.class);
+                startActivity(howm);
                 getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
                 break;
 

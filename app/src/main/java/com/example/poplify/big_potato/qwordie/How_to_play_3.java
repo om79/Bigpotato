@@ -17,10 +17,10 @@ import com.example.poplify.big_potato.R;
 /**
  * Created by POPLIFY on 5/17/2016.
  */
-public class How_to_play_3 extends Fragment implements View.OnClickListener
+public class How_to_play_3 extends Fragment
 {
 
-    ImageView back;
+
     Typeface regular,bold;
 
     public How_to_play_3() {
@@ -34,9 +34,6 @@ public class How_to_play_3 extends Fragment implements View.OnClickListener
 
         View rootView = inflater.inflate(R.layout.how_to_play_3, container, false);
 
-        back = (ImageView) rootView.findViewById(R.id.back_play_3);
-        back.setOnClickListener(this);
-
 
         regular= Typeface.createFromAsset(getActivity().getAssets(), "Interstate-Regular.ttf");
         bold = Typeface.createFromAsset(getActivity().getAssets(), "ufonts.com_interstate-bold.ttf");
@@ -49,23 +46,7 @@ public class How_to_play_3 extends Fragment implements View.OnClickListener
         return rootView;
     }
 
-    @Override
-    public void onClick(View view)
-    {
 
-
-        switch (view.getId())
-        {
-            //handle multiple view click events
-
-            case R.id.back_play_3:
-                Intent how23=new Intent(getActivity(),Qwordie_activity.class);
-                startActivity(how23);
-                getActivity().overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
-                break;
-
-        }
-    }
 
 
 }

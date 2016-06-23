@@ -2,16 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:weightSum="1"
     android:background="@mipmap/okplay_back">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-
+        android:layout_weight=".88"
         android:gravity="center"
-
-        android:layout_height="match_parent">
+        android:layout_height="0dp">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -26,43 +25,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
 
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_weight=".1"
-                        android:weightSum="1"
-                        android:layout_gravity="left|center"
-                        android:layout_height="50dp">
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/back"
-                            android:layout_gravity="left|center"
-                            android:layout_weight=".1"
-                            android:id="@+id/back_play_2_ok4" />
-
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="0dp"
-                            android:layout_weight=".8"
-                            android:layout_height="match_parent"></LinearLayout>
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".1"
-                            android:id="@+id/imageView2" />
-                    </LinearLayout>
+                    android:layout_height="350dp">
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:src="@mipmap/ok_play_how_4"
                         android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
                         android:id="@+id/imageView4" />
                 </RelativeLayout>
 
@@ -74,15 +44,40 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="35dp"
                     android:layout_marginRight="35dp"
-
+                    android:layout_marginTop="20dp"
                     android:gravity="top"
                     android:id="@+id/textView5__2_ok4" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:layout_width="170dp"
+                        android:layout_height="60dp"
+                        android:text="Main Menu"
+                        android:id="@+id/button_menubdd34_okplay"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp"
+
+                        android:background="@mipmap/main_menu_button_13"
+                        android:textAllCaps="false"
+                        />
+                </LinearLayout>
 
             </LinearLayout>
         </ScrollView>
 
     </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_weight=".12"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"></LinearLayout>
 
 
 </LinearLayout>

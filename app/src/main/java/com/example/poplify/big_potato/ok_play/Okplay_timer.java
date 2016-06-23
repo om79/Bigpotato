@@ -30,19 +30,19 @@ public class Okplay_timer extends Activity
     long remainMilli = 0;
     boolean isRunning=false;
     boolean ispause=false;
-    boolean istimercancel=false;
 
 
 
-    int[] pics = new int[] { R.mipmap.p15,R.mipmap.p0,R.mipmap.p1,R.mipmap.p2, R.mipmap.p3,R.mipmap.p4,
+
+    int[] pics = new int[] { R.mipmap.p0,R.mipmap.p1,R.mipmap.p2, R.mipmap.p3,R.mipmap.p4,
             R.mipmap.p5,R.mipmap.p6,R.mipmap.p7,R.mipmap.p8,R.mipmap.p9,R.mipmap.p10,R.mipmap.p11,R.mipmap.p12,R.mipmap.p13,
-            R.mipmap.p14};
+            R.mipmap.p14,R.mipmap.p15,R.mipmap.p15};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.okplay_timer);
 
-        timer = new CounterClass(16000,1000);
+        timer = new CounterClass(17000,1000);
         timer_pic = (ImageView) findViewById(R.id.imageView10_timer);
         back = (ImageView) findViewById(R.id.back_play_1_timer);
         back.setOnClickListener(new View.OnClickListener() {
@@ -82,9 +82,23 @@ public class Okplay_timer extends Activity
             @Override
             public void onClick(View v) {
 
+                if(!isRunning)
+                {
+                    if(!ispause){
 
-                    Stop();
+                        start();
+                    }else{
 
+                        remainMilli=0;
+                        timer = new CounterClass(17000, 1000); //resume timer from where it is paused
+                        timer.start();  //Start the timer
+                        isRunning = true;
+                        play.setBackgroundResource(R.drawable.pause);
+                    }
+                }else {
+
+                    start();
+                }
 
 
             }
@@ -101,14 +115,11 @@ public class Okplay_timer extends Activity
     //When start button clicks
     public void start()
     {
-        if(!istimercancel){
-            timer.cancel();
-            istimercancel=true;
-        }
+
+        timer.cancel();
         remainMilli=0;
         play.setBackgroundResource(R.drawable.pause);
-        timer = new CounterClass(16000, 1000);
-        istimercancel=false;//Create a new timer
+        timer = new CounterClass(17000, 1000);
         timer.start();   //Start the timer
         isRunning = true;
         ispause = false;
@@ -117,23 +128,12 @@ public class Okplay_timer extends Activity
     //When Stop button clicks
     public void Stop()
     {
-        if(!istimercancel){
-            remainMilli=0;
-            timer.cancel();  //Cancel the running timer
-            play.setBackgroundResource(R.drawable.play);
-            isRunning=false;
-            timer_pic.setImageResource(R.mipmap.p15);
-            ispause = false;
-            istimercancel=true;
-
-        }else {
-
-            remainMilli=0;
-            play.setBackgroundResource(R.drawable.play);
+            remainMilli=15;
+            play.setBackgroundResource(R.drawable.pause);
             isRunning = false;
             timer_pic.setImageResource(R.mipmap.p15);
             ispause = false;
-        }
+
     }
 
     //When Resume button clicks
@@ -150,7 +150,7 @@ public class Okplay_timer extends Activity
     public void Pause() {
         if(isRunning){  //This method will execute only when timer is running
             timer.cancel();  //cancel (pause) timer when it is running
-            istimercancel=true;
+           
             timer=null;
             ispause=true;
             isRunning=false;
@@ -177,7 +177,7 @@ public class Okplay_timer extends Activity
 
             long a=TimeUnit.MILLISECONDS.toSeconds(remainMilli)- TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(remainMilli));
                 Log.i("----",""+a);
-            timer_pic.setImageResource(pics[(int)a]);
+            timer_pic.setImageResource(pics[(int)a-1]);
 
 
         }
@@ -187,7 +187,7 @@ public class Okplay_timer extends Activity
         public void onFinish() {
             // reset all variables
             play.setBackgroundResource(R.drawable.play);
-            timer_pic.setImageResource(R.mipmap.p15);
+//            timer_pic.setImageResource(R.mipmap.p15);
             isRunning=false;
             ispause=false;
             remainMilli=0;

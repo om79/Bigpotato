@@ -13,31 +13,58 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_weight=".5"
-            android:layout_height="0dp">
+            android:gravity="right"
+            android:layout_height="50dp">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/hit"
-                android:layout_margin="40dp"
-                android:id="@+id/imageButton2" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:id="@+id/imageView12_sound_cross"
+                android:src="@mipmap/white_cross"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="13dp" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_weight=".5"
             android:gravity="center"
+            android:layout_weight=".5"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/hit"
+
+                    android:id="@+id/imageButton2" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_weight=".5"
+            android:gravity="top|center"
             android:layout_height="0dp">
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/miss"
-                android:layout_margin="40dp"
+                android:background="@mipmap/miss"
+
                 android:id="@+id/imageButton3" />
         </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

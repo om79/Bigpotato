@@ -2,6 +2,7 @@ package com.example.poplify.big_potato.bucket_of_doom;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,13 +17,18 @@ public class Bod_cards extends Activity {
 
     ImageView cross;
     TextView txt;
+    Typeface regular,bold;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bod_card);
 
-        cross=(ImageView) findViewById(R.id.imageView7_bod);
-        txt=(TextView) findViewById(R.id.textView4_bod);
+        regular= Typeface.createFromAsset(getAssets(), "Interstate-Regular.ttf");
+        bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
+
+        cross=(ImageView) findViewById(R.id.imageView7_bod_new);
+        txt=(TextView) findViewById(R.id.textView4_bod_new);
+        txt.setTypeface(bold);
 
         try {
             Intent intent = getIntent();
