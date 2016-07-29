@@ -14,5 +14,6 @@
     <color name="mpc_end_color">#FFED00FF</color>
     <!-- 没有被渐变填充区域的颜色 -->
     <color name="mpc_default_color">#1AFFFFFF</color>
+    <color name="trans_white">#80ffffff</color>
 </resources>
 

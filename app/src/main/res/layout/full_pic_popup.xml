@@ -28,13 +28,13 @@
                 android:layout_height="match_parent"
                 android:src="@mipmap/ans1"
                 android:scaleType="fitXY"
-                android:id="@+id/imageView10" />
+                android:id="@+id/imageView10_ans" />
 
             <ImageView
 
                 android:layout_width="40dp"
                 android:layout_height="50dp"
-
+                android:layout_marginTop="8dp"
                 android:padding="9dp"
                 android:src="@mipmap/cross"
                 android:id="@+id/imageViewcross"

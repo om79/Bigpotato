@@ -72,10 +72,10 @@
                         android:id="@+id/editText3_scenario"
                         android:gravity="center"
                         android:padding="30dp"
-
-                        android:inputType="textCapCharacters"
+                        android:lines="6"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:background="@null"
+                        android:inputType="textCapSentences|textMultiLine"
                         android:hint="Type your scenario here..."
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
@@ -90,10 +90,11 @@
                     android:background="@drawable/edit_text_back"
                     android:layout_marginTop="30dp"
                     android:hint="Full name"
-
+                    android:singleLine="true"
                     android:textColorHint="@color/white"
                     android:textColor="@color/white"
                     android:paddingLeft="10dp"
+                    android:inputType="textCapWords"
                     android:id="@+id/editText_fullname" />
 
                 <EditText
@@ -117,15 +118,7 @@
 
                     android:layout_height="match_parent">
 
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:textColor="@color/white"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:button="@drawable/checkbox"
-                        android:text=""
-                        android:id="@+id/checkBox" />
+
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -139,15 +132,11 @@
                 </LinearLayout>
 
                 <Button
-                    android:layout_width="150dp"
+                    android:layout_width="170dp"
                     android:layout_height="60dp"
-                    android:text="Submit"
-                    android:textStyle="bold"
-                    android:textSize="18dp"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
+
                     android:layout_marginTop="25dp"
-                    android:background="@mipmap/submit_back"
+                    android:background="@drawable/submit_button"
                     android:id="@+id/button_sbmit" />
 
 

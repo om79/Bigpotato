@@ -51,7 +51,8 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="@string/trng_msg"
                             android:gravity="center"
-
+                            android:layout_marginLeft="35dp"
+                            android:layout_marginRight="35dp"
                             android:textColor="@color/white"
                             android:id="@+id/textView6" />
                     </LinearLayout>

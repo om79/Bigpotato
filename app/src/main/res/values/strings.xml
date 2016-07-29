@@ -4,11 +4,11 @@
     <string name="Scenario">Submit a scenario</string>
     <string name="mr_sound">Mr Lister\'s sound effects</string>
     <string name="How">How to play</string>
-    <string name="condition">I agree to all <u>terms and conditions</u></string>
+    <string name="condition">By submitting a card, I agree to these <u>terms and conditions</u></string>
     <string name="turn">Turn timer</string>
     <string name="Buy">Buy the game</string>
     <string name="more">More Qwordie action incoming!</string>
-    <string name="app_name">Big Potato</string>
+    <string name="app_name">Big Potato Games</string>
     <string name="how_to_play_1">To begin, give each player five letter tiles from the
     tin. Next, place 15 tiles face up on the table. This is
     the letter pool.</string>
@@ -16,15 +16,12 @@
     </string>
      <string name="how_to_play_2_half_2">Read a card, which every-one plays. Each player
     must now take turns to try and spell one of the answers to the question.</string>
-     <string name="how_to_play_3_half">Need more letters? Take a letter directly from the letter pool...</string>
-     <string name="how_to_play_3_half_2">or grab two tiles from the tin. The first goes into the
-    pool, the second into your pile. The first player to
-    spell an answer correctly wins those letters and
-    adds them their stack of tiles.
+     <string name="how_to_play_3_half">Need more letters? Take one tile from the pool...</string>
+     <string name="how_to_play_3_half_2">Or you can take two tiles from the tin. The first joins the pool on the table, the second goes to you. The first player to spell an answer wins those tiles and adds them to the winning stack.
     </string>
     <string name="how_to_play_4">The first player whose stack passes the winning
     line on the tin is the champ.</string>
-    <string name="buy_msg">This will now take you\n outside the app.Do\nyou want continue ?</string>
+    <string name="buy_msg">Our shop is outside this app so grab your virtual coat and let’s go!</string>
     <string name="trng_msg">Time to sharpen your rainbow spotting skills.The aim is to find the two colours that have changed places on every rainbow.</string>
     <string name="thnx_msg">Good luck with your submission. If it\'s bad enough, we\'ll put it
     in the next bucket with your name on and send you the game free!</string>
@@ -36,11 +33,11 @@
     <string name="title_activity_games__list">Games_List</string>
     <string name="bod_play_1_half">Begin with a terrifying Doom Card.</string>
     <string name="bod_play_1_nxthalf">You and your friends are now (unfortunately) in this situation.</string>
-    <string name="bod_play_2_half">Fear not. Each player is given some Object Cards.</string>
-    <string name="bod_play_2_nxthalf">Use one of your Object Cards to engineer the best escape imaginable</string>
+    <string name="bod_play_2_half">Fear not. Each player is given eight Object Cards.</string>
+    <string name="bod_play_2_nxthalf">Use one of your Object Cards to engineer the best escape imaginable.</string>
     <string name="bod_play_3_half">Example:</string>
-    <string name="bod_play_3_nxthalf">Player 1 decides to use their "Duck Whistle", summoning a flock of space geese to wreak havoc on the UFO, allowing for a speedy getaway.</string>
-    <string name="bod_play_4">After everyone\'s told their escape plan you vote for the funniest. Most votes wins the Doom Card.\n\nRestock your Object Cards and escape a new scenario.\n\nFirst to three Doom Cards wins.</string>
+    <string name="bod_play_3_nxthalf">Player 1 decides to use their \"Duck Whistle\", summoning a flock of space geese to wreak havoc on the UFO, allowing for a speedy getaway.</string>
+    <string name="bod_play_4">After everyone\'s told their escape plan you vote for the best. Most votes wins the Doom Card.\n\nRestock your Object Cards and escape a new scenario.\n\nFirst to three Doom Cards wins.</string>
     <string name="okplay_1">This is a seriously simple but madly addictive travel tile game. You can teach anyone from around the world to play it in 20 seconds even if you can\'t speak a word of their language.</string>
     <string name="okplay_2">First, grab a stack of tiles. Now place a tile on the table. The next player can put their tile next to any flat side of your tile, but not at the corner.</string>
     <string name="okplay_3">The first player to make a horizontal, vertical or diagonal line of 5 wins.</string>

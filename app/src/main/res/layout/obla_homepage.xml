@@ -33,11 +33,13 @@
                     android:gravity="right|center"
                     android:layout_height="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:src="@mipmap/back"
+                        android:background="@null"
                         android:layout_weight=".1"
+                        android:visibility="visible"
                         android:id="@+id/back_scrawl_obla" />
 
                     <LinearLayout
@@ -52,7 +54,7 @@
                         android:layout_weight=".3"
                         android:gravity="center"
                         android:text="#ObamaLlama"
-                        android:textColor="#A6ffffff"
+                        android:textColor="#E95296"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         />
                 </LinearLayout>
@@ -99,6 +101,18 @@
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Extra"
+
+                android:layout_marginBottom="20dp"
+                android:onClick="onClick"
+                android:textColor="@color/white"
+                android:id="@+id/exta_stopwatch_scrawl" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Obama Llama timer"
 
                 android:layout_marginBottom="20dp"
@@ -106,17 +120,7 @@
                 android:textColor="@color/white"
                 android:id="@+id/exta_cards_scrawl_oblatimer" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/Extra"
 
-                android:layout_marginBottom="20dp"
-                android:onClick="onClick"
-                android:textColor="@color/white"
-                android:id="@+id/exta_stopwatch_scrawl" />
 
 
 

@@ -40,11 +40,13 @@
                     android:gravity="right|center"
                     android:layout_height="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:src="@mipmap/back"
+                        android:background="@null"
                         android:layout_weight=".1"
+                        android:visibility="visible"
                         android:id="@+id/back_bod_okplay" />
 
                     <LinearLayout
@@ -59,8 +61,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight=".28"
                         android:gravity="center"
-                        android:textColor="#A6ffffff"
-                        android:text="#Okplay" />
+                        android:textColor="#000000"
+                        android:text="#OKPlay" />
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>

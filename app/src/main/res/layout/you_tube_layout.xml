@@ -131,7 +131,7 @@
                     android:gravity="center"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Or swipe to left to read the rules"
+                    android:text="Or swipe left to read the rules"
 
                     android:textColor="@color/white"
 

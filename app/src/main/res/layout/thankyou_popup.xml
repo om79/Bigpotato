@@ -48,6 +48,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@mipmap/thnx"
+                            android:layout_marginRight="10dp"
                             android:id="@+id/imageView7" />
 
                         <LinearLayout
@@ -64,6 +65,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="left"
+                                android:layout_marginRight="3dp"
                                 android:textAppearance="?android:attr/textAppearanceMedium"
                                 android:text="@string/thnx_msg"
                                 android:textColor="@color/black"
@@ -90,6 +92,7 @@
                             android:textColor="@color/white"
                             android:textAllCaps="false"
                             android:textSize="20dp"
+                            android:layout_marginRight="10dp"
                             android:layout_marginBottom="20dp"
                             android:background="@mipmap/thnx_menu_back"
                             android:id="@+id/button_thnx" />

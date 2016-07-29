@@ -33,10 +33,12 @@
                     android:gravity="right|center"
                     android:layout_height="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:src="@mipmap/back"
+                        android:background="@null"
+                        android:visibility="visible"
                         android:layout_weight=".1"
                         android:id="@+id/back_scrawl" />
 
@@ -52,7 +54,7 @@
                         android:layout_weight=".3"
                         android:gravity="center"
                         android:text="#Scrawl"
-                        android:textColor="#A6ffffff"
+                        android:textColor="#00FF00"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         />
                 </LinearLayout>
@@ -61,13 +63,16 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:gravity="center"
+                    android:layout_marginTop="10dp"
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:src="@mipmap/scrawl_main_pic"
                         android:gravity="center"
+
+                        android:scaleType="fitXY"
                         android:id="@+id/imageView3" />
                 </LinearLayout>
 
@@ -111,7 +116,7 @@
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Rule randomizar"
+                android:text="Rule randomiser"
 
                 android:layout_marginBottom="20dp"
                 android:onClick="onClick"

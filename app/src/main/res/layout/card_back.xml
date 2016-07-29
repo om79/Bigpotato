@@ -9,7 +9,7 @@
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="@mipmap/card_back"
+        android:background="@mipmap/ans_card"
         android:id="@+id/card_background"
         android:layout_marginBottom="30dp"
         android:layout_marginTop="30dp"

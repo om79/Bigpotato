@@ -16,7 +16,7 @@
             android:layout_width="70dp"
             android:layout_height="50dp"
             android:src="@mipmap/cross"
-            android:padding="10dp"
+            android:padding="12dp"
             android:id="@+id/imageView7_cross_training" />
 
     </LinearLayout>
@@ -25,12 +25,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingBottom="50dp"
+
         android:layout_alignParentBottom="true"
         >
         <ImageView android:layout_height="20dp" android:layout_width="20dp"
             android:id="@+id/btn1"
-            android:src="@drawable/less_white_dot"
+            android:src="@mipmap/less_white_dot"
             android:layout_gravity="center_vertical"
 
             />
@@ -38,62 +38,62 @@
         <ImageView android:layout_height="20dp" android:layout_width="20dp"
             android:id="@+id/btn2"
             android:layout_toRightOf="@id/btn1"
-            android:src="@drawable/less_white_dot"
+            android:src="@mipmap/less_white_dot"
             android:layout_margin="10dp"
             />
         <ImageView android:layout_height="20dp" android:layout_width="20dp"
             android:id="@+id/btn3"
             android:layout_toRightOf="@id/btn2"
-            android:src="@drawable/less_white_dot"
+            android:src="@mipmap/less_white_dot"
             android:layout_gravity="center_vertical"
 
             />
         <ImageView android:layout_height="20dp" android:layout_width="20dp"
             android:id="@+id/btn4"
             android:layout_toRightOf="@id/btn3"
-            android:src="@drawable/less_white_dot"
+            android:src="@mipmap/less_white_dot"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
             />
         <ImageView android:layout_height="20dp" android:layout_width="20dp"
             android:id="@+id/btn5"
             android:layout_toRightOf="@id/btn4"
-            android:src="@drawable/less_white_dot"
+            android:src="@mipmap/less_white_dot"
             android:layout_gravity="center_vertical"
 
             />
         <ImageView android:layout_height="20dp" android:layout_width="20dp"
             android:id="@+id/btn6"
             android:layout_toRightOf="@id/btn3"
-            android:src="@drawable/less_white_dot"
+            android:src="@mipmap/less_white_dot"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
             />
         <ImageView android:layout_height="20dp" android:layout_width="20dp"
             android:id="@+id/btn7"
             android:layout_toRightOf="@id/btn3"
-            android:src="@drawable/less_white_dot"
+            android:src="@mipmap/less_white_dot"
             android:layout_gravity="center_vertical"
 
             />
         <ImageView android:layout_height="20dp" android:layout_width="20dp"
             android:id="@+id/btn8"
             android:layout_toRightOf="@id/btn3"
-            android:src="@drawable/less_white_dot"
+            android:src="@mipmap/less_white_dot"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
             />
         <ImageView android:layout_height="20dp" android:layout_width="20dp"
             android:id="@+id/btn9"
             android:layout_toRightOf="@id/btn3"
-            android:src="@drawable/less_white_dot"
+            android:src="@mipmap/less_white_dot"
             android:layout_gravity="center_vertical"
 
             />
         <ImageView android:layout_height="20dp" android:layout_width="20dp"
             android:id="@+id/btn10"
             android:layout_toRightOf="@id/btn3"
-            android:src="@drawable/less_white_dot"
+            android:src="@mipmap/less_white_dot"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
             />

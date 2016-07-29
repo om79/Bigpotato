@@ -12,11 +12,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    card_view:cardCornerRadius="4dp" >
+    card_view:cardCornerRadius="0dp" >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="visible"
         android:id="@+id/menu_main_back"
         android:orientation="vertical"
         >
@@ -35,10 +36,12 @@
 
             android:layout_height="200dp">
 
-            <com.example.poplify.big_potato.main_menu.GifView
+            <pl.droidsonroids.gif.GifImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/gifview"
+                android:visibility="gone"
+
                 android:src="@raw/bod_anim" />
 
 
@@ -78,25 +81,14 @@
 
 
                 />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="ghjghj"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp"
-                android:textSize="20dp"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:id="@+id/textView10" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="1.4dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
-                android:background="@color/light_grey"
+                android:layout_marginTop="15dp"
+                android:background="@color/trans_white"
                 android:id="@+id/viewStub" />
 
             <TextView
@@ -105,6 +97,7 @@
                 android:gravity="center"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="dgfdgdfgfdg"
+                android:textAllCaps="true"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:layout_margin="10dp"
@@ -112,31 +105,43 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/light_grey"
+                android:layout_height="1.4dp"
+                android:background="@color/trans_white"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:id="@+id/viewStub2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="ghjghj"
+                android:layout_margin="10dp"
+
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:id="@+id/textView10" />
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:gravity="center"
-                android:layout_margin="15dp"
+                android:layout_marginBottom="15dp"
                 android:layout_height="match_parent">
 
                 <Button
                     style="?android:attr/buttonStyle"
-                    android:layout_width="200dp"
-                    android:layout_height="70dp"
-                    android:text="Let's go!"
+                    android:layout_width="173dp"
+                    android:layout_height="80dp"
+
                     android:textSize="25dp"
                     android:paddingBottom="4dp"
                     android:gravity="center"
 
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:background="@mipmap/main_menu_back"
+                    android:background="@drawable/lets_go_button"
                     android:id="@+id/button2" />
             </LinearLayout>
 
@@ -145,7 +150,139 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="530dp"
+        android:id="@+id/umm_layout"
+        android:visibility="gone"
+        android:background="@mipmap/umm_main_back"
+        android:layout_gravity="center_horizontal">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="345dp"
+            android:id="@+id/imageView18"
+            android:src="@mipmap/umm_phone"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/imageView19"
+            android:src="@mipmap/umm_can_you"
+            android:layout_alignTop="@+id/imageView18"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="22dp"
+            android:layout_marginTop="20dp" />
+
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            android:id="@+id/imageView20"
+            android:src="@mipmap/umm_text"
+            android:layout_alignTop="@+id/imageView21"
+            android:layout_alignParentEnd="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView21"
+            android:src="@mipmap/umm_menu_pic"
+            android:layout_marginBottom="24dp"
+            android:layout_above="@+id/imageView18"
+            android:layout_toStartOf="@+id/imageView20" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView22"
+            android:src="@mipmap/umm_got_app"
+            android:layout_below="@+id/imageView19"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/imageView23_umm"
+            android:padding="8dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:src="@mipmap/black_cross" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:id="@+id/social_layout"
+        android:visibility="gone"
+        android:background="@mipmap/social_complete"
+        android:layout_gravity="center_horizontal">
+
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/social_cross"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/black_cross"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerVertical="true"
+
+            android:layout_alignParentStart="true"
+            android:id="@+id/facebook"
+            android:layout_marginStart="38dp"></RelativeLayout>
+        <RelativeLayout
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/instagram"
+            android:layout_marginStart="135dp"></RelativeLayout>
+        <RelativeLayout
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/twitter"
+            android:layout_marginStart="235dp"></RelativeLayout>
+        <RelativeLayout
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:id="@+id/snapchat"
+
+            android:layout_marginStart="46dp"
+            android:layout_below="@+id/facebook"
+            android:layout_alignStart="@+id/facebook"></RelativeLayout>
+        <RelativeLayout
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:id="@+id/mail"
+
+            android:layout_marginStart="19dp"
+            android:layout_alignTop="@+id/snapchat"
+            android:layout_toEndOf="@+id/snapchat"></RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+
+            android:id="@+id/news"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/facebook"
+            android:layout_marginBottom="28dp"
+            android:layout_alignParentStart="true"></RelativeLayout>
+    </RelativeLayout>
 
 </android.support.v7.widget.CardView>
     </LinearLayout>
