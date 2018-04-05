@@ -112,5 +112,16 @@ turn over two Rhyming Pair cards. Find a pair,
 keep them and turn over two more. Once they\'re all
 gone, the team with the most pairs wins.</string>
 
+    <string name="Cham_how_1">Shuffle the Code Cards and one Chameleon Card together. Deal one out to each player.</string>
+    <string name="cham_how_12"><b>Important:</b> make sure no one sees what card you have!</string>
+    <string name="cham_how_2">Next, turn over a Topic Card for all to see. Each Topic Card contains 16 different words.</string>
+    <string name="cham_how_22">Now, the dealer rolls the yellow and blue dice.</string>
+    <string name="cham_how_3">The numbers will lead everyone (except the Chameleon) to a coordinate on their Code Card. This can be used to locate the secret word for the round.</string>
+    <string name="cham_how_32">The secret word for this round is: <b>Chicken</b>.</string>
+    <string name="cham_how_4">All players (including the Chameleon) take it in turns to say one word related to Chicken to prove their innocence.</string>
+    <string name="cham_how_5"><b>Be careful!</b> If your word is too obvious, the Chameleon might figure out the secret word. If it\'s too cryptic, people might think you\'re the Chameleon!\n\nWhen ready, everyone votes for who they think is the Chameleon. Pick the wrong player and the Chameleon wins.</string>
+    <string name="cham_how_6">If you catch the Chameleon, they get one chance to guess the secret word. If they get it right, they escape. If they get it wrong -they\'ve been caught!</string>
+
+    <string name="socail_txt">Keep up to date with all our new games, stories and giveaways</string>
 
 </resources>

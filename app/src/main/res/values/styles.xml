@@ -10,7 +10,8 @@
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:popupWindowStyle">@style/PopupWindow</item>
-
+        <item name="android:statusBarColor">@color/yellow</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
 
     </style>
 
@@ -19,9 +20,12 @@
     <!--</style>-->
     <style name="PopupWindow" parent="@android:style/Widget.PopupWindow">
         <item name="android:windowActionBar">false</item>
+
     </style>
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:statusBarColor">@color/yellow</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
 
     </style>
 

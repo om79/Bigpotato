@@ -16,12 +16,14 @@ import android.widget.ImageView;
 import com.bigpotato.bigpotatogamesuk.big_potato.R;
 import com.bigpotato.bigpotatogamesuk.big_potato.adapters.SaveData;
 import com.bigpotato.bigpotatogamesuk.big_potato.bucket_of_doom.Bod_homepage;
+import com.bigpotato.bigpotatogamesuk.big_potato.chameleon.Chameleon_activity;
 import com.bigpotato.bigpotatogamesuk.big_potato.mr_lister.Mr_homepage;
 import com.bigpotato.bigpotatogamesuk.big_potato.obla.Obla_homapage;
 import com.bigpotato.bigpotatogamesuk.big_potato.ok_play.Ok_play_homescreen;
 import com.bigpotato.bigpotatogamesuk.big_potato.qwordie.Qwordie_activity;
 import com.bigpotato.bigpotatogamesuk.big_potato.rainbow_rage.RainbowRage;
 import com.bigpotato.bigpotatogamesuk.big_potato.scrawl.Scraml_homepage;
+import com.bigpotato.bigpotatogamesuk.big_potato.social.Social_activity;
 
 /**
  * Created by POPLIFY on 7/11/2016.
@@ -29,13 +31,13 @@ import com.bigpotato.bigpotatogamesuk.big_potato.scrawl.Scraml_homepage;
 public class Home_page extends Activity {
 
     String[] cs = new String[] { "bod", "mr_lister", "scrwal",
-            "obama","qworide",  "rainbow","ok_play" };
+            "obama","ok_play","cham","qworide",  "rainbow" };
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     SaveData save;
 
-    int[] c = new int[] { R.mipmap.bod,R.mipmap.mr_lister, R.mipmap.scrawl,R.mipmap.obamallama,R.mipmap.qwordie,R.mipmap.rainbow_rage,
-           R.mipmap.okplay_background};
+    int[] c = new int[] { R.mipmap.bottom_bod,R.mipmap.bottom_mr_lister, R.mipmap.bottom_scrawl,R.mipmap.bottom_obamallama,
+            R.mipmap.bottom_ok_play,R.mipmap.bottom_cham_back,R.mipmap.bottom_qwordie,R.mipmap.bottom_rainbow};
     Fragment f = new Fragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +123,26 @@ public class Home_page extends Activity {
                 mAdapter = new RolodexViewAdapter(c,cs,getApplicationContext(),"ok_play");
                 mRecyclerView.setAdapter(mAdapter);
                 break;
+            case "CHAMELEON":
+                if (savedInstanceState == null) {
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.frame_container, new Chameleon_activity()).commit();
+                }
+                mAdapter = new RolodexViewAdapter(c,cs,getApplicationContext(),"cham");
+                mRecyclerView.setAdapter(mAdapter);
+
+                break;
+            case "SOCIAL":
+                if (savedInstanceState == null) {
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.frame_container, new Social_activity()).commit();
+                }
+                mAdapter = new RolodexViewAdapter(c,cs,getApplicationContext(),"social");
+                mRecyclerView.setAdapter(mAdapter);
+
+                break;
 
         }
 
@@ -198,39 +220,6 @@ public class Home_page extends Activity {
             }else {
                 holder.mimgView.setPadding(0,0,0,0);
             }
-//            switch (value[position% mDataset.length])
-//            {
-//                case "bod":
-//                    holder.mimgView.setImageResource(R.mipmap.bod);
-//
-//                    break;
-//                case "qworide":
-//                    holder.mimgView.setImageResource(R.mipmap.qwordie);
-//                    break;
-//                case "scrwal":
-//
-//                    holder.mimgView.setImageResource(R.mipmap.scrawl);
-//
-//                    break;
-//                case "rainbow":
-//                    holder.mimgView.setImageResource(R.mipmap.rainbow_rage);
-//
-//                    break;
-//                case "mr_lister":
-//
-//                    holder.mimgView.setImageResource(R.mipmap.mr_lister);
-//                    break;
-//                case "obama":
-//
-//                    holder.mimgView.setImageResource(R.mipmap.obamallama);
-//
-//                    break;
-//                case "ok_play":
-//
-//                    holder.mimgView.setImageResource(R.mipmap.ok_play);
-//                    break;
-//
-//            }
 
 
             holder.mimgView.setOnClickListener(new View.OnClickListener() {
@@ -302,6 +291,26 @@ public class Home_page extends Activity {
                             mAdapter.notifyDataSetChanged();
 
                             break;
+                        case "cham":
+                            save.save("current_game","CHAMELEON");
+                            FragmentManager fragmentManager12 = getFragmentManager();
+                            fragmentManager12.beginTransaction()
+                                    .replace(R.id.frame_container, new Chameleon_activity()).commit();
+                            game="cham";
+                            mAdapter.notifyDataSetChanged();
+                            break;
+                        case "social":
+
+
+
+                            save.save("current_game","SOCIAL");
+                            FragmentManager fragmentManager123 = getFragmentManager();
+                            fragmentManager123.beginTransaction()
+                                    .replace(R.id.frame_container, new Social_activity()).commit();
+                            game="social";
+                            mAdapter.notifyDataSetChanged();
+                            break;
+
 
                     }
 

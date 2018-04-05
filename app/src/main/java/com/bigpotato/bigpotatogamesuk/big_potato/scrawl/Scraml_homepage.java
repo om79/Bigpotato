@@ -2,13 +2,20 @@ package com.bigpotato.bigpotatogamesuk.big_potato.scrawl;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bigpotato.bigpotatogamesuk.big_potato.R;
@@ -23,21 +30,21 @@ import com.flurry.android.FlurryAgent;
 public class Scraml_homepage extends Fragment implements View.OnClickListener
 {
 
-    TextView stopwatch,how,buy,randomizar;
+    TextView stopwatch,how,buy,randomizar,tag;
     ImageButton back;
     UsefullData usefull;
     Typeface regular,bold;
     ConnectionDetector cd;
     Boolean isInternetPresent = false;
     public Scraml_homepage(){}
-
+    ImageView blink;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.scrwal_hompage, container, false);
+        final View rootView = inflater.inflate(R.layout.scrwal_hompage, container, false);
 
 
         cd = new ConnectionDetector(getActivity());
@@ -61,8 +68,26 @@ public class Scraml_homepage extends Fragment implements View.OnClickListener
         buy.setTypeface(regular);
         how.setTypeface(bold);
         randomizar.setTypeface(regular);
+        tag=(TextView) rootView.findViewById(R.id.hashtag5);
+        tag.setTypeface(regular);
 
 
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 5s = 5000ms
+                try {
+                    ImageView blink=(ImageView) rootView.findViewById(R.id.imageViewf9);
+                    blink.setVisibility(View.VISIBLE);
+                    Animation move = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
+                    blink.startAnimation(move);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, 500);
 
 
         return rootView;
@@ -83,7 +108,7 @@ public class Scraml_homepage extends Fragment implements View.OnClickListener
             case R.id.exta_cards_scrawl:
                 if(isInternetPresent) {
 
-                    FlurryAgent.logEvent("Scrawl");
+                    FlurryAgent.logEvent("USA -> Scrawl");
                 }
                 usefull.trimCache(getActivity());
                 Intent exsdftra=new Intent(getActivity(),Scrawl_stopwatch.class);
@@ -96,7 +121,7 @@ public class Scraml_homepage extends Fragment implements View.OnClickListener
             case R.id.how_to_play_scrawl:
                 if(isInternetPresent) {
 
-                    FlurryAgent.logEvent("Scrawl");
+                    FlurryAgent.logEvent("USA -> Scrawl");
                 }
                 usefull.trimCache(getActivity());
                 Intent how2=new Intent(getActivity(),Startup_activity.class);
@@ -106,7 +131,7 @@ public class Scraml_homepage extends Fragment implements View.OnClickListener
             case R.id.buy_the_game_scrawl:
                 if(isInternetPresent) {
 
-                    FlurryAgent.logEvent("Scrawl");
+                    FlurryAgent.logEvent("USA -> Scrawl");
                 }
                 usefull.trimCache(getActivity());
                 usefull.showpopup();
@@ -119,7 +144,7 @@ public class Scraml_homepage extends Fragment implements View.OnClickListener
             case R.id.exta_stopwatch_scrawl:
                 if(isInternetPresent) {
 
-                    FlurryAgent.logEvent("Scrawl");
+                    FlurryAgent.logEvent("USA -> Scrawl");
                 }
                 usefull.trimCache(getActivity());
 

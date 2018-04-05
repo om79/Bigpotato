@@ -11,6 +11,12 @@ import com.bigpotato.bigpotatogamesuk.big_potato.bucket_of_doom.How_to_play_bod_
 import com.bigpotato.bigpotatogamesuk.big_potato.bucket_of_doom.How_to_play_bod_2;
 import com.bigpotato.bigpotatogamesuk.big_potato.bucket_of_doom.How_to_play_bod_3;
 import com.bigpotato.bigpotatogamesuk.big_potato.bucket_of_doom.How_to_play_bod_4;
+import com.bigpotato.bigpotatogamesuk.big_potato.chameleon.Cham_how_1;
+import com.bigpotato.bigpotatogamesuk.big_potato.chameleon.Cham_how_2;
+import com.bigpotato.bigpotatogamesuk.big_potato.chameleon.Cham_how_3;
+import com.bigpotato.bigpotatogamesuk.big_potato.chameleon.Cham_how_4;
+import com.bigpotato.bigpotatogamesuk.big_potato.chameleon.Cham_how_5;
+import com.bigpotato.bigpotatogamesuk.big_potato.chameleon.Cham_how_6;
 import com.bigpotato.bigpotatogamesuk.big_potato.mr_lister.Mr_how_1;
 import com.bigpotato.bigpotatogamesuk.big_potato.mr_lister.Mr_how_2;
 import com.bigpotato.bigpotatogamesuk.big_potato.mr_lister.Mr_how_3;
@@ -51,7 +57,9 @@ public class ImageViewPagerAdapter extends FragmentPagerAdapter {
 
         switch (save.getString("current_game"))
         {
-
+            case "CHAMELEON":
+                totalPage = 7;
+                break;
             case "RAINBOW":
                 totalPage = 6;
                 break;
@@ -235,6 +243,32 @@ public class ImageViewPagerAdapter extends FragmentPagerAdapter {
                         break;
                     case 5:
                         f = new Obla_play_5();
+                        break;
+                }
+                break;
+            case "CHAMELEON":
+                switch (position) {
+
+                    case 0:
+                        f = new Youtube_activity();
+                        break;
+                    case 1:
+                        f = new Cham_how_1();
+                        break;
+                    case 2:
+                        f = new Cham_how_2();
+                        break;
+                    case 3:
+                        f = new Cham_how_3();
+                        break;
+                    case 4:
+                        f = new Cham_how_4();
+                        break;
+                    case 5:
+                        f = new Cham_how_5();
+                        break;
+                    case 6:
+                        f = new Cham_how_6();
                         break;
                 }
                 break;

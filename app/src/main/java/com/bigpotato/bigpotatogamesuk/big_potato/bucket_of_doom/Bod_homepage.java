@@ -5,10 +5,15 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bigpotato.bigpotatogamesuk.big_potato.R;
@@ -23,7 +28,7 @@ import com.flurry.android.FlurryAgent;
 public class Bod_homepage extends Fragment implements View.OnClickListener
 {
 
-    TextView extra,how,buy,scenario;
+    TextView extra,how,buy,scenario,tag;
     ImageButton back;
     UsefullData usefull;
     Typeface regular,bold;
@@ -36,7 +41,7 @@ public class Bod_homepage extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.bod_hompage, container, false);
+        final View rootView = inflater.inflate(R.layout.bod_hompage, container, false);
 
         cd = new ConnectionDetector(getActivity());
         isInternetPresent = cd.isConnectingToInternet();
@@ -60,8 +65,31 @@ public class Bod_homepage extends Fragment implements View.OnClickListener
         extra.setTypeface(regular);
         scenario.setTypeface(regular);
 
+        tag=(TextView) rootView.findViewById(R.id.hashtag_b);
+        tag.setTypeface(regular);
 
 
+
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 5s = 5000ms
+
+                try {
+                    ImageView blink=(ImageView) rootView.findViewById(R.id.imageView6s);
+                    blink.setVisibility(View.VISIBLE);
+
+
+                    Animation move = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
+                    blink.startAnimation(move);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, 500);
         return rootView;
 
     }

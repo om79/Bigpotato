@@ -5,10 +5,14 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bigpotato.bigpotatogamesuk.big_potato.R;
@@ -23,7 +27,7 @@ import com.flurry.android.FlurryAgent;
 public class Ok_play_homescreen extends Fragment implements View.OnClickListener
 {
 
-    TextView extra,how,buy;
+    TextView extra,how,buy,tag;
     ImageButton back;
     UsefullData usefull;
     Typeface regular,bold;
@@ -36,7 +40,7 @@ public class Ok_play_homescreen extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.ok_play_homescreen, container, false);
+        final View rootView = inflater.inflate(R.layout.ok_play_homescreen, container, false);
 
 
         cd = new ConnectionDetector(getActivity());
@@ -58,14 +62,24 @@ public class Ok_play_homescreen extends Fragment implements View.OnClickListener
         extra.setTypeface(bold);
         buy.setTypeface(regular);
         how.setTypeface(regular);
+        tag=(TextView) rootView.findViewById(R.id.hashtag_ok);
+        tag.setTypeface(regular);
 
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-//        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-//        mRecyclerView.setHasFixedSize(true);
-//        mRecyclerView.setLayoutManager(layoutManager);
-//        mRecyclerView.scrollToPosition(7);
-////        mAdapter = new RolodexViewAdapter(c,cs,getApplicationContext(),"ok_play");
-//        mRecyclerView.setAdapter(mAdapter);
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 5s = 5000ms
+                try {
+                    ImageView blink=(ImageView) rootView.findViewById(R.id.imageView6s1);
+                    blink.setVisibility(View.VISIBLE);
+                    Animation move = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
+                    blink.startAnimation(move);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, 500);
 
         return rootView;
 
@@ -121,29 +135,7 @@ public class Ok_play_homescreen extends Fragment implements View.OnClickListener
 
 
 
-//    @Override
-//    public void onBackPressed() {
-//        // your code.
-//        mp.start();
-//        finish();
-//        Intent how23=new Intent(getApplicationContext(),Game_menu.class);
-//        startActivity(how23);
-//        overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
-//    }
-//
-//    @Override
-//    public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        if (keyCode == KeyEvent.KEYCODE_BACK) {
-//            mp.start();
-//            finish();
-//            Intent how23=new Intent(getApplicationContext(),Game_menu.class);
-//            startActivity(how23);
-//            overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
-//            return true;
-//        }
-//
-//        return super.onKeyDown(keyCode, event);
-//    }
+
 
 }
 

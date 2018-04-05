@@ -13,6 +13,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Environment;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bigpotato.bigpotatogamesuk.big_potato.R;
@@ -299,7 +301,7 @@ public class UsefullData  {
 
 								FlurryAgent.logEvent("Rainbow Rage");
 							}
-							url="http://bigpotato.co.uk/buy-rainbow-rage";
+							url="https://www.amazon.co.uk/dp/B01N3Q3IBQ";
 							break;
 						case "QWORDIE":
 							if(isInternetPresent) {
@@ -313,7 +315,7 @@ public class UsefullData  {
 
 								FlurryAgent.logEvent("OK Play");
 							}
-							url="http://bigpotato.co.uk/buy-ok-play";
+							url="https://www.amazon.co.uk/dp/B01KMJK80A";
 							break;
 						case "MR LISTERS":
 							if(isInternetPresent) {
@@ -327,7 +329,7 @@ public class UsefullData  {
 
 								FlurryAgent.logEvent("Scrawl");
 							}
-							url="http://bigpotato.co.uk/buy-scrawl";
+							url="https://www.amazon.co.uk/dp/B01J5TFSLM";
 							break;
 						case "OBLA":
 							if(isInternetPresent) {
@@ -336,6 +338,13 @@ public class UsefullData  {
 							}
 							url="https://www.amazon.co.uk/Obama-Llama-Celebrity-Rhyming-Party/dp/B018SRUCXQ";
 
+							break;
+						case "CHAMELEON":
+							if(isInternetPresent) {
+
+								FlurryAgent.logEvent("CHAMELEON");
+							}
+							url="http://bigpotato.co.uk/buy-the-chameleon";
 							break;
 
 					}
@@ -350,6 +359,10 @@ public class UsefullData  {
 					pwindo.setFocusable(true);
 					final RelativeLayout anim = (RelativeLayout) layout.findViewById(R.id.buy_layout_popup_bod);
 					ImageView no = (ImageView) layout.findViewById(R.id.button_no_bod);
+					Typeface regular= Typeface.createFromAsset(_context.getAssets(), "Interstate-Regular.ttf");
+					TextView txt = (TextView) layout.findViewById(R.id.textView6_txt);
+					txt.setTypeface(regular);
+
 					no.setOnClickListener(new View.OnClickListener() {
 						@Override
 						public void onClick(View v) {
@@ -412,6 +425,38 @@ public class UsefullData  {
 // The directory is now empty so delete it
 		return dir.delete();
 	}
+//	public int screen_size(){
+//
+//		int size=20;
+//		DisplayMetrics displayMetrics = new DisplayMetrics();
+//		((Activity) _context).getWindowManager()
+//				.getDefaultDisplay()
+//				.getMetrics(displayMetrics);
+////        int height = displayMetrics.heightPixels;
+//		int width = displayMetrics.widthPixels;
+//
+//
+//		switch(width) {
+//			case 720:
+//				size = 500;;
+//				break;
+//			case 1080:
+//				size = 750;
+//				break;
+//			case 1440:
+//				size = 1130;
+//				break;
+//			case 810:
+//				size = 620;;
+//				break;
+//			default:
+//				size = 500;
+//				break;
+//		}
+//		return size;
+//	}
+
+
 
 
 }

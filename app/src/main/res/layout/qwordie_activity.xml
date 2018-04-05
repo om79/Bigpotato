@@ -52,6 +52,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight=".3"
+                        android:id="@+id/hashtag_q"
                         android:gravity="center"
                         android:text="#Qwordie"
                         android:textColor="#FFFF00"
@@ -80,7 +81,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_weight=".25"
+            android:layout_weight=".4"
 
             android:gravity="top"
             android:layout_height="0dp">
@@ -123,20 +124,23 @@
                 android:id="@+id/buy_the_game" />
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_weight=".15"
-            android:id="@+id/relativeLayout"
-            android:layout_height="0dp">
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/my_recycler_view"
-                android:scrollbars="none"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
 
-        </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginLeft="210dp"
+        android:layout_marginBottom="100dp"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageViewq9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@mipmap/quwordie_sticker"
+            android:visibility="gone"
+            />
+    </LinearLayout>
 </RelativeLayout>

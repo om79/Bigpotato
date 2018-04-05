@@ -48,7 +48,7 @@ public class Scrawl_stopwatch extends Activity
     UsefullData usefull;
     RadioButton p4, p5, p6,p7,p8,dr60,dr90,dr120,ds30,ds45,ds60;
     int time;
-    ImageView title,face_pic,main_back;
+    ImageView face_pic,main_back;
     String current_timer="draw";
     boolean ispause=false;
     int player,pic_index=30;
@@ -72,9 +72,15 @@ public class Scrawl_stopwatch extends Activity
         done=(Button) findViewById(R.id.button3);
         start=(Button) findViewById(R.id.button4_start);
         reset=(Button) findViewById(R.id.button5dgfdgdfg_ppreset);
-        usefull=new UsefullData(getApplicationContext());
-        title=(ImageView) findViewById(R.id.imageView17_draw);
+        usefull=new UsefullData(Scrawl_stopwatch.this);
+//        title=(ImageView) findViewById(R.id.imageView17_draw);
         face_pic=(ImageView) findViewById(R.id.imageView23_face);
+//        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
+//                RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+//        int size=usefull.screen_size();
+//
+//        layoutParams.setMargins(0, size, 0, 0);
+//        face_pic.setLayoutParams(layoutParams);
         player_txt=(TextView) findViewById(R.id.textView9);
         des=(TextView) findViewById(R.id.textView8);
         draw=(TextView) findViewById(R.id.textView7);
@@ -109,7 +115,7 @@ public class Scrawl_stopwatch extends Activity
         player_txt.setTypeface(bold);
         des.setTypeface(bold);
         draw.setTypeface(bold);
-        face_pic.setImageResource(R.mipmap.face_0);
+        face_pic.setImageResource(R.mipmap.scrawl_draw_black);
         dr60.setTypeface(regular);
         dr90.setTypeface(regular);
         dr120.setTypeface(regular);
@@ -121,6 +127,8 @@ public class Scrawl_stopwatch extends Activity
         p6.setTypeface(regular);
         p7.setTypeface(regular);
         p8.setTypeface(regular);
+        done.setTypeface(regular);
+        start.setTypeface(regular);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
 
@@ -128,7 +136,7 @@ public class Scrawl_stopwatch extends Activity
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                face_pic.setImageResource(R.mipmap.face_0);
+                face_pic.setImageResource(R.mipmap.scrawl_draw_black);
                 Stop2();
             }
         });
@@ -204,16 +212,9 @@ public class Scrawl_stopwatch extends Activity
 
     private void initiatePopupWindow() {
         try {
-            // We need to get the instance of the LayoutInflater
-
-//            if (player == 0) {
-//
-//                mp_end.start();
-//                endPopupWindow();
-//                pwindo.dismiss();
-//            }
-            mp_pass = MediaPlayer.create(this, R.raw.scrawl_pass);
+             mp_pass = MediaPlayer.create(this, R.raw.scrawl_pass);
             mp_pass.start();
+
             LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             final View layout = inflater.inflate(R.layout.pass_popup,
                     (ViewGroup) findViewById(R.id.popup_element_pass));
@@ -225,16 +226,18 @@ public class Scrawl_stopwatch extends Activity
 
             final ImageView pass_no = (ImageView) layout.findViewById(R.id.imageView26);
             final Button skip = (Button) layout.findViewById(R.id.button4);
-            final int[] pass_pics = new int[] { R.mipmap.scrawl_pass_number_1,R.mipmap.scrawl_pass_number_2, R.mipmap.scrawl_pass_number_3,R.mipmap.scrawl_pass_number_4,
-                    R.mipmap.scrawl_pass_number_5,R.mipmap.scrawl_pass_number_6,R.mipmap.scrawl_pass_number_7,R.mipmap.scrawl_pass_number_8,R.mipmap.scrawl_pass_number_9,R.mipmap.scrawl_pass_number_10,
+            final int[] pass_pics = new int[] { R.mipmap.scrawl_pass_number_1,R.mipmap.scrawl_pass_number_2, R.mipmap.scrawl_pass_number_3, R.mipmap.scrawl_pass_number_4,
+                    R.mipmap.scrawl_pass_number_5,R.mipmap.scrawl_pass_number_6,R.mipmap.scrawl_pass_number_7,R.mipmap.scrawl_pass_number_8,
+                    R.mipmap.scrawl_pass_number_9,R.mipmap.scrawl_pass_number_10
             };
-            final CountDownTimer time=new CountDownTimer(10000, 1000) {
+            final CountDownTimer time=new CountDownTimer(11000, 1000) {
 
                 @Override
                 public void onTick(long millisUntilFinished) {
 
                     int a=(int) (millisUntilFinished / 1000);
-                    pass_no.setImageResource(pass_pics[a]);
+                    Log.e("--tick-",""+a);
+                    pass_no.setImageResource(pass_pics[a-1]);
 
 
                 }
@@ -339,7 +342,7 @@ public class Scrawl_stopwatch extends Activity
     public void Start()
     {
 
-        face_pic.setImageResource(R.mipmap.face_1);
+        face_pic.setImageResource(R.mipmap.scrawl_draw_black);
 
             if(current_timer.equals("draw")) {
                 if(save.isExist("draw")==false) {
@@ -350,7 +353,7 @@ public class Scrawl_stopwatch extends Activity
                     time = save.getInt("draw");
                 }
 
-            title.setImageResource(R.mipmap.scrawl_draw_black);
+                face_pic.setImageResource(R.mipmap.scrawl_draw_black);
 
         }else if(current_timer.equals("des")){
                 if(save.isExist("des")==false) {
@@ -362,7 +365,7 @@ public class Scrawl_stopwatch extends Activity
                     time = save.getInt("des");
                 }
 
-            title.setImageResource(R.mipmap.scrawl_describe_black);
+                face_pic.setImageResource(R.mipmap.scrawl_guess_black);
          } //Create a new timer
         timer.start();   //Start the timer
         isRunning = true;
@@ -484,35 +487,32 @@ public class Scrawl_stopwatch extends Activity
 
             switch (pic_index)
             {
-
-
-
                 case 5:
                      if (current_timer.equals("draw")) {
 
-                    title.setImageResource(R.mipmap.scrawl_draw);
-                    face_pic.setImageResource(R.mipmap.face_5);
+//                  face_pic.setImageResource(R.mipmap.scrawl_draw);
+                    face_pic.setImageResource(R.mipmap.scrawl_draw);
 
                 } else if (current_timer.equals("des")) {
-                    face_pic.setImageResource(R.mipmap.face_5);
-                    title.setImageResource(R.mipmap.scrawl_describe);
+                    face_pic.setImageResource(R.mipmap.scrawl_guess_pink);
+//                    title.setImageResource(R.mipmap.scrawl_describe);
 
                 }
 
                     break;
-                case 10:
-                    face_pic.setImageResource(R.mipmap.face_left);
-                    break;
-
-                case 15:
-                    face_pic.setImageResource(R.mipmap.face_4);
-                    break;
-                case 20:
-                    face_pic.setImageResource(R.mipmap.face_3);
-                    break;
-                case 24:
-                    face_pic.setImageResource(R.mipmap.face_2);
-                    break;
+//                case 10:
+//                    face_pic.setImageResource(R.mipmap.face_left);
+//                    break;
+//
+//                case 15:
+//                    face_pic.setImageResource(R.mipmap.face_4);
+//                    break;
+//                case 20:
+//                    face_pic.setImageResource(R.mipmap.face_3);
+//                    break;
+//                case 24:
+//                    face_pic.setImageResource(R.mipmap.face_2);
+//                    break;
 
 
             }
@@ -532,14 +532,14 @@ public class Scrawl_stopwatch extends Activity
                         public void run() {
 
                             main_back.setImageResource(R.mipmap.scrawl_stopwatch_back_0);
-                            face_pic.setImageResource(R.mipmap.face_6);
+                            face_pic.setImageResource(R.mipmap.scrawl_draw_black);
                         }
                     }, 1000);
 
 
 
                 }else{
-                    face_pic.setImageResource(R.mipmap.face_6);
+//                    face_pic.setImageResource(R.mipmap.scrawl_draw_black);
                 }
 
             }
@@ -559,7 +559,7 @@ public class Scrawl_stopwatch extends Activity
 
             ispause=false;
             main_back.setImageResource(R.mipmap.scrawl_stopwatch_back_0);
-            face_pic.setImageResource(R.mipmap.face_0);
+//            face_pic.setImageResource(R.mipmap.scrawl_draw_black);
             player--;
             if (player == 0) {
 
@@ -784,9 +784,6 @@ public class Scrawl_stopwatch extends Activity
         // your code.
         mp_back.start();
         finish();
-//        Intent how23=new Intent(getApplicationContext(),Scraml_homepage.class);
-//        startActivity(how23);
-//        overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
     }
     @Override
     protected void onStart() {
@@ -800,9 +797,6 @@ public class Scrawl_stopwatch extends Activity
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             mp_back.start();
             finish();
-//            Intent how23=new Intent(getApplicationContext(),Scraml_homepage.class);
-//            startActivity(how23);
-//            overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
             return true;
         }
 

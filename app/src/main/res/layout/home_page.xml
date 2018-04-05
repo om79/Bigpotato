@@ -4,14 +4,14 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".hompage.Home_page"
+    tools:context="com.bigpotato.bigpotatogamesuk.big_potato.hompage.Home_page"
     tools:ignore="MergeRootFrame"
     android:orientation="vertical" >
     <FrameLayout
         android:id="@+id/frame_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.15" >
+        android:layout_weight="0.13" >
 
 
 
@@ -22,7 +22,7 @@
         android:id="@+id/adspacelinearlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.85"
+        android:layout_weight="0.87"
         android:orientation="vertical" >
 
         <android.support.v7.widget.RecyclerView

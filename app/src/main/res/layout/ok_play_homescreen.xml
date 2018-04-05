@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@mipmap/okplay_back"
     android:id="@+id/main_layout"
-    tools:context=".qwordie.Qwordie_activity">
+    >
 
 
     <LinearLayout
@@ -18,7 +18,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_weight=".5"
+            android:layout_weight=".55"
             android:layout_height="0dp">
 
             <RelativeLayout
@@ -29,7 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@mipmap/okplay_mainpic"
-
+                    android:layout_marginTop="5dp"
                     android:id="@+id/imageView3" />
 
                 <LinearLayout
@@ -61,16 +61,27 @@
                         android:layout_height="wrap_content"
                         android:layout_weight=".28"
                         android:gravity="center"
-                        android:textColor="#000000"
+                        android:textColor="@color/white"
+                        android:id="@+id/hashtag_ok"
                         android:text="#OKPlay" />
                 </LinearLayout>
+                <ImageView
+                    android:id="@+id/imageView6s1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="74dp"
+                    android:layout_marginTop="195dp"
+                    android:src="@mipmap/ok_play_sticker"
+                    android:layout_alignParentTop="true"
+                    android:visibility="gone"
+                    android:layout_alignParentEnd="true" />
             </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_weight=".35"
+            android:layout_weight=".30"
 
             android:gravity="top"
             android:layout_height="0dp">
@@ -111,20 +122,7 @@
                 android:id="@+id/buy_the_game_bod_okplay" />
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_weight=".15"
-            android:id="@+id/relativeLayout_bod_okplay"
-            android:layout_height="0dp">
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/my_recycler_view"
-                android:scrollbars="none"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
 
-        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

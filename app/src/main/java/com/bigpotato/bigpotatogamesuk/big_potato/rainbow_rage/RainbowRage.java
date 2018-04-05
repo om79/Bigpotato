@@ -5,10 +5,14 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bigpotato.bigpotatogamesuk.big_potato.R;
@@ -21,19 +25,18 @@ import com.flurry.android.FlurryAgent;
 
 public class RainbowRage extends Fragment implements View.OnClickListener{
 
-
     UsefullData usefull;
     SaveData save;
     ConnectionDetector cd;
     Boolean isInternetPresent = false;
     Typeface regular,bold;
+    TextView tag;
     public RainbowRage(){}
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.activity_rainbow_rage, container, false);
+        final View rootView = inflater.inflate(R.layout.activity_rainbow_rage, container, false);
         cd = new ConnectionDetector(getActivity());
         isInternetPresent = cd.isConnectingToInternet();
         usefull=new UsefullData(getActivity());
@@ -58,26 +61,35 @@ public class RainbowRage extends Fragment implements View.OnClickListener{
         ImageButton v14=(ImageButton)  rootView.findViewById(R.id.imageView7_back);
         v14.setOnClickListener(this);
 
+        tag=(TextView) rootView.findViewById(R.id.hashtag_r);
+        tag.setTypeface(regular);
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 5s = 5000ms
+                try {
+                    ImageView blink=(ImageView) rootView.findViewById(R.id.imageViewssb9);
+                    blink.setVisibility(View.VISIBLE);
+                    Animation move = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
+                    blink.startAnimation(move);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, 500);
         return rootView;
 
 
     }
-
-
-
     @Override
     public void onClick(View view)
     {
-
-
-
         switch (view.getId())
         {
-
-
             case R.id.how_to_play_rainbow:
                 if(isInternetPresent) {
-
                     FlurryAgent.logEvent("Rainbow Rage");
                 }
                 Intent how=new Intent(getActivity(),Startup_activity.class);
@@ -86,14 +98,12 @@ public class RainbowRage extends Fragment implements View.OnClickListener{
                 break;
             case R.id.textView2:
                 if(isInternetPresent) {
-
                     FlurryAgent.logEvent("Rainbow Rage");
                 }
                usefull.showpopup();
                 break;
             case R.id.textView23:
                 if(isInternetPresent) {
-
                     FlurryAgent.logEvent("Rainbow Rage");
                 }
                 save.save("show_trng_popup",true);
@@ -107,9 +117,6 @@ public class RainbowRage extends Fragment implements View.OnClickListener{
                 break;
         }
     }
-
-
-
     private void managerOfSound() {
 
         MediaPlayer mp= MediaPlayer.create(getActivity(), R.raw.back_button);

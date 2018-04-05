@@ -28,10 +28,10 @@ public class Youtube_activity extends Fragment
 {
 
     TextView main_txt,watch,swipe;
-    ImageView main_pic,back;
+    ImageView main_pic,back,swipe_arrow;
     LinearLayout swipe_layout;
     SaveData save;
-    RelativeLayout main;
+    View line;
     Typeface regular,bold;
     Button you_tube;
     String url;
@@ -50,7 +50,7 @@ public class Youtube_activity extends Fragment
         main_txt=(TextView) rootView.findViewById(R.id.you_raintxt);
         watch=(TextView) rootView.findViewById(R.id.how_to_play_bod_watch);
         swipe=(TextView) rootView.findViewById(R.id.the_game_bod_swipe);
-        main=(RelativeLayout) rootView.findViewById(R.id.main_layout);
+        line=(View) rootView.findViewById(R.id.viewStub3);
         main_pic=(ImageView) rootView.findViewById(R.id.imageView3_main);
         back=(ImageView) rootView.findViewById(R.id.back_youtube);
         you_tube=(Button) rootView.findViewById(R.id.button);
@@ -63,8 +63,9 @@ public class Youtube_activity extends Fragment
         save= new SaveData(getActivity());
         cd = new ConnectionDetector(getActivity());
         isInternetPresent = cd.isConnectingToInternet();
-
-
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+        lp.setMargins(0, 10, 0, 0);
+        swipe_arrow=(ImageView) rootView.findViewById(R.id.imageView11);
         main_txt.setTypeface(regular);
 
 
@@ -77,12 +78,15 @@ public class Youtube_activity extends Fragment
 
                     FlurryAgent.logEvent("Bucket of Doom");
                 }
-                final SpannableStringBuilder str1 = new SpannableStringBuilder("Bucket of Doom is the death-dodging party game where you escape from tons of seriously bad situations with the help of hundreds of useless objects.");
-                str1.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, 14, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                main.setBackgroundResource(R.mipmap.bod_background);
+
+                final SpannableStringBuilder str1 = new SpannableStringBuilder("Bucket of Doom is the death-dodging party game where you escape from tons of seriously bad situations with the help of hundreds of useless objects.");
+                str1.setSpan(new android.text.style.StyleSpan(Typeface.BOLD), 0, 14, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                swipe_layout.setBackgroundResource(R.mipmap.bod_background);
                 main_txt.setText(str1);
                 main_pic.setImageResource(R.mipmap.bod_youtube);
+                main_pic.setLayoutParams(lp);
                 url="http://bit.ly/29Oz1E3";
                 break;
             case "RAINBOW":
@@ -93,9 +97,10 @@ public class Youtube_activity extends Fragment
                 final SpannableStringBuilder str2 = new SpannableStringBuilder("Rainbow Rage is a charmingly infuriating spot-the-difference game. Be the first person to grab the colours that have swapped places and build your own rainbow to victory.");
                 str2.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, 12, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                main.setBackgroundResource(R.mipmap.background);
+                swipe_layout.setBackgroundResource(R.mipmap.background);
                 main_txt.setText(str2);
                 main_pic.setImageResource(R.mipmap.rainbow_youtube);
+                main_pic.setLayoutParams(lp);
                 url="http://bit.ly/29OzKp5";
                 break;
             case "QWORDIE":
@@ -106,9 +111,10 @@ public class Youtube_activity extends Fragment
                 final SpannableStringBuilder str12 = new SpannableStringBuilder("Qwordie is an unlikely mix of a quiz and word game. Build the answers to quiz questions by collecting and stealing tiles. The biggest stack wins.");
                 str12.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, 7, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                main.setBackgroundResource(R.mipmap.blur_back);
+                swipe_layout.setBackgroundResource(R.mipmap.blur_back);
                 main_txt.setText(str12);
                 main_pic.setImageResource(R.mipmap.qwordie_youtube);
+                main_pic.setLayoutParams(lp);
                 url="https://www.youtube.com/watch?v=gwt3vP-kyGo";
                 break;
             case "OKPLAY":
@@ -119,10 +125,11 @@ public class Youtube_activity extends Fragment
                 final SpannableStringBuilder str4 = new SpannableStringBuilder("OK Play is a simple 5-in-a-row tile game. It's so easy to learn you can take it anywhere and play with anyone. Over 7 billion people want a game, so don't leave it behind.");
                 str4.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, 7, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                main.setBackgroundResource(R.mipmap.okplay_back);
+                swipe_layout.setBackgroundResource(R.mipmap.okplay_back);
                 main_txt.setText(str4);
                 main_pic.setImageResource(R.mipmap.okplay_youtube);
-                url="http://bit.ly/29OAmdY";
+                main_pic.setLayoutParams(lp);
+                url="https://www.youtube.com/watch?v=j9fFzBQ2qjQ";
                 break;
             case "MR LISTERS":
                 if(isInternetPresent) {
@@ -132,23 +139,31 @@ public class Youtube_activity extends Fragment
                 final SpannableStringBuilder str5 = new SpannableStringBuilder("Mr Lister is like an old-style Western shootout but with brains for guns. Hit the answers and survive the 'Last Chance Saloon' to win. Yeehaw!");
                 str5.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, 9, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                main.setBackgroundResource(R.mipmap.mr_back);
+                swipe_layout.setBackgroundResource(R.mipmap.mr_back);
                 main_txt.setText(str5);
                 main_pic.setImageResource(R.mipmap.mr_youtube);
+                main_pic.setLayoutParams(lp);
                 url="http://bit.ly/29OyQc9\n";
                 break;
             case "SCRAWL":
                 if(isInternetPresent) {
 
-                    FlurryAgent.logEvent("Scrawl");
+                    FlurryAgent.logEvent("USA -> Scrawl");
                 }
                 final SpannableStringBuilder str5s = new SpannableStringBuilder("Scrawl is a disastrous doodling and guessing game for adults. Sketch a phrase, pass it on and watch how things go horribly wrong. Most grins wins.");
-                str5s.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                str5s.setSpan(new android.text.style.StyleSpan(Typeface.BOLD), 0, 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                main.setBackgroundResource(R.mipmap.scrawl_how_back);
+                swipe_layout.setBackgroundResource(R.mipmap.scrawl_how_back);
                 main_txt.setText(str5s);
+
+                main_txt.setTextColor(getResources().getColor(R.color.black));
+                line.setBackground(getResources().getDrawable(R.mipmap.squirms_line));
+                swipe.setTextColor(getResources().getColor(R.color.black));
+                watch.setTextColor(getResources().getColor(R.color.black));
                 main_pic.setImageResource(R.mipmap.scrawl_youtube);
-                url="http://bit.ly/29OyVfT";
+                swipe_arrow.setImageResource(R.mipmap.forward_black);
+                main_pic.setLayoutParams(lp);
+                url="https://www.youtube.com/watch?v=28a8C14jM9Y&t=7s";
                 break;
             case "OBLA":
                 if(isInternetPresent) {
@@ -158,10 +173,27 @@ public class Youtube_activity extends Fragment
                 final SpannableStringBuilder stor5s = new SpannableStringBuilder("Obama Llama is a very silly rhyming charades game. Yell out weird and wonderful rhymes like, \"Piglet eating a twiglet!\" to win the game");
                 stor5s.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, 11, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                main.setBackgroundResource(R.mipmap.obla_play_back);
+                swipe_layout.setBackgroundResource(R.mipmap.obla_play_back);
                 main_txt.setText(stor5s);
                 main_pic.setImageResource(R.mipmap.obla_youtube);
+                main_pic.setLayoutParams(lp);
                 url="http://bit.ly/29OzYw2";
+
+                break;
+            case "CHAMELEON":
+                if(isInternetPresent) {
+
+                    FlurryAgent.logEvent("USA -> Chameleon");
+                }
+                final SpannableStringBuilder stor5sc = new SpannableStringBuilder("The Chameleon is a social-deduction game where players must join together to track down the elusive Chameleon. Can you catch the mystery player before it\'s too late?");
+                stor5sc.setSpan(new android.text.style.StyleSpan(Typeface.BOLD), 0, 13, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                swipe_layout.setBackgroundResource(R.mipmap.cham_blur_back);
+                main_txt.setText(stor5sc);
+                main_pic.setImageResource(R.mipmap.cham_youtube);
+                main_pic.setLayoutParams(lp);
+                url="https://www.youtube.com/watch?v=3IEEUcG0nSo";
+
 
                 break;
 

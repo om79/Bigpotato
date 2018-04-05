@@ -88,9 +88,8 @@
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:text="@string/buy_msg"
                             android:gravity="left"
-
                             android:textColor="@color/white"
-                            android:id="@+id/textView6"
+                            android:id="@+id/textView6_txt"
                             android:textAlignment="inherit" />
                     </LinearLayout>
 

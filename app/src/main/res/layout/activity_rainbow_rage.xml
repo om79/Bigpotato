@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:weightSum="1"
@@ -53,6 +57,7 @@
                     android:text="  #RainbowRage"
                     android:layout_marginBottom="2dp"
                     android:textColor="#B3B3B3"
+                    android:id="@+id/hashtag_r"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     />
             </LinearLayout>
@@ -71,12 +76,14 @@
                     android:id="@+id/imageView3" />
             </LinearLayout>
 
+
+
         </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_weight=".25"
+        android:layout_weight=".4"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
@@ -150,19 +157,24 @@
     </ScrollView>
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_weight=".15"
-        android:id="@+id/rain_linear"
-        android:layout_height="0dp">
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/my_recycler_view"
-            android:scrollbars="none"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
-    </LinearLayout>
 
 </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginLeft="190dp"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageViewssb9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@mipmap/rainbow_sticker"
+            android:visibility="gone"
+            />
+    </LinearLayout>
+</RelativeLayout>

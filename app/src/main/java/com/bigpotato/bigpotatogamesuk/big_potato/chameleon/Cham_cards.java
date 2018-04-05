@@ -1,0 +1,101 @@
+package com.bigpotato.bigpotatogamesuk.big_potato.chameleon;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Typeface;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+
+import com.bigpotato.bigpotatogamesuk.big_potato.R;
+
+/**
+ * Created by POPLIFY on 6/2/2016.
+ */
+public class Cham_cards extends Activity {
+
+    ImageView cross;
+    Typeface regular,bold;
+    int[] anspic=new int[]{R.mipmap.cham_open_1,R.mipmap.cham_open_2,R.mipmap.cham_open_3,R.mipmap.cham_open_4,R.mipmap.cham_open_5,R.mipmap.cham_open_6,
+    R.mipmap.cham_open_7,R.mipmap.cham_open_8,R.mipmap.cham_open_9,R.mipmap.cham_open_10,R.mipmap.cham_open_11,R.mipmap.cham_open_12};
+    RelativeLayout img;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.cham_card);
+
+        regular= Typeface.createFromAsset(getAssets(), "Interstate-Regular.ttf");
+        bold = Typeface.createFromAsset(getAssets(), "ufonts.com_interstate-bold.ttf");
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        cross=(ImageView) findViewById(R.id.imageVs_bod_new);
+        img=(RelativeLayout) findViewById(R.id.imsg);
+
+        try {
+
+            Intent intent = getIntent();
+            img.setBackground(getResources().getDrawable(anspic[intent.getIntExtra("data",0)]));
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        cross.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                managerOfSound();
+                finish();
+
+            }
+        });
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        // your code.
+            managerOfSound();
+            finish();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            managerOfSound();
+            finish();
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
+
+    private void managerOfSound() {
+
+        MediaPlayer mp= MediaPlayer.create(getApplicationContext(), R.raw.back_button);
+        if (!mp.isPlaying()) {
+            mp.start();
+        } else {
+
+            mp.stop();
+
+
+        }
+        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+
+                mp.reset();
+                mp.release();
+
+
+            }
+        });
+    }
+}
