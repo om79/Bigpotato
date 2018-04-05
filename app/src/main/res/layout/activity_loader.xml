@@ -5,55 +5,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:weightSum="1"
     android:background="@mipmap/loader_background">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_weight=".5"
-        android:gravity="bottom|center"
-        android:layout_height="0dp">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageView4"
-            android:layout_marginTop="0dp"
-            android:background="@mipmap/loading_icon"
-            />
-    </LinearLayout>
+            android:src="@mipmap/loading_icon"
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_weight=".5"
-        android:gravity="top|center"
-        android:weightSum="1"
-        android:layout_height="0dp">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="0dp"
-            android:layout_weight=".27"
-            android:layout_height="match_parent"></LinearLayout>
+             />
 
         <ProgressBar
             android:id="@+id/pb_loading"
-            android:layout_width="0dp"
-            android:layout_weight=".46"
+            android:layout_width="160dp"
+            android:layout_marginTop="10dp"
             android:layout_height="18dp"
-            android:layout_marginTop="20dp"
+            android:visibility="visible"
             android:indeterminate="false"
             android:progress="0"
             android:max="100"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:progressDrawable="@drawable/progress_bar_states"
-            />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="0dp"
-            android:layout_weight=".27"
-            android:layout_height="match_parent"></LinearLayout>
-    </LinearLayout>
+            android:layout_below="@+id/imageView4"
+            android:layout_centerHorizontal="true" />
+
+
 
 </LinearLayout>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/mr_back"
     android:id="@+id/main_layout"
-    tools:context=".qwordie.Qwordie_activity">
+    >
 
 
     <LinearLayout
@@ -29,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@mipmap/mr_main_pic"
-                    android:scaleType="fitXY"
+
                     android:id="@+id/imageView3" />
 
                 <LinearLayout
@@ -40,11 +41,13 @@
                     android:gravity="right|center"
                     android:layout_height="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:src="@mipmap/back"
                         android:layout_weight=".1"
+                        android:background="@null"
+                        android:visibility="visible"
                         android:id="@+id/back_bod_mr" />
 
                     <LinearLayout
@@ -59,10 +62,12 @@
                         android:layout_weight=".3"
                         android:gravity="center"
                         android:text="#MrLister"
-                        android:textColor="#A6ffffff"
+                        android:textColor="#F2EB75"
+                        android:id="@+id/hashtag2"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         />
                 </LinearLayout>
+
             </RelativeLayout>
         </LinearLayout>
 
@@ -123,20 +128,25 @@
                 android:id="@+id/buy_the_game_bod_mr" />
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_weight=".15"
-            android:id="@+id/relativeLayout_bod_mr"
-            android:layout_height="0dp">
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/my_recycler_view"
-                android:scrollbars="none"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
 
-        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginLeft="180dp"
+        android:layout_marginBottom="70dp"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@mipmap/mr_sticker"
+            android:visibility="gone"
+            />
     </LinearLayout>
 
 </RelativeLayout>

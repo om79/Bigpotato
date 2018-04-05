@@ -8,7 +8,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_weight=".1"
+        android:layout_weight=".08"
         android:weightSum="1"
         android:gravity="left|center"
         android:layout_height="0dp">
@@ -36,7 +36,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_weight=".9"
+        android:layout_weight=".92"
         android:gravity="top|center"
         android:weightSum="1"
         android:layout_height="0dp">
@@ -73,13 +73,14 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:gravity="center"
+            android:visibility="gone"
             android:layout_weight=".2"
             android:layout_height="0dp">
 
             <Button
                 android:layout_width="120dp"
                 android:layout_height="100dp"
-                android:background="@drawable/play_btn_selector"
+                android:background="@mipmap/play"
                 android:id="@+id/imageButton3_timer" />
         </LinearLayout>
 

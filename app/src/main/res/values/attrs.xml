@@ -8,13 +8,19 @@
     <declare-styleable name="CustomTheme">
         <attr name="gifViewStyle" format="reference" />
     </declare-styleable>
-    <declare-styleable name="SwipyRefreshLayout">
-        <attr name="srl_direction">
-            <enum name="top" value="0" />
-            <enum name="bottom" value="1" />
-            <enum name="both" value="2" />
-        </attr>
+
+
+    <declare-styleable name="GifTextureView">
+        <attr name="gifSource" format="reference|string"/>
+        <attr name="isOpaque" format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="ExpandableLayout">
+        <attr name="el_duration" format="integer" />
+        <attr name="el_expanded" format="boolean" />
+        <attr name="layout_expandable" format="boolean" />
+    </declare-styleable>
+
+
 
 
 

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/main_layouts"
+    >
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:weightSum="1"
+        android:background="@mipmap/squirms_back"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_weight=".55"
+            android:layout_height="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/squirms_maim_pic"
+                        android:id="@+id/imageView3s" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+
+                    android:weightSum="1"
+                    android:gravity="right|center"
+                    android:layout_height="50dp">
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/back"
+                        android:background="@null"
+                        android:layout_weight=".1"
+                        android:visibility="visible"
+                        android:id="@+id/back_bod_okplays" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_weight=".58"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".32"
+                        android:gravity="center|left"
+                        android:textColor="@color/black"
+                        android:id="@+id/hashtag4s"
+                        android:text="#CanofSquirms" />
+                </LinearLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_weight=".30"
+
+            android:gravity="top"
+            android:layout_height="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/How"
+                android:textStyle="bold"
+                android:layout_marginBottom="18dp"
+                android:onClick="onClick"
+                android:textColor="@color/black"
+                android:id="@+id/exta_cards_bod_okplays" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Extra"
+
+                android:layout_marginBottom="18dp"
+                android:textColor="@color/black"
+                android:id="@+id/how_to_play_bod_okplays" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/Buy"
+
+                android:textColor="@color/black"
+
+                android:id="@+id/buy_the_game_bod_okplays" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginLeft="130dp"
+        android:layout_marginBottom="150dp"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageView6s1s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@mipmap/squirms_sticker"
+            android:visibility="gone"
+            />
+    </LinearLayout>
+</RelativeLayout>

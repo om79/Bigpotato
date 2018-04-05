@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="35dp"
                     android:layout_marginRight="35dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="25dp"
                     android:gravity="top"
                     android:id="@+id/textView5__2_ok4" />
 
@@ -56,14 +56,13 @@
                     android:layout_height="match_parent">
 
                     <Button
-                        android:layout_width="170dp"
+                        android:layout_width="156dp"
                         android:layout_height="60dp"
-                        android:text="Main Menu"
+
                         android:id="@+id/button_menubdd34_okplay"
                         android:textColor="#ffffff"
-                        android:textSize="20sp"
 
-                        android:background="@mipmap/main_menu_button_13"
+                        android:background="@drawable/menu_button"
                         android:textAllCaps="false"
                         />
                 </LinearLayout>

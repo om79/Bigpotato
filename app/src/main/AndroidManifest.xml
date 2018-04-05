@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.poplify.big_potato"
+    package="com.bigpotato.bigpotatogamesus.big_potato"
     android:installLocation="auto">
-
-
     <uses-feature android:glEsVersion="0x00020000" />
     <supports-screens
-        android:smallScreens="true"
+        android:largeScreens="false"
+        android:largestWidthLimitDp="600"
         android:normalScreens="true"
-        android:largeScreens="true"
-        android:resizeable="true"
-        android:anyDensity="true">
-    </supports-screens>
+        android:smallScreens="true"
+        android:xlargeScreens="false" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -23,10 +20,12 @@
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme"
         android:allowBackup="true"
-        android:hardwareAccelerated="false"
+        android:hardwareAccelerated="true"
         android:largeHeap="true"
-        android:supportsRtl="true">
-        <activity android:name=".main_menu.Loader"
+        android:supportsRtl="true"
+        android:name="com.bigpotato.bigpotatogamesus.big_potato.main_menu.App">
+        <activity android:name="com.bigpotato.bigpotatogamesus.big_potato.main_menu.Loader"
+            android:theme="@style/SplashTheme"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,141 +33,146 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".qwordie.Extra_cards"
-            android:screenOrientation="portrait"
-            android:noHistory="true"
+
+        <activity android:name="com.bigpotato.bigpotatogamesus.big_potato.view_pager.Startup_activity"
             android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"
             >
         </activity>
-        <activity android:name=".view_pager.Startup_activity"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:noHistory="true">
-        </activity>
-        <activity android:name=".viewpager_training.Startup_training_activity"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="landscape"
-            android:noHistory="true">
-        </activity>
+
         <activity
-            android:name=".bucket_of_doom.Bod_homepage"
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.hompage.Home_page"
             android:label="@string/title_activity_games__list"
-            android:noHistory="true"
+
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+        </activity>
+
+
+        <activity
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.bucket_of_doom.Bod_extra_cards"
+            android:label="@string/title_activity_games__list"
+
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
         </activity>
         <activity
-            android:name=".ok_play.Ok_play_homescreen"
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.bucket_of_doom.Bod_cards"
             android:label="@string/title_activity_games__list"
-            android:noHistory="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
-        </activity>
-        <activity
-            android:name=".mr_lister.Mr_homepage"
-            android:label="@string/title_activity_games__list"
-            android:noHistory="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
-        </activity>
-        <activity
-            android:name=".bucket_of_doom.Bod_extra_cards"
-            android:label="@string/title_activity_games__list"
-            android:noHistory="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
-        </activity>
-        <activity
-            android:name=".bucket_of_doom.Bod_cards"
-            android:label="@string/title_activity_games__list"
-            android:noHistory="true"
+
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
+
+
         <activity
-            android:name=".rainbow_rage.RainbowRage"
-            android:label="@string/app_name"
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.main_menu.Game_menu"
             android:screenOrientation="portrait"
-            android:noHistory="true"
             android:theme="@style/AppTheme">
         </activity>
         <activity
-            android:name=".qwordie.Qwordie_activity"
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.bucket_of_doom.Bod_scenario"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.mr_lister.Mr_sound_effect"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.mr_lister.Mr_extra_cards"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.webview.WebView_link"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.scrawl.Raindoimzar"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.obla.Obla_extra_cards"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.obla.Extra_card_pager"
+            android:screenOrientation="landscape"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.obla.Obla_timer"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.scrawl.Scrawl_stopwatch"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.ok_play.Okplay_timer"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.chameleon.Cham_extra_cards"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.chameleon.Cham_cards"
             android:label="@string/title_activity_games__list"
-            android:noHistory="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
-        </activity>
-        <activity
-            android:name=".main_menu.Game_menu"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
-        </activity>
-        <activity
-            android:name=".bucket_of_doom.Bod_scenario"
-            android:screenOrientation="portrait"
 
-            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
         </activity>
         <activity
-            android:name=".ok_play.Okplay_timer"
-            android:screenOrientation="portrait"
-            android:noHistory="true"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:theme="@style/AppTheme">
-        </activity>
-        <activity
-            android:name=".mr_lister.Mr_sound_effect"
-            android:screenOrientation="portrait"
-            android:noHistory="true"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:theme="@style/AppTheme">
-        </activity>
-        <activity
-            android:name=".mr_lister.Mr_extra_cards"
-            android:screenOrientation="portrait"
-            android:noHistory="true"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.squirms.Squirms_extra_cards"
+            android:label="@string/title_activity_games__list"
 
-        <activity
-            android:name=".webview.WebView_link"
             android:screenOrientation="portrait"
-            android:noHistory="true"
-            android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/AppTheme">
         </activity>
         <activity
-            android:name=".scrawl.Scraml_homepage"
-            android:screenOrientation="portrait"
-            android:noHistory="true"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:theme="@style/AppTheme">
-        </activity>
-        <activity
-            android:name=".scrawl.Raindoimzar"
-            android:screenOrientation="portrait"
-            android:noHistory="true"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:theme="@style/AppTheme">
-        </activity>
-        <activity
-            android:name=".obla.Obla_homapage"
-            android:screenOrientation="portrait"
-            android:noHistory="true"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:theme="@style/AppTheme">
-        </activity>
-        <activity
-            android:name=".obla.Obla_extra_cards"
-            android:screenOrientation="portrait"
-            android:noHistory="true"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:name="com.bigpotato.bigpotatogamesus.big_potato.squirms.Squirms_cards"
+            android:label="@string/title_activity_games__list"
 
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme">
+        </activity>
 
 
 

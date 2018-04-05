@@ -24,6 +24,8 @@
            android:textSize="10dp"
             android:gravity="center"
             android:padding="30dp"
+            android:maxLines="6"
+            android:ellipsize="end"
             android:textColor="@color/black"
             android:id="@+id/textView_question"
              />

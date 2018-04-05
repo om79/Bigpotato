@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/popup_element_pass"
+    android:background="#CC444444"
+    android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="match_parent"
+
+        >
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:id="@+id/thnx_layout_popup"
+            android:layout_marginLeft="20dp"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:gravity="center|top"
+
+                android:background="@mipmap/scrawl_pass_back"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView25"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/scrawl_pass_pic"
+                   android:layout_marginTop="38dp"
+                     />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView24"
+                        android:layout_marginRight="10dp"
+                        android:src="@mipmap/scrawl_counter_back"
+                        android:layout_gravity="center_horizontal"
+                        />
+
+                    <ImageView
+                        android:layout_width="160dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/imageView26"
+                        android:layout_marginRight="10dp"
+                        android:src="@mipmap/scrawl_pass_number_10"
+                        android:layout_centerVertical="true"
+                        android:layout_alignEnd="@+id/imageView24" />
+                </RelativeLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Skip"
+                    android:textAllCaps="false"
+                    android:textSize="20dp"
+                    android:layout_marginRight="10dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:background="@mipmap/main_menu_back"
+                    android:id="@+id/button4" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

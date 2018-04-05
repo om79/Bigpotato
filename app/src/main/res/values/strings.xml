@@ -4,11 +4,11 @@
     <string name="Scenario">Submit a scenario</string>
     <string name="mr_sound">Mr Lister\'s sound effects</string>
     <string name="How">How to play</string>
-    <string name="condition">I agree to all <u>terms and conditions</u></string>
+    <string name="condition">By submitting a card, I agree to these <u>terms and conditions</u></string>
     <string name="turn">Turn timer</string>
     <string name="Buy">Buy the game</string>
     <string name="more">More Qwordie action incoming!</string>
-    <string name="app_name">Big Potato</string>
+    <string name="app_name">Big Potato Games</string>
     <string name="how_to_play_1">To begin, give each player five letter tiles from the
     tin. Next, place 15 tiles face up on the table. This is
     the letter pool.</string>
@@ -16,15 +16,12 @@
     </string>
      <string name="how_to_play_2_half_2">Read a card, which every-one plays. Each player
     must now take turns to try and spell one of the answers to the question.</string>
-     <string name="how_to_play_3_half">Need more letters? Take a letter directly from the letter pool...</string>
-     <string name="how_to_play_3_half_2">or grab two tiles from the tin. The first goes into the
-    pool, the second into your pile. The first player to
-    spell an answer correctly wins those letters and
-    adds them their stack of tiles.
+     <string name="how_to_play_3_half">Need more letters? Take one tile from the pool...</string>
+     <string name="how_to_play_3_half_2">Or you can take two tiles from the tin. The first joins the pool on the table, the second goes to you. The first player to spell an answer wins those tiles and adds them to the winning stack.
     </string>
     <string name="how_to_play_4">The first player whose stack passes the winning
     line on the tin is the champ.</string>
-    <string name="buy_msg">This will now take you\n outside the app.Do\nyou want continue ?</string>
+    <string name="buy_msg">Our shop is outside this app so grab your virtual coat and let’s go!</string>
     <string name="trng_msg">Time to sharpen your rainbow spotting skills.The aim is to find the two colours that have changed places on every rainbow.</string>
     <string name="thnx_msg">Good luck with your submission. If it\'s bad enough, we\'ll put it
     in the next bucket with your name on and send you the game free!</string>
@@ -36,12 +33,12 @@
     <string name="title_activity_games__list">Games_List</string>
     <string name="bod_play_1_half">Begin with a terrifying Doom Card.</string>
     <string name="bod_play_1_nxthalf">You and your friends are now (unfortunately) in this situation.</string>
-    <string name="bod_play_2_half">Fear not. Each player is given some Object Cards.</string>
-    <string name="bod_play_2_nxthalf">Use one of your Object Cards to engineer the best escape imaginable</string>
+    <string name="bod_play_2_half">Fear not. Each player is given eight Object Cards.</string>
+    <string name="bod_play_2_nxthalf">Use one of your Object Cards to engineer the best escape imaginable.</string>
     <string name="bod_play_3_half">Example:</string>
-    <string name="bod_play_3_nxthalf">Player 1 decides to use their "Duck Whistle", summoning a flock of space geese to wreak havoc on the UFO, allowing for a speedy getaway.</string>
-    <string name="bod_play_4">After everyone\'s told their escape plan you vote for the funniest. Most votes wins the Doom Card.\n\nRestock your Object Cards and escape a new scenario.\n\nFirst to three Doom Cards wins.</string>
-    <string name="okplay_1">This is a seriously simple but madly addictive travel tile game. You can teach anyone from around the world to play it in 20 seconds even if you can\'t speak a word of their language.</string>
+    <string name="bod_play_3_nxthalf">Player 1 decides to use their \"Duck Whistle\", summoning a flock of space geese to wreak havoc on the UFO, allowing for a speedy getaway.</string>
+    <string name="bod_play_4">After everyone\'s told their escape plan you vote for the best. Most votes wins the Doom Card.\n\nRestock your Object Cards and escape a new scenario.\n\nFirst to three Doom Cards wins.</string>
+    <string name="okplay_1">This is a seriously simple but madly addictive travel tile game. You can teach anyone from around the world to play it in 20 seconds, even if you can\'t speak a word of their language.</string>
     <string name="okplay_2">First, grab a stack of tiles. Now place a tile on the table. The next player can put their tile next to any flat side of your tile, but not at the corner.</string>
     <string name="okplay_3">The first player to make a horizontal, vertical or diagonal line of 5 wins.</string>
     <string name="okplay_4">If you run out of tiles, you can reposition one of your tiles until you get a winner.</string>
@@ -116,4 +113,24 @@ keep them and turn over two more. Once they\'re all
 gone, the team with the most pairs wins.</string>
 
 
+    <string name="Cham_how_1">Shuffle the Code Cards and one Chameleon Card together. Deal one out to each player.</string>
+    <string name="cham_how_12"><b>Important:</b> make sure no one sees what card you have!</string>
+    <string name="cham_how_2">Next, turn over a Topic Card for all to see. Each Topic Card contains 16 different words.</string>
+    <string name="cham_how_22">Now, the dealer rolls the yellow and blue dice.</string>
+    <string name="cham_how_3">The numbers will lead everyone (except the Chameleon) to a coordinate on their Code Card. This can be used to locate the secret word for the round.</string>
+    <string name="cham_how_32">The secret word for this round is: <b>Chicken</b>.</string>
+    <string name="cham_how_4">All players (including the Chameleon) take it in turns to say one word related to Chicken to prove their innocence.</string>
+    <string name="cham_how_5"><b>Be careful!</b> If your word is too obvious, the Chameleon might figure out the secret word. If it\'s too cryptic, people might think you\'re the Chameleon!\n\nWhen ready, everyone votes for who they think is the Chameleon. Pick the wrong player and the Chameleon wins.</string>
+    <string name="cham_how_6">If you catch the Chameleon, they get one chance to guess the secret word. If they get it right, they escape. If they get it wrong -they\'ve been caught!</string>
+
+    <string name="squirms_how_1">Split everyone into teams of two. Choose a team to start and hand them the two verdict Board and pens</string>
+    <string name="squirms_how_12">Each of the other teams are given a set of Agree and Disagree cards.</string>
+    <string name="squirms_how_2">Next, read out a Question Card to the team with the Verdict Boards.\nFor Example:</string>
+    <string name="squirms_how_22">Both players in the team must now decide which of them is better in bed...\nwithout conferring.</string>
+    <string name="squirms_how_3">Both teammates have to write down a name on their Verdict Boards - either their own of their teammates.\nMeanwhile, the other teams must each try and predict what the other two players will do: will they agree with each other or disagree?</string>
+    <string name="squirms_how_4">Time for the big reveal! The other teams start by revealing wheather they put down an Agree or Disagree card. Next, the remaining team reveal their decisions by flipping their verdict boards.</string>
+    <string name="squirms_how_42">Both players agreeed that \'Dave\' was best in bed. Well done Dave.</string>
+    <string name="squirms_how_5">Since the playing team wrote down the same name, they score two points. If they disagreed, they would have scored zero. \n If the other teams correctly predicted this with an Agree Card, they win one point. If they were incorrect, it would\'ve been 0 points.</string>
+    <string name="squirms_how_52">First team to reach 10 points are the winners!</string>
+    <string name="socail_txt">Keep up to date with all our new games, stories and giveaways</string>
 </resources>

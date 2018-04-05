@@ -26,7 +26,8 @@
             android:orientation="horizontal"
             android:layout_width="0dp"
             android:layout_weight=".8"
-            android:layout_height="match_parent"></LinearLayout>
+            android:layout_height="match_parent">
+        </LinearLayout>
 
         <ImageView
             android:layout_width="0dp"
@@ -59,7 +60,8 @@
                     android:layout_height="match_parent"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/scrawl_play_3"
-                    android:id="@+id/textVfgdfgszziew3__2" />
+                    android:id="@+id/textVfgdfgszziew3__2"
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="match_parent"

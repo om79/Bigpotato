@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@mipmap/obla_green"
+    android:weightSum="1"
+    android:id="@+id/main_timer_back"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_weight=".5"
+        android:layout_height="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="190dp"
+                android:src="@mipmap/obla90"
+                android:id="@+id/imagegghfhgView16"
+                android:padding="20dp"
+                android:layout_below="@+id/back_layout"
+                android:layout_centerHorizontal="true" />
+
+            <RelativeLayout
+                android:layout_width="50dp"
+                android:id="@+id/back_layout"
+                android:layout_height="60dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView16"
+                    android:src="@mipmap/back_arrow"
+
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView29"
+                android:visibility="visible"
+                android:src="@mipmap/obla_timer_back30"
+                android:layout_alignBottom="@+id/imagegghfhgView16"
+                android:layout_alignParentStart="true" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_weight=".5"
+        android:layout_height="0dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView15"
+                android:src="@mipmap/obla_timer_pic"
+
+                android:layout_gravity="center_horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="25dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resume"
+                    android:textSize="18dp"
+                    android:visibility="gone"
+                    android:textStyle="bold"
+                    android:onClick="Resume"
+                    android:textAllCaps="false"
+                    android:background="@mipmap/main_menu_back"
+                    android:id="@+id/budfgfdtton3" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reset"
+                    android:textSize="18dp"
+                    android:visibility="gone"
+                    android:textStyle="bold"
+                    android:onClick="Stop"
+                    android:textAllCaps="false"
+                    android:background="@mipmap/main_menu_back"
+                    android:id="@+id/buttdfgdon4" />
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Start"
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    android:textStyle="bold"
+
+                    android:textAllCaps="false"
+                    android:background="@mipmap/main_menu_back"
+                    android:id="@+id/bufgdftton4sfsd" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageVigfdgew16"
+                android:src="@mipmap/obla_setting"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="16dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:id="@+id/setting"
+                android:visibility="gone"
+                android:background="@mipmap/obla_setting_back"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="How many seconds?"
+                    android:textSize="25dp"
+                    android:layout_margin="10dp"
+                    android:textStyle="bold"
+                    android:id="@+id/textView4" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:textStyle="bold"
+                    android:id="@+id/radioButton"
+                    android:button="@drawable/checkbox"
+                    android:layout_gravity="center"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="60"
+                    android:paddingBottom="5dp"
+                    android:button="@drawable/checkbox"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:id="@+id/radioButton2"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="90"
+                    android:button="@drawable/checkbox"
+                    android:id="@+id/radioButton3"
+                    android:textSize="20dp"
+                    android:paddingBottom="5dp"
+                    android:textStyle="bold"
+                    android:checked="false" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Done"
+                    android:textSize="20dp"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:layout_margin="10dp"
+
+                    android:background="@mipmap/main_menu_back"
+                    android:id="@+id/bufdgfsdgtton3" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

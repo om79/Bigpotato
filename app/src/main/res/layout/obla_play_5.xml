@@ -73,7 +73,7 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
+                        android:layout_height="195dp"
                         android:src="@mipmap/obla_play_5"
                         android:layout_marginTop="10dp"
                         android:id="@+id/imageView4" />
@@ -88,14 +88,14 @@
                     android:layout_height="match_parent">
 
                     <Button
-                        android:layout_width="160dp"
-                        android:layout_height="65dp"
-                        android:text="Main Menu"
+                        android:layout_width="156dp"
+                        android:layout_height="60dp"
+
                         android:id="@+id/button_menubdd3oka4"
                         android:textColor="#ffffff"
-                        android:textSize="20sp"
 
-                        android:background="@mipmap/main_menu_button_13"
+
+                        android:background="@drawable/menu_button"
                         android:textAllCaps="false"
                         />
                 </LinearLayout>

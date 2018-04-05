@@ -59,6 +59,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="35dp"
                     android:layout_marginRight="35dp"
+                    android:textColor="@color/black"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/scrawl_play_4"
                     android:id="@+id/textVidfsdfew3__2mm34" />
@@ -85,7 +86,7 @@
                     android:layout_marginLeft="35dp"
                     android:layout_marginRight="35dp"
                     android:layout_height="wrap_content"
-
+                    android:textColor="@color/black"
                     android:gravity="top"
                     android:id="@+id/textView5__2_mr34dfdfs" />
 
@@ -96,14 +97,13 @@
                     android:layout_height="match_parent">
 
                     <Button
-                        android:layout_width="160dp"
+                        android:layout_width="156dp"
                         android:layout_height="65dp"
-                        android:text="Main Menu"
+
                         android:id="@+id/button_menubdd34"
-                        android:textColor="#ffffff"
-                        android:textSize="20sp"
+
                         android:layout_marginTop="10dp"
-                        android:background="@mipmap/main_menu_button_13"
+                        android:background="@drawable/menu_button_grey"
                         android:textAllCaps="false"
                         />
                 </LinearLayout>
