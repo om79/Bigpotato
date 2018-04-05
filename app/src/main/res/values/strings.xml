@@ -121,7 +121,6 @@ gone, the team with the most pairs wins.</string>
     <string name="cham_how_4">All players (including the Chameleon) take it in turns to say one word related to Chicken to prove their innocence.</string>
     <string name="cham_how_5"><b>Be careful!</b> If your word is too obvious, the Chameleon might figure out the secret word. If it\'s too cryptic, people might think you\'re the Chameleon!\n\nWhen ready, everyone votes for who they think is the Chameleon. Pick the wrong player and the Chameleon wins.</string>
     <string name="cham_how_6">If you catch the Chameleon, they get one chance to guess the secret word. If they get it right, they escape. If they get it wrong -they\'ve been caught!</string>
-
     <string name="socail_txt">Keep up to date with all our new games, stories and giveaways</string>
 
 </resources>
